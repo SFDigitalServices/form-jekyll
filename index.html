@@ -2,49 +2,6 @@
 layout: base
 ---
 
-{% for field in site.data.fields %}
-  {% comment %}
-    Assign variables
-  {% endcomment %}
-  {% assign label = field.label %}
-  {% assign helptext = field.helptext %}
-  {% capture name %}field-{{ forloop.index }}{% endcapture %}
-  {% assign options  = field.options %}
-
-  {% comment %}
-    Static text content
-  {% endcomment %}
-  {% assign content = field.content %}
-
-  {% comment %}
-    Heading level ("1" for H1s, "2" for H2s, etc.)
-  {% endcomment %}
-  {% assign level = field.level %}
-
-  {% comment %}
-    Include the appropriate markup for each field type
-  {% endcomment %}
-  {% if field.type == 'radio' %}
-    {% include radio.html label=label helptext=helptext option=options name=name %}
-  {% elsif field.type == 'heading' %}
-    {% include heading.html level=level content=content %}
-  {% elsif field.type == 'paragraph' %}
-    {% include paragraph.html level=level content=content %}
-  {% elsif field.type == 'checkbox' %}
-    {% include checkbox.html label=label helptext=helptext option=options name=name %}
-  {% elsif field.type == 'select' %}
-    {% include select.html label=label helptext=helptext option=options name=name %}
-  {% elsif field.type == 'address' %}
-    {% include address.html label=label helptext=helptext name=name %}
-  {% elsif field.type == 'price' %}
-    {% include price.html label=label helptext=helptext name=name %}
-  {% elsif field.type == 'email' %}
-    {% include email.html label=label helptext=helptext name=name %}
-  {% elsif field.type == 'phone' %}
-    {% include phone.html label=label helptext=helptext name=name %}
-  {% elsif field.type == 'textarea' %}
-    {% include textarea.html label=label helptext=helptext name=name %}
-  {% else %}
-    {% include text.html label=label helptext=helptext name=name %}
-  {% endif %}
-{% endfor %}
+<form class="form">
+  {% include fields.html fields=site.data.fields %}
+</form>

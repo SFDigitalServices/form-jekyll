@@ -1,9 +1,11 @@
 <label class=" control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label }}</label>
 <div class=" valtype" data-valtype="radios">
   {% for option in options %}
-    <label class="radio">
-      <input type="radio" value="{{ option.label }}" name="{{ include.name }}" {% if option.checked %}checked="checked"{% endif %}>{{ option.label }}
-    </label>
+    <input type="radio" value="{{ option.label }}" name="{{ include.name }}"
+    {% if option.checked %} checked="checked"{% endif %}
+    {% if option.shows %} data-shows="{{ option.shows }}"{% endif %}
+    {% if option.hides %} data-hides="{{ option.hides }}"{% endif %}>
+    <label class="radio">{{ option.label }}</label>
   {% endfor %}
   {% if include.helptext %}
    <p class="help-block valtype" data-valtype='help'>{{ include.helptext }}</p>

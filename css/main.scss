@@ -18,6 +18,10 @@ legend {
   padding: 0;
 }
 
+div[data-condition] {
+  display: none;
+}
+
 label:empty,
 legend:empty,
 p:empty {
