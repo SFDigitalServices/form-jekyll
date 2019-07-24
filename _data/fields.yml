@@ -1,11 +1,34 @@
-- type: address
-  label: Address
-- type: text
-  label: Text
-  helptext: Here's some help text
-- type: select
-  label: Dropdown
+- label: About the Owner
+  level: 2
+  type: heading
+
+- label: Name / DBA
+
+- label: Address
+  type: address
+
+- label: Email Address
+  type: email
+
+- label: Phone Number
+  type: phone
+
+- label: Is the owner also building this ADU?
+  type: radio
   options:
-  - label: One
-  - label: Two
-  - label: Three
+  - label: "Yes"
+    shows: test
+  - label: "No"
+    hides: test
+
+- type: group
+  condition: test
+  fields:
+  - label: Now who's the owner?
+    type: radio
+    options:
+    - label: "Me"
+    - label: "You"
+
+  - label: How about now?
+    type: text
