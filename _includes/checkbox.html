@@ -1,0 +1,11 @@
+<label class=" control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label }}</label>
+<div class=" valtype" data-valtype="checkboxes">
+  {% for option in options %}
+    <label class="checkbox">
+      <input type="checkbox" value="{{ option.label }}" name="{{ include.name }}" {% if option.checked %}checked="checked"{% endif %}>{{ option.label }}
+    </label>
+  {% endfor %}
+  {% if include.helptext %}
+   <p class="help-block valtype" data-valtype='help'>{{ include.helptext }}</p>
+  {% endif %}
+</div>

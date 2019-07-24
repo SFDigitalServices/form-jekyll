@@ -1,0 +1,11 @@
+- type: address
+  label: Address
+- type: text
+  label: Text
+  helptext: Here's some help text
+- type: select
+  label: Dropdown
+  options:
+  - label: One
+  - label: Two
+  - label: Three

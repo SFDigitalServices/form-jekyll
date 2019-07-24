@@ -1,0 +1,8 @@
+<label class="control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label }}</label>
+<div class="">
+  <div class="prepended dollar">$</div>
+  <input type="text" name="{{ include.name }}" placeholder="" class="form-control input-md valtype" data-valtype="placeholder">
+  {% if include.helptext %}
+   <p class="help-block valtype" data-valtype='help'>{{ include.helptext }}</p>
+  {% endif %}
+</div>
