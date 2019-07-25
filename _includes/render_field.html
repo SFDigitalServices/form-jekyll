@@ -23,8 +23,8 @@
 
     {% if field.type == 'group' %}
       {% include group.html condition=condition field=fields %}
-    {% elsif field.type == 'heading' %}
-      {% include heading.html level=level label=label %}
+    {% elsif field.type == 'header' %}
+      {% include header.html level=level label=label %}
     {% elsif field.type == 'paragraph' %}
       {% include paragraph.html level=level label=label %}
     {% else %}
