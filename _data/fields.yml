@@ -1,6 +1,10 @@
+# About The Owner
+
 - label: About the Owner
-  level: 2
-  type: heading
+  type: header
+
+- label: Let's get started by learning a little more about you.
+  type: paragraph
 
 - label: Name / DBA
 
@@ -17,18 +21,91 @@
   type: radio
   options:
   - label: "Yes"
-    shows: test
+    shows: owner-builder
+    hides: app-contact
   - label: "No"
-    hides: test
+    hides: owner-builder
+    shows: app-contact
 
 - type: group
-  condition: test
+  condition: owner-builder
   fields:
-  - label: Now who's the owner?
-    type: radio
-    options:
-    - label: "Me"
-    - label: "You"
 
-  - label: How about now?
-    type: text
+  - type: paragraph
+    label: >
+      Legal disclosures go here
+
+# Worker's Comp
+
+- label: Worker's Compensation
+  type: header
+
+- label: What best describes your worker's compensation coverage?
+  type: radio
+  options:
+  - label: "I'm self-insured"
+    hides: carrier
+  - label: "I'm not employing anyone for this project"
+    hides: carrier
+  - label: "I am employing a compliant contractor, which will have worker's compensation"
+    hides: carrier
+  - label: "I have third-party insurance"
+
+    shows: carrier
+
+- type: group
+  condition: carrier
+  fields:
+  - label: Name of insurance carrier
+  - label: Policy number
+
+# Application Contact Info
+
+- type: group
+  condition: app-contact
+  fields:
+
+  - label: Point of contact
+    type: header
+
+  - label: Who should we contact while processing this application?
+    type: paragraph
+
+  - label: Name
+
+  - label: Title
+
+  - label: What is this person's relationship to the owner?
+    type: radio
+    other: true
+    options:
+    - label: Lessee
+      hides: contact-org
+
+    - label: Architect
+      shows: contact-org
+
+    - label: Contractor
+      shows: contact-org
+
+    - label: Engineer
+      hides: contact-org
+
+  - type: group
+    condition: contact-org
+    fields:
+      - label: Name of firm / organization
+
+  - label: Mailing address
+    type: address
+
+  - label: Phone number
+    type: phone
+
+  - label: Email
+    type: email
+
+# Property Info
+
+- label: About your Property
+  type: header
