@@ -27,8 +27,7 @@
     hides: owner-builder
     shows: app-contact
 
-- type: group
-  condition: owner-builder
+- group: owner-builder
   fields:
 
   - type: paragraph
@@ -53,16 +52,14 @@
 
     shows: carrier
 
-- type: group
-  condition: carrier
+- group: carrier
   fields:
   - label: Name of insurance carrier
   - label: Policy number
 
 # Application Contact Info
 
-- type: group
-  condition: app-contact
+- group: app-contact
   fields:
 
   - label: Point of contact
@@ -91,8 +88,7 @@
     - label: Engineer
       hides: contact-org
 
-  - type: group
-    condition: contact-org
+  - group: contact-org
     fields:
       - label: Name of firm / organization
 

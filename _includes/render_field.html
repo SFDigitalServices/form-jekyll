@@ -8,7 +8,7 @@
   {% assign options  = field.options %}
   {% assign error  = field.error %}
   {% assign optional = field.optional %}
-  {% assign condition  = field.condition %}
+  {% assign group  = field.group %}
   {% assign fields  = field.fields %}
 
 
@@ -21,8 +21,8 @@
     Include the appropriate markup for each field type
   {% endcomment %}
 
-    {% if field.type == 'group' %}
-      {% include group.html condition=condition field=fields %}
+    {% if field.group %}
+      {% include group.html group=group field=fields %}
     {% elsif field.type == 'header' %}
       {% include header.html level=level label=label %}
     {% elsif field.type == 'paragraph' %}

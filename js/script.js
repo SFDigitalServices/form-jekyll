@@ -2,13 +2,12 @@ $(document).ready(function(){
   $(".form").validator();
 
   $("input[data-shows]").change(function () {
-    console.log("shit happened");
-    var condition = $(this).attr('data-shows');
-    $("div").find("[data-condition='" + condition + "']").show();
+    var group = $(this).attr('data-shows');
+    $("div").find("[data-group='" + group + "']").show();
   });
 
   $("input[data-hides]").change(function () {
-    var condition = $(this).attr('data-hides');
-    $("div").find("[data-condition='" + condition + "']").hide();
+    var group = $(this).attr('data-hides');
+    $("div").find("[data-group='" + group + "']").hide();
   });
 });
