@@ -1,1 +1,1 @@
-<h{{include.level}}>{{ include.label }}</h{{include.level}}>
+<h{{include.level | default: "2"}}>{{ include.label | markdownify }}</h{{include.level | default: "2"}}>

@@ -6,7 +6,8 @@
   {% assign helptext = field.helptext %}
   {% capture name %}field-{{ forloop.index }}{% endcapture %}
   {% assign options  = field.options %}
-
+  {% assign error  = field.error %}
+  {% assign optional = field.optional %}
   {% assign condition  = field.condition %}
   {% assign fields  = field.fields %}
 
@@ -19,32 +20,35 @@
   {% comment %}
     Include the appropriate markup for each field type
   {% endcomment %}
-    <div class="form-group">
+
     {% if field.type == 'group' %}
       {% include group.html condition=condition field=fields %}
-    {% elsif field.type == 'radio' %}
-      {% include radio.html label=label helptext=helptext option=options name=name %}
     {% elsif field.type == 'heading' %}
       {% include heading.html level=level label=label %}
     {% elsif field.type == 'paragraph' %}
       {% include paragraph.html level=level label=label %}
-    {% elsif field.type == 'checkbox' %}
-      {% include checkbox.html label=label helptext=helptext option=options name=name %}
-    {% elsif field.type == 'select' %}
-      {% include select.html label=label helptext=helptext option=options name=name %}
-    {% elsif field.type == 'address' %}
-      {% include address.html label=label helptext=helptext name=name %}
-    {% elsif field.type == 'price' %}
-      {% include price.html label=label helptext=helptext name=name %}
-    {% elsif field.type == 'email' %}
-      {% include email.html label=label helptext=helptext name=name %}
-    {% elsif field.type == 'phone' %}
-      {% include phone.html label=label helptext=helptext name=name %}
-    {% elsif field.type == 'textarea' %}
-      {% include textarea.html label=label helptext=helptext name=name %}
     {% else %}
-      {% include text.html label=label helptext=helptext name=name %}
+      <div class="form-group">
+        {% if field.type == 'radio' %}
+          {% include radio.html label=label helptext=helptext option=options name=name error=error %}
+        {% elsif field.type == 'checkbox' %}
+          {% include checkbox.html label=label helptext=helptext option=options name=name error=error %}
+        {% elsif field.type == 'select' %}
+          {% include select.html label=label helptext=helptext option=options name=name error=error %}
+        {% elsif field.type == 'address' %}
+          {% include address.html label=label helptext=helptext name=name error=error %}
+        {% elsif field.type == 'price' %}
+          {% include price.html label=label helptext=helptext name=name error=error %}
+        {% elsif field.type == 'email' %}
+          {% include email.html label=label helptext=helptext name=name error=error %}
+        {% elsif field.type == 'phone' %}
+          {% include phone.html label=label helptext=helptext name=name error=error %}
+        {% elsif field.type == 'textarea' %}
+          {% include textarea.html label=label helptext=helptext name=name  error=error%}
+        {% else %}
+          {% include text.html label=label helptext=helptext name=name error=error %}
+        {% endif %}
+        <div class="help-block with-errors"></div>
+      </div>
     {% endif %}
-    <div class="help-block with-errors"></div>
-  </div>
 {% endfor %}

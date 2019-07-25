@@ -4,7 +4,11 @@
     <input type="radio" value="{{ option.label }}" name="{{ include.name }}"
     {% if option.checked %} checked="checked"{% endif %}
     {% if option.shows %} data-shows="{{ option.shows }}"{% endif %}
-    {% if option.hides %} data-hides="{{ option.hides }}"{% endif %}>
+    {% if option.hides %} data-hides="{{ option.hides }}"{% endif %}
+    {% unless optional %} required="required"{% endunless %}
+    {% if error %}
+      data-error="{{ include.error }}"
+    {% endif %}>
     <label class="radio">{{ option.label }}</label>
   {% endfor %}
   {% if include.helptext %}
