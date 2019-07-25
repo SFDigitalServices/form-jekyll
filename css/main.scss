@@ -36,6 +36,15 @@ p:empty {
   clear: both;
 }
 
+.valtype {
+  input,
+  label {
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
 input[type="checkbox"],
 input[type="radio"],
 input[type="checkbox"] + label,
@@ -68,6 +77,10 @@ textarea {
 
 .help-block ul {
   margin: 0;
+}
+
+.help-block.with-errors:empty {
+  height: 0;
 }
 
 .help-block .list-unstyled {
