@@ -1,8 +1,50 @@
-# Form Prototype - ADU
+# form-jekyll
 
-This tool is intended
+### Goals of this tool
 
-### Properties
+- Designers can prototype, comment, and iterate on forms as easily as they might a Google Doc.
+
+- Designers can easily give external stakeholders a realistic preview of how a form will work.
+
+### What is it?
+
+`form-jekyll` is a Jekyll template that lets you easily build a prototype of an SF.GOV form in a YAML file. Right now, it lets you add:
+
+- Multiple field types
+- Custom error messages
+- Conditionals
+- Markdown-formatted text
+
+Since YAML is easy to read, non-technical colleagues can easily give feedback on form design and content inside a GitHub pull request. And because GitHub Pages uses Jekyll, you can easily deploy a form to a webpage and send the link to external stakeholders.
+
+### Example
+
+```
+- label: Name
+
+- label: Phone number
+  type: phone
+  error: Please enter a valid phone number.
+
+- label: Do you have an email address?
+  type: radio
+  options:
+  - label: Yes
+    shows: email-field
+
+  - label: No
+    hides: email-field
+
+- group: email-field
+  fields:
+  - label: Enter your email address here
+    type: email
+
+- label: How did you hear about us?
+  optional: true
+```
+
+### Field properties
 
 | Property name   | Description                                                                           | Expected format       |
 |----------|---------------------------------------------------------------------------------------|-----------------------|
@@ -16,3 +58,5 @@ This tool is intended
 | `shows`    | The name of the `group` that should be conditionally shown if this field is checked.  | The name of a `group` |
 | `hides`    | The name of the `group` that should be conditionally hidden if this field is checked.  | The name of a `group` |
 | `level`    |  The header level for `header` fields. For example, `level: 1` will produce an H1. | The number `1`, `2`, or `3`|
+| `group` | The name of the group of fields you wish to conditionally show or hide. | Plain text |
+| `fields` | The fields within a `group`. | A nested list of fields |
