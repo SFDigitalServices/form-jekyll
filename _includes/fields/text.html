@@ -1,4 +1,4 @@
-<label class="control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label }}</label>
+<label class="control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label | markdownify }}</label>
 <div class="">
   <input type="text"
      id="{{ include.name }}"

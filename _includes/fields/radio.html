@@ -1,7 +1,8 @@
-<label class=" control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label }}</label>
+<label class=" control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label | markdownify }}</label>
 <div class=" valtype" data-valtype="radios">
   {% for option in options %}
-    <input type="radio" value="{{ option.label }}" name="{{ include.name }}"
+    <label class="radio">
+    <input type="radio" value="{{ option.label | markdownify }}" name="{{ include.name }}"
     {% if option.checked %} checked="checked"{% endif %}
     {% if option.shows %} data-shows="{{ option.shows }}"{% endif %}
     {% if option.hides %} data-hides="{{ option.hides }}"{% endif %}
@@ -9,7 +10,8 @@
     {% if error %}
       data-error="{{ include.error }}"
     {% endif %}>
-    <label class="radio">{{ option.label }}</label>
+    <span>{{ option.label }}</span>
+    </label>
   {% endfor %}
   {% if other %}
     <input type="radio" value="Other" name="{{ include.name }}">

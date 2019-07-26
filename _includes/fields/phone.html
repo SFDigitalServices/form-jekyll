@@ -1,12 +1,11 @@
-<label class="control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label }}</label>
+<label class="control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label | markdownify }}</label>
 <div class="">
-  <div class="prepended dollar">$</div>
   <input type="text" name="{{ include.name }}" placeholder="" class="form-control input-md valtype" data-valtype="placeholder"
   {% unless optional %} required="required"{% endunless %}
   {% if error %}
     data-error="{{ include.error }}"
   {% else %}
-    data-error="Please enter a valid price."
+    data-error="Please enter a valid phone number."
   {% endif %}>
   {% if include.helptext %}
    <p class="help-block valtype" data-valtype='help'>{{ include.helptext }}</p>

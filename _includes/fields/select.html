@@ -1,11 +1,11 @@
-<label class="control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label }}</label>
+<label class="control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label | markdownify }}</label>
 <div class="">
   <select class="form-control input-md valtype" data-valtype="option" name="{{ include.name }}"
   {% unless optional %} required="required"{% endunless %}
   {% if error %} data-error="{{ include.error }}" {% endif %}>
   {{ include.options }}
   {% for option in options %}
-    <option value="{{ option.label }}">{{ option.label }}</option>
+    <option value="{{ option.label | markdownify }}">{{ option.label | markdownify }}</option>
   {% endfor %}
   </select>
   {% if include.helptext %}

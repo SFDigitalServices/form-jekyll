@@ -1,4 +1,4 @@
-<label class="control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label }}</label>
+<label class="control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label | markdownify }}</label>
 <div class="">
   <input type="email" id="{{ include.name }}" placeholder="" class="form-control input-md valtype" data-valtype="placeholder"
   {% unless optional %} required="required"{% endunless %}
