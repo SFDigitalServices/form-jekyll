@@ -46,7 +46,7 @@ Since YAML is easy to read, non-technical colleagues can easily give feedback on
 
 ### Field properties
 
-| Property name   | Description                                                                           | Expected format       |
+| Property&nbsp;name   | Description                                                                           | Expected format       |
 |----------|---------------------------------------------------------------------------------------|-----------------------|
 | `label`    | The field's label                                                                     | Plain text            |
 | `helptext` | The field's help text                                                                 | Plain text / Markdown |
