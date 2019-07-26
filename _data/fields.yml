@@ -1,3 +1,19 @@
+# Introduction
+
+- label: Get ready to apply to an ADU.
+  type: header
+  level: 1
+
+- label: >
+    *Here's what to expect:*
+
+    - Here's one thing to expect
+
+    - And another
+
+    - And yet another
+  type: paragraph
+
 # About The Owner
 
 - label: About the Owner
@@ -8,11 +24,11 @@
 
 - label: Name / DBA
 
-- label: Address
-  type: address
-
 - label: Email Address
   type: email
+
+- label: Address
+  type: address
 
 - label: Phone Number
   type: phone
@@ -23,13 +39,13 @@
   - label: "Yes"
     shows: owner-builder
     hides: app-contact
+
   - label: "No"
     hides: owner-builder
     shows: app-contact
 
 - group: owner-builder
   fields:
-
   - type: paragraph
     label: >
       Legal disclosures go here
@@ -44,12 +60,14 @@
   options:
   - label: "I'm self-insured"
     hides: carrier
+
   - label: "I'm not employing anyone for this project"
     hides: carrier
+
   - label: "I am employing a compliant contractor, which will have worker's compensation"
     hides: carrier
-  - label: "I have third-party insurance"
 
+  - label: "I have third-party insurance"
     shows: carrier
 
 - group: carrier
@@ -103,5 +121,94 @@
 
 # Property Info
 
-- label: About your Property
+- label: About the project
   type: header
+
+- label: What's the address?
+  type: address
+
+- label: Type of construction
+  type: select
+  options:
+  - label: I-A
+  - label: I-B
+  - label: II-A
+  - label: II-B
+  - label: III-A
+  - label: III-B
+  - label: IV-HT
+  - label: V-A
+  - label: V-B
+
+- label: Present use
+
+- label: Proposed use
+
+- label: Issued / estimated job cost
+  type: price
+
+- label: Check off all that apply.
+  type: checkbox
+  options:
+    - label: I am constructing an auto runway.
+
+    - label: I will use street space during construction.
+
+    - label: I am adding height to the building.
+      shows: new-height
+
+    - label: I will be adding a deck or horizontal extension.
+      shows: new-ground-floor
+
+    - label: I will be performing plumbing work.
+      shows: plumbing
+
+    - label: I will be performing electrical work.
+      shows: electrical
+
+- group: plumbing
+  fields:
+    - content: "You might need a plumbing permit. (link)"
+      type: paragraph
+
+- group: electrical
+  fields:
+    - content: "You might need an electrical permit. (link)"
+      type: paragraph
+
+- group: new-height
+  fields:
+  - label: State the new height at the center line of the front of the building.
+    helptext: If the height will be over 40 feet, you may need a shadow analysis.
+
+- group: new-ground-floor
+  fields:
+  - label: What will be the new ground floor area?
+
+
+- label: Does the property have fire sprinklers?
+  type: radio
+  options:
+  - label: "Yes"
+    shows: sprinklers
+
+  - label: "No"
+    hides: sprinklers
+
+- group: sprinklers
+  fields:
+  - label: Which areas of the property do the sprinklers cover?
+
+
+- label: Does the property have fire alarms?
+  type: radio
+  options:
+  - label: "Yes"
+    shows: alarms
+
+  - label: "No"
+    hides: alarms
+
+- group: alarms
+  fields:
+    - label: Which areas of the property do the alarms cover?
