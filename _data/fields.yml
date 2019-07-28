@@ -22,19 +22,20 @@
 - label: Let's get started by learning a little more about you.
   type: paragraph
 
-- label: Name / DBA
+- label: Name or DBA
 
-- label: Email Address
+- label: Phone number
+  type: phone
+
+- label: Email address
   type: email
 
-- label: Address
+- label: Mailing address
   type: address
-
-- label: Phone Number
-  type: phone
 
 - label: Is the owner also building this ADU?
   type: radio
+  other: true
   options:
   - label: "Yes"
     shows: owner-builder
@@ -46,9 +47,32 @@
 
 - group: owner-builder
   fields:
+  - label: Disclosure Form
+     type: header
+
+  - label: >
+      We are providing you with an Owner-Builder Acknowledgment and Information Verification Form to make you aware of your responsibilities and possible risk you may incur by having this permit issued in your name as the Owner-Builder.  We will not issue a building permit until you have read and checked off your understanding of each provision. An agent of the owner cannot execute this notice unless you, the property owner, obtain the prior approval of the permitting authority.
+    type: paragraph
+
+  - type: checkbox
+    label: Read and check off each statement below to signify you understand or verify this information.
+    fields:
+    - label: I understand a frequent practice of unlicensed persons is to have the property owner obtain an “Owner-Builder” building permit that erroneously implies that the property owner is providing his or her own labor and material personally. I, as an Owner-Builder, may be held liable and subject to serious financial risk for any injuries sustained by an unlicensed person and his or her employees while working on my property. My homeowner’s insurance may not provide coverage for those injuries. I am willfully acting as an Owner-Builder and am aware of the limits of my insurance coverage for injuries to workers on my property.
+    - label: I understand building permits are not required to be signed by property owners unless they are responsible for the construction and are not hiring a licensed Contractor to assume this responsibility.
+    - label: I understand as an “Owner-Builder” I am the responsible party of record on the permit. I understand that I may protect myself from potential financial risk by hiring a licensed Contractor and having the permit filed in his or her name instead of my own.
+    - label: I understand Contractors are required by law to be licensed and bonded in California and to list their license numbers on permits and contracts.
+    - label: I understand if I employ or otherwise engage any persons, other than California licensed Contractors, and the total value of my construction is at least five hundred dollars ($500), including labor and materials, I may be considered an “employer” under state and federal law.
+    - label: I understand if I am considered an “employer” under state and federal law, I must register with the state and federal government, withhold payroll taxes, provide workers’ compensation disability insurance, and contribute to unemployment compensation for each “employee.” I also understand my failure to abide by these laws may subject me to serious financial risk.
+    - label: I understand under California Contractors’ State License Law, an Owner-Builder who builds single-family residential structures cannot legally build them with the intent to offer them for sale, unless all work is performed by licensed subcontractors and the number of structures does not exceed four within any calendar year, or all of the work is performed under contract with a licensed general building Contractor.
+    - label: I understand as an Owner-Builder if I sell the property for which this permit is issued, I may be held liable for any financial or personal injuries sustained by any subsequent owner(s) that result from any latent construction defects in the workmanship or materials.
+    - label: I understand I may obtain more information regarding my obligations as an “employer” from the Internal Revenue Service, the United States Small Business Administration, the California Department of Benefit Payments, and the California Division of Industrial Accidents. I also understand I may contact the California Contractors’ State License Board (CSLB) at 1-800-321-CSLB (2752) or www.cslb.ca.gov for more information about licensed contractors.
+    - label: I am aware of and consent to an Owner-Builder building permit applied for in my name, and understand that I am the party legally and financially responsible for proposed construction activity at the project address.
+    - label: I agree that, as the party legally and financially responsible for this proposed construction activity, I will abide by all applicable laws and requirements that govern Owner-Builders as well as employers.
+    - label: I agree to notify the issuer of this form immediately of any additions, deletions, or changes to any of the information I have provided on this form. Licensed contractors are regulated by laws designed to protect the public. If you contract with someone who does not have a license, the Contractors’ State License Board may be unable to assist you with any financial loss you may sustain as a result of a complaint. Your only remedy against unlicensed Contractors may be in civil court. It is also important for you to understand that if an unlicensed Contractor or employee of that individual or firm is injured while working on your property, you may be held liable for damages. If you obtain a permit as Owner-Builder and wish to hire Contractors, you will be responsible for verifying whether or not those Contractors are properly licensed and the status of their workers’ compensation insurance coverage.
+
   - type: paragraph
     label: >
-      Legal disclosures go here
+      Before a building permit can be issued, this form must be completed and signed by the property owner and returned to the agency responsible for issuing the permit. _Note: A copy of the property owner’s driver’s license, form notarization, or other verification acceptable to the agency is required to be presented when the permit is issued to verify the property owner’s signature._
 
 # Worker's Comp
 
@@ -73,7 +97,9 @@
 - group: carrier
   fields:
   - label: Name of insurance carrier
+
   - label: Policy number
+    type: number
 
 # Application Contact Info
 
@@ -90,7 +116,7 @@
 
   - label: Title
 
-  - label: What is this person's relationship to the owner?
+  - label: Relationship to the owner
     type: radio
     other: true
     options:
@@ -108,16 +134,16 @@
 
   - group: contact-org
     fields:
-      - label: Name of firm / organization
+    - label: Name of firm / organization
 
-  - label: Mailing address
-    type: address
+    - label: Mailing address
+      type: address
 
-  - label: Phone number
-    type: phone
+    - label: Phone number
+      type: phone
 
-  - label: Email
-    type: email
+    - label: Email
+      type: email
 
 # Property Info
 
@@ -127,18 +153,25 @@
 - label: What's the address?
   type: address
 
+- label: Describe the ADUs per ordinance number.
+  type: textarea
+
+- label: Please provide a detailed description of the work that will be covered under this application.
+  type: textarea
+  helptext: If applicable, list any special authorizations or changes to the Planning Code or Zoning Maps.
+
 - label: Type of construction
   type: select
   options:
-  - label: I-A
-  - label: I-B
-  - label: II-A
-  - label: II-B
-  - label: III-A
-  - label: III-B
-  - label: IV-HT
-  - label: V-A
-  - label: V-B
+  - label: "I-A: Fire Resistive Non-Combustible"
+  - label: "I-B: Fire Resistive Non-Combustible"
+  - label: "II-A: Protected Non-Combustible"
+  - label: "II-B: Unprotected Non-Combustible"
+  - label: "III-A: Protected Combustible"
+  - label: "III-B: Unprotected Combustible"
+  - label: "IV: Heavy Timber"
+  - label: "V-A: Protected Wood Frame"
+  - label: "V-B: Unprotected Wood Frame"
 
 - label: Present use
 
@@ -147,34 +180,48 @@
 - label: Issued / estimated job cost
   type: price
 
-- label: Check off all that apply.
+- label: Which of these will you be doing during construction?
   type: checkbox
   options:
-    - label: I am constructing an auto runway.
+  - label: Building an auto runway
 
-    - label: I will use street space during construction.
+  - label: Using street space
 
-    - label: I am adding height to the building.
-      shows: new-height
+  - label: Repairing or replacing the building's foundation
 
-    - label: I will be adding a deck or horizontal extension.
-      shows: new-ground-floor
+  - label: Changing the front facade
+    shows: historic-resource
 
-    - label: I will be performing plumbing work.
-      shows: plumbing
+  - label: Adding height to the building
+    shows: new-height
 
-    - label: I will be performing electrical work.
-      shows: electrical
+  - label: Adding a deck or horizontal extension
+    shows: new-ground-floor
+
+  - label: Extending the building beyond the property line
+
+  - label: Plumbing work
+    shows: plumbing
+
+  - label: Electrical work
+    shows: electrical
+
+
+- group: historic-resource
+  fields:
+  - content: "You may need to attach a Historic Resource Determination. (link)"
+    type: paragraph
+
 
 - group: plumbing
   fields:
-    - content: "You might need a plumbing permit. (link)"
-      type: paragraph
+  - content: "You might need a plumbing permit. (link)"
+    type: paragraph
 
 - group: electrical
   fields:
-    - content: "You might need an electrical permit. (link)"
-      type: paragraph
+  - content: "You might need an electrical permit. (link)"
+    type: paragraph
 
 - group: new-height
   fields:
@@ -183,7 +230,9 @@
 
 - group: new-ground-floor
   fields:
-  - label: What will be the new ground floor area?
+  - label: What will the new ground floor area be?
+    type: number
+    unit: square feet
 
 
 - label: Does the property have fire sprinklers?
@@ -199,7 +248,6 @@
   fields:
   - label: Which areas of the property do the sprinklers cover?
 
-
 - label: Does the property have fire alarms?
   type: radio
   options:
@@ -211,4 +259,267 @@
 
 - group: alarms
   fields:
-    - label: Which areas of the property do the alarms cover?
+  - label: Which areas of the property do the alarms cover?
+
+- label: Does this ADU remove housing services like patios, gardens or common spaces?
+  type: radio
+  options:
+  - label: "Yes"
+    shows: remove-services-attachments
+
+  - label: "No"
+    hides: remove-services-attachments
+
+- group: remove-services-attachments
+  fields:
+  - label: >
+    You'll need to attach:
+
+    - A notice
+
+    - A photograph
+
+    - A letter to the owner
+
+    - A copy of the mailing list
+   type: paragraph
+
+  - label: Upload your notice
+   type: file
+
+  - label: Upload your photograph
+   type: file
+
+  - label: Upload a letter to the owner
+   type: file
+
+  - label: Upload a copy of the mailing list
+   type: file
+
+# Stats
+
+- type: header
+  label: How are you currently using the land?
+
+- label: Current parking space
+  type: number
+  unit: gross square feet
+
+- label: Current residential space
+  type: number
+  unit: gross square feet
+
+- label: Current retail commercial space
+  type: number
+  unit: gross square feet
+
+- label: Current number of affordable dwelling units
+  type: number
+
+- label: Current number of market-rate dwelling units
+  type: number
+
+- label: Current number of buildings
+  type: number
+
+- label: Current number of stories
+  type: number
+
+- label: Current number of basements or cellars
+  type: number
+
+- label: Current number of parking spaces
+  type: number
+
+- label: Current number of bicycle spaces
+  type: number
+
+- label: What are you proposing to change?
+  type: header
+
+- label: Check all that apply.
+  type: checkbox
+  options:
+  - label: Parking gross square feet
+    shows: proposed-parking-gsf
+  - label: Residential gross square feet
+    shows: proposed-residential-gsf
+  - label: Retail commercial gross square feet
+    shows: proposed-commercial-gsf
+  - label: Number of affordable dwelling units
+    shows: proposed-affordable
+  - label: Number of market-rate dwelling units
+    shows: proposed-market-rate
+  - label: Number of buildings
+    shows: proposed-number-buildings
+  - label: Number of stories
+    shows: proposed-number-stories
+  - label: Number of basements or cellars
+    shows: proposed-number-basements
+  - label: Number of parking spaces
+    shows: proposed-parking-spaces
+  - label: Number of bicycle spaces
+    shows: proposed-bicycle-spaces
+
+- group: proposed-parking-gsf
+  fields:
+  - label: Proposed parking space
+    type: number
+    unit: gross square feet
+
+- group: proposed-residential-gsf
+  fields:
+  - label: Proposed residential space
+    type: number
+    unit: gross square feet
+
+- group: proposed-commercial-gsf
+  fields:
+  - label: Proposed retail commercial space
+    type: number
+    unit: gross square feet
+
+- group: proposed-affordable
+  fields:
+  - label: Proposed number of ffordable dwelling units
+    type: number
+
+- group: proposed-market-rate
+  fields:
+  - label: Proposed number of arket-rate dwelling units
+    type: number
+
+- group: proposed-number-buildings
+  fields:
+  - label: Proposed number of buildings
+    type: number
+
+- group: proposed-number-stories
+  fields:
+  - label: Proposed number of stories
+    type: number
+
+- group: proposed-number-basements
+  fields:
+  - label: Proposed number of basements or cellars
+    type: number
+
+- group: proposed-parking-spaces
+  fields:
+  - label: Proposed parking spaces
+    type: number
+
+- group: proposed-bicycle-spaces
+  fields:
+  - label: Proposed bicycle spaces
+    type: number
+
+# Timeline
+
+- label: How many months do you estimate construction will last?
+  type: number
+
+- label: Including foundation work, how deep do you plan to disturb the surface below grade?
+  type: number
+  unit: feet
+
+- label: Area of excavation / disturbance
+  type: number
+  unit: square feet
+
+- label: Amount of excavation
+  type: number
+  unit: cubic yards
+
+- label: >
+    Mention you should attach a geotechnical report if any of the following apply:
+
+    - Answer to "Area of expansion" is 1000+ square feet
+
+    - Answer to "amount of excavation" is 50+ cubic yards
+
+    - PIM says the slope is at least 20%
+  type: paragraph
+
+
+- label: Will you be working on a site that has any of the following?
+  type: checkbox
+  options:
+  - label: An existing or former gas station
+    shows: environmental-assessment
+  - label: A parking lot
+    shows: environmental-assessment
+  - label: Auto repair
+    shows: environmental-assessment
+  - label: Dry cleaners
+    shows: environmental-assessment
+  - label: Heavy manufacturing use
+    shows: environmental-assessment
+  - label: Underground storage tanks
+    shows: environmental-assessment
+
+- group: environmental-assessment
+  fields:
+  - label: You'll need to submit a Phase I Environmental Site Assessment. (link)
+    type: paragraph
+
+- label: Is this site currently in industrial use?
+  helptext: Only show this if "amount of excavation" is 50+ cubic yards, and PIM shows the site is in a Maher area
+  type: radio
+  options:
+  - label: "Yes"
+    shows: maher
+
+  - label: "No"
+    hides: maher
+
+- group: maher
+  fields:
+  - label: You'll need a Maher Application Form. (link)
+    type: paragraph
+
+- label: Seismic work
+  type: header
+
+- label: >
+    Have you filed for seismic retrofitting under [Chapter 4D of the Existing Building Code](http://library.amlegal.com/nxt/gateway.dll/California/sfbuilding/existingbuildingcode2016edition/chapter4dmandatoryearthquakeretrofitofwo?f=templates$fn=default.htm$3.0)?
+  type: radio
+  options:
+  - label: "Yes"
+    shows: seismic-retro-mandatory
+    hides: seismic-retro-number
+
+  - label: "No"
+    shows: seismic-retro-mandatory
+    hides: seismic-retro-number
+
+- group: seismic-retro-number
+  fields:
+  - label: Enter your seismic retrofitting permit application number.
+    type: number
+
+- label: Compliance
+  type: header
+
+- label: >
+    Have you filed for voluntary seismic strengthening under [Administrative Bulletin AB-094](https://sfdbi.org/sites/default/files/migrated/FileCenter/Documents/Administrative_Bulletins/2013_AB/AB_094_updated_010114.pdf)?
+  type: radio
+  options:
+  - label: "Yes"
+    shows: seismic-strength
+
+  - label: "No"
+    hides: seismic-strength
+
+- group: seismic-strength
+  fields:
+  - label: Enter your seismic strengthening permit application number.
+    type: number
+
+- label: >
+    Does the existing residential building comply with [Ordinances 95-17](http://default.sfplanning.org/plans-and-programs/planning-for-the-city/accessory-dwelling-units/ADU_Ord_095-17_170125_signed.pdf), [162-16](https://sfgov.legistar.com/View.ashx?M=F&ID=4617538&GUID=2625970B-6704-46C2-A972-68BF0C206D9C) or [162-17](https://sfbos.org/sites/default/files/o0162-17.pdf) for additional dwelling units?
+  helptext: This will be subject to review from the Planning department.
+  type: radio
+  options:
+  - label: "Yes"
+  - label: "No"
