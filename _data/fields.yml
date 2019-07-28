@@ -48,7 +48,7 @@
 - group: owner-builder
   fields:
   - label: Disclosure Form
-     type: header
+    type: header
 
   - label: >
       We are providing you with an Owner-Builder Acknowledgment and Information Verification Form to make you aware of your responsibilities and possible risk you may incur by having this permit issued in your name as the Owner-Builder.  We will not issue a building permit until you have read and checked off your understanding of each provision. An agent of the owner cannot execute this notice unless you, the property owner, obtain the prior approval of the permitting authority.
@@ -273,28 +273,28 @@
 - group: remove-services-attachments
   fields:
   - label: >
-    You'll need to attach:
+      You'll need to attach:
 
-    - A notice
+      - A notice
 
-    - A photograph
+      - A photograph
 
-    - A letter to the owner
+      - A letter to the owner
 
-    - A copy of the mailing list
-   type: paragraph
+      - A copy of the mailing list
+    type: paragraph
 
   - label: Upload your notice
-   type: file
+    type: file
 
   - label: Upload your photograph
-   type: file
+    type: file
 
   - label: Upload a letter to the owner
-   type: file
+    type: file
 
   - label: Upload a copy of the mailing list
-   type: file
+    type: file
 
 # Stats
 
