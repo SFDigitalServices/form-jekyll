@@ -5,7 +5,11 @@
     {% if options %}
       {% for option in options %}
         <label class="checkbox">
-          <input type="checkbox" value="{{ option.label  }}" name="{{ include.name }}" {% if option.checked %}checked="checked"{% endif %}>
+          <input type="checkbox" value="{{ option.label  }}" name="{{ include.name }}"
+          {% if option.checked %}checked="checked"{% endif %}
+          {% if option.shows %} data-shows="{{ option.shows }}"{% endif %}
+          {% if option.hides %} data-hides="{{ option.hides }}"{% endif %}
+          >
           <span>{{ option.label | markdownify | remove: '<p>' | remove: '</p>'}}</span>
         </label>
       {% endfor %}
