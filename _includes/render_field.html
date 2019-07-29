@@ -4,7 +4,7 @@
   {% endcomment %}
   {% assign label = field.label %}
   {% assign helptext = field.helptext %}
-  {% capture name %}field-{{ forloop.index }}{% endcapture %}
+  {% capture name %}{{ title | slugify }}-field-{{ forloop.index }}{% endcapture %}
   {% assign options  = field.options %}
   {% assign error  = field.error %}
   {% assign optional = field.optional %}
