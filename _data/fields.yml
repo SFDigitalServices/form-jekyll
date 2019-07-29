@@ -45,7 +45,7 @@
 
   - type: checkbox
     label: Read and check off each statement below to signify you understand or verify this information.
-    fields:
+    options:
     - label: I understand a frequent practice of unlicensed persons is to have the property owner obtain an “Owner-Builder” building permit that erroneously implies that the property owner is providing his or her own labor and material personally. I, as an Owner-Builder, may be held liable and subject to serious financial risk for any injuries sustained by an unlicensed person and his or her employees while working on my property. My homeowner’s insurance may not provide coverage for those injuries. I am willfully acting as an Owner-Builder and am aware of the limits of my insurance coverage for injuries to workers on my property.
     - label: I understand building permits are not required to be signed by property owners unless they are responsible for the construction and are not hiring a licensed Contractor to assume this responsibility.
     - label: I understand as an “Owner-Builder” I am the responsible party of record on the permit. I understand that I may protect myself from potential financial risk by hiring a licensed Contractor and having the permit filed in his or her name instead of my own.
@@ -80,7 +80,7 @@
       hides: comp-II
       shows: comp-V
 
-    - label: "I don't need insurance becauser I'm not employing anyone for this project."
+    - label: "I don't need insurance because I don't plan to employ anyone."
       hides: comp-II
       shows: comp-IV
 
@@ -118,6 +118,9 @@
       shows: contact-org
 
     - label: Engineer
+      hides: contact-org
+
+    - label: Attorney
       hides: contact-org
 
   - group: contact-org
@@ -166,48 +169,14 @@
   - label: Issued / estimated job cost
     type: price
 
-  - label: Which of these will you be doing during construction?
+  - label: Will you be doing either of the following during construction?
     type: checkbox
     options:
-    - label: Building an auto runway
-
-    - label: Using street space
-
-    - label: Repairing or replacing the building's foundation
-
-    - label: Changing the front facade
-      shows: historic-resource
-
     - label: Adding height to the building
       shows: new-height
 
     - label: Adding a deck or horizontal extension
       shows: new-ground-floor
-
-    - label: Extending the building beyond the property line
-
-    - label: Plumbing work
-      shows: plumbing
-
-    - label: Electrical work
-      shows: electrical
-
-
-  - group: historic-resource
-    fields:
-    - content: "You may need to attach a Historic Resource Determination. (link)"
-      type: paragraph
-
-
-  - group: plumbing
-    fields:
-    - content: "You might need a plumbing permit. (link)"
-      type: paragraph
-
-  - group: electrical
-    fields:
-    - content: "You might need an electrical permit. (link)"
-      type: paragraph
 
   - group: new-height
     fields:
@@ -246,42 +215,6 @@
   - group: alarms
     fields:
     - label: Which areas of the property do the alarms cover?
-
-  - label: Does this ADU remove housing services like patios, gardens or common spaces?
-    type: radio
-    options:
-    - label: "Yes"
-      shows: remove-services-attachments
-
-    - label: "No"
-      hides: remove-services-attachments
-
-  - group: remove-services-attachments
-    fields:
-    - label: >
-        You'll need to attach:
-
-        - A notice
-
-        - A photograph
-
-        - A letter to the owner
-
-        - A copy of the mailing list
-      type: paragraph
-
-    - label: Upload your notice
-      type: file
-
-    - label: Upload your photograph
-      type: file
-
-    - label: Upload a letter to the owner
-      type: file
-
-    - label: Upload a copy of the mailing list
-      type: file
-
 
 - title: How are you currently using the land?
   fields:
@@ -407,61 +340,6 @@
     type: number
     unit: feet
 
-  - label: Area of excavation / disturbance
-    type: number
-    unit: square feet
-
-  - label: Amount of excavation
-    type: number
-    unit: cubic yards
-
-  - label: >
-      Mention you should attach a geotechnical report if any of the following apply:
-
-      - Answer to "Area of expansion" is 1000+ square feet
-
-      - Answer to "amount of excavation" is 50+ cubic yards
-
-      - PIM says the slope is at least 20%
-    type: paragraph
-
-
-  - label: Will you be working on a site that has any of the following?
-    type: checkbox
-    options:
-    - label: An existing or former gas station
-      shows: environmental-assessment
-    - label: A parking lot
-      shows: environmental-assessment
-    - label: Auto repair
-      shows: environmental-assessment
-    - label: Dry cleaners
-      shows: environmental-assessment
-    - label: Heavy manufacturing use
-      shows: environmental-assessment
-    - label: Underground storage tanks
-      shows: environmental-assessment
-
-  - group: environmental-assessment
-    fields:
-    - label: You'll need to submit a Phase I Environmental Site Assessment. (link)
-      type: paragraph
-
-  - label: Is this site currently in industrial use?
-    helptext: Only show this if "amount of excavation" is 50+ cubic yards, and PIM shows the site is in a Maher area
-    type: radio
-    options:
-    - label: "Yes"
-      shows: maher
-
-    - label: "No"
-      hides: maher
-
-  - group: maher
-    fields:
-    - label: You'll need a Maher Application Form. (link)
-      type: paragraph
-
 - title: Seismic work
   fields:
   - label: >
@@ -505,6 +383,29 @@
     - label: "No"
 
 
+- title: Environmental Assessment
+  fields:
+  - label: Will you be working on a site that has any of the following?
+    type: checkbox
+    options:
+    - label: An existing or former gas station
+      shows: environmental-assessment
+    - label: A parking lot
+      shows: environmental-assessment
+    - label: Auto repair
+      shows: environmental-assessment
+    - label: Dry cleaners
+      shows: environmental-assessment
+    - label: Heavy manufacturing use
+      shows: environmental-assessment
+    - label: Underground storage tanks
+      shows: environmental-assessment
+
+  - group: environmental-assessment
+    fields:
+    - label: Upload a Phase I Environmental Site Assessment
+      type: file
+
 # Legal language
 
 - title: Terms
@@ -527,7 +428,7 @@
 
       BUILDING NOT TO BE OCCUPIED UNTIL CERTIFICATE OF FINAL COMPLETION IS POSTED ON THE BUILDING OR PERMIT OF OCCUPANCY GRANTED, WHEN REQUIRED.
 
-      APPROVAL OF THIS APPLICATION DOES NOT CONSTITUTE AN APPROVAL FOR THE ELECTRICAL WIRING OR PLUMBING INSTAllATIONS. A SEPARATE PERMIT FOR THE WIRING AND PLUMBING MUST BE OBTAINED. SEPARATE PERMITS ARE REQUIRED IF ANSWER IS "YES" TO ANY OF ABOVE QUESTIONS (10) (11) (12) (13) (22) OR (24).
+      APPROVAL OF THIS APPLICATION DOES NOT CONSTITUTE AN APPROVAL FOR THE ELECTRICAL WIRING OR PLUMBING INSTAllATIONS. A SEPARATE PERMIT FOR THE WIRING AND PLUMBING MUST BE OBTAINED. ~~SEPARATE PERMITS ARE REQUIRED IF ANSWER IS "YES" TO ANY OF ABOVE QUESTIONS (10) (11) (12) (13) (22) OR (24).~~
 
       THIS IS NOT A BUILDING PERMIT. NO WORK SHALL BE STARTED UNTIL A BUILDING PERMIT IS ISSUED.
 
@@ -576,3 +477,154 @@
     - label: >
        I certify as the owner (or the agent for the owner) that in the performance of the work for which this permit is issued, I will employ a contractor who complies with the workers' compensation laws of California and who, prior to the commencement of any work, will file a completed copy of this form with the Central Permit Bureau.
       type: checkbox
+
+- title: Let's find out if you need to submit more forms.
+  fields:
+  - label: Which of these will you be doing during construction?
+    type: checkbox
+    options:
+    - label: Building an auto runway
+      show: auto-runway
+
+    - label: Using street space
+      show: street-space
+
+    - label: Repairing or replacing the building's foundation
+
+    - label: Changing the front facade
+      shows: historic-resource
+
+    - label: Extending the building beyond the property line
+      shows: building-extension
+
+    - label: Plumbing work
+      shows: plumbing
+
+    - label: Electrical work
+      shows: electrical
+
+  - label: Area of excavation / disturbance
+    type: number
+    unit: square feet
+
+  - label: Amount of excavation
+    type: number
+    unit: cubic yards
+
+  - label: Will this ADU remove housing services like garages, parking facilities, driveways, storage spaces, laundry rooms, decks, patios, or gardens?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: remove-services
+
+    - label: "No"
+      hides: remove-services
+
+  - label: Is this site currently in industrial use?
+    helptext: Only show this if "amount of excavation" is 50+ cubic yards, and PIM shows the site is in a Maher area
+    type: radio
+    options:
+    - label: "Yes"
+      shows: maher
+
+    - label: "No"
+      hides: maher
+
+
+- title: Here's what you still need to submit.
+  fields:
+  - group: remove-services
+    fields:
+    - label: Removing housing services
+      type: header
+      level: 3
+
+    - type: paragraph
+      label: >
+        You must inform your tenants of the project by:
+
+        - Posting a notice in a common area of the building for 15 days
+
+        - Mailing a notice to every tenant and the property owner
+
+
+        Also, please upload the following.
+
+    - label: Upload a copy of your notice
+      type: file
+
+    - label: Upload a photograph of the posted notice
+      type: file
+
+    - label: Upload your postmarked letter to the owner
+      type: file
+
+    - label: Upload a copy of your mailing list for the notice
+      type: file
+
+  - label: Other permits
+    type: header
+    level: 3
+
+  - group: auto-runway
+    fields:
+    - label: "You'll need a separate permit for auto runways. (link)"
+      type: paragraph
+
+  - group: building-extension
+    fields:
+    - label: "You'll need a separate permit for building extensions. (link)"
+      type: paragraph
+
+  - group: street-space
+    fields:
+    - label: "You'll need a separate permit for street space. (link)"
+      type: paragraph
+
+  - group: historic-resource
+    fields:
+    - label: |
+        Since you are changing the front facade (and the historic status is TK), you'll need to attach a Historic Resource Determination.
+
+        Here's some data from PIM you'll need for the form:
+
+        (Insert address, block/lot, date of construction, survey, designated property)
+      type: paragraph
+
+    - label: "Apply for a Historic Resource Determination"
+      type: link
+      url: http://forms.sfplanning.org/HistoricRD_SupplementalApplication.pdf
+
+
+  - group: plumbing
+    fields:
+    - label: "Apply for a plumbing permit"
+      type: link
+      url: https://dbiweb.sfgov.org/dbi_plumbing/
+      description: Since you are performing plumbing work, you'll need a plumbing permit.
+
+  - group: electrical
+    fields:
+    - label: "Apply for an electrical permit"
+      type: link
+      url: https://dbiweb.sfgov.org/dbi_electrical/
+      description: Since you are performing electrical work, you'll need a electrical permit.
+
+  - label: >
+      If any of these apply:
+
+      - Answer to "Area of expansion" is 1000+ square feet
+
+      - Answer to "amount of excavation" is 50+ cubic yards
+
+      - PIM says the slope is at least 20%
+
+
+      Tell them here to attach a geotechnical report (link?)
+    type: paragraph
+
+  - group: maher
+    fields:
+    - label: Apply for a waiver for the Maher Ordinance
+      type: link
+      url: https://www.sfdph.org/dph/EH/HazWaste/hazWasteSiteMitigation.asp

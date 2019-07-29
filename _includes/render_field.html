@@ -12,12 +12,9 @@
   {% assign fields  = field.fields %}
   {% assign unit  = field.unit %}
   {% assign other  = field.other %}
-
-
-  {% comment %}
-    Heading level ("1" for H1s, "2" for H2s, etc.)
-  {% endcomment %}
   {% assign level = field.level %}
+  {% assign url = field.url %}
+  {% assign description = field.description %}
 
   {% comment %}
     Include the appropriate markup for each field type
@@ -28,7 +25,9 @@
     {% elsif field.type == 'header' %}
       {% include fields/header.html level=level label=label %}
     {% elsif field.type == 'paragraph' %}
-      {% include fields/paragraph.html level=level label=label %}
+      {% include fields/paragraph.html label=label %}
+    {% elsif field.type == 'link' %}
+      {% include fields/link.html label=label url=url description=description %}
     {% else %}
       <div class="form-group">
         {% if field.type == 'radio' %}
