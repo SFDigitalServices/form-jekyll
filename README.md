@@ -60,3 +60,9 @@ Since YAML is easy to read, non-technical colleagues can easily give feedback on
 | `level`    |  The header level for `header` fields. For example, `level: 1` will produce an H1. | The number `1`, `2`, or `3`|
 | `group` | The name of the group of fields you wish to conditionally show or hide. | Plain text |
 | `fields` | The fields within a `group`. | A nested list of fields |
+
+### Local development
+
+- Setup Jekyll - https://jekyllrb.com/docs/installation/
+- Install Gemfile - `bundle install`
+- Run Jekyll - `bundle exec jekyll serve`
