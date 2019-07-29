@@ -10,6 +10,6 @@
      >
      <span class="units">{{ include.unit }}</span>
   {% if include.helptext %}
-   <p class="help-text" data-valtype='help'>{{ include.helptext | markdownify | remove: '<p>' | remove: '</p>'}}</p>
+    <div class="help-text" data-valtype='help'>{{ include.helptext | markdownify }}</div>
   {% endif %}
 </div>

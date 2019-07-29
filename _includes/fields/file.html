@@ -5,6 +5,6 @@
   {% else %} data-error="Please upload a file."{% endif %}>
   <label class="control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label | markdownify | remove: '<p>' | remove: '</p>'}}</label>
   {% if include.helptext %}
-   <p class="help-text" data-valtype='help'>{{ include.helptext }}</p>
+    <div class="help-text" data-valtype='help'>{{ include.helptext | markdownify }}</div>
   {% endif %}
 </div>
