@@ -10,6 +10,8 @@
   {% assign optional = field.optional %}
   {% assign group  = field.group %}
   {% assign fields  = field.fields %}
+  {% assign unit  = field.unit %}
+  {% assign other  = field.other %}
 
 
   {% comment %}
@@ -30,7 +32,7 @@
     {% else %}
       <div class="form-group">
         {% if field.type == 'radio' %}
-          {% include fields/radio.html label=label helptext=helptext option=options name=name error=error %}
+          {% include fields/radio.html label=label helptext=helptext option=options name=name error=error other=other %}
         {% elsif field.type == 'checkbox' %}
           {% include fields/checkbox.html label=label helptext=helptext option=options name=name error=error %}
         {% elsif field.type == 'select' %}
@@ -44,11 +46,15 @@
         {% elsif field.type == 'phone' %}
           {% include fields/phone.html label=label helptext=helptext name=name error=error %}
         {% elsif field.type == 'textarea' %}
-          {% include fields/textarea.html label=label helptext=helptext name=name  error=error%}
+          {% include fields/textarea.html label=label helptext=helptext name=name error=error%}
+        {% elsif field.type == 'number' %}
+          {% include fields/number.html label=label helptext=helptext name=name error=error unit=unit %}
+        {% elsif field.type == 'file' %}
+          {% include fields/file.html label=label helptext=helptext name=name error=error %}
         {% else %}
           {% include fields/text.html label=label helptext=helptext name=name error=error %}
         {% endif %}
-        <div class="help-block with-errors"></div>
+        <p class="help-block with-errors"></p>
       </div>
     {% endif %}
 {% endfor %}

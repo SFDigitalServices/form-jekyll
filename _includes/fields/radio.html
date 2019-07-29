@@ -1,8 +1,8 @@
-<label class=" control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label | markdownify }}</label>
+<label class=" control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label | markdownify | remove: '<p>' | remove: '</p>'}}</label>
 <div class=" valtype" data-valtype="radios">
   {% for option in options %}
     <label class="radio">
-    <input type="radio" value="{{ option.label | markdownify }}" name="{{ include.name }}"
+    <input type="radio" value="{{ option.label  }}" name="{{ include.name }}"
     {% if option.checked %} checked="checked"{% endif %}
     {% if option.shows %} data-shows="{{ option.shows }}"{% endif %}
     {% if option.hides %} data-hides="{{ option.hides }}"{% endif %}
@@ -10,15 +10,20 @@
     {% if error %}
       data-error="{{ include.error }}"
     {% endif %}>
-    <span>{{ option.label }}</span>
+    <span>{{ option.label | markdownify | remove: '<p>' | remove: '</p>'}}</span>
     </label>
   {% endfor %}
-  {% if other %}
-    <input type="radio" value="Other" name="{{ include.name }}">
-    <label class="other-label radio">Other</label>
-    <input type="text" class="other-input">
+  {% if include.other %}
+    <label class="other-label radio">
+      <input type="radio" value="Other" name="{{ include.name }}">
+      <span>Other</span>
+    </label>
+    <div class="other-input">
+      <label for="{{ include.name }}-other">Write more information here</label>
+      <input type="text">
+    </div>
   {% endif %}
   {% if include.helptext %}
-   <p class="help-block valtype" data-valtype='help'>{{ include.helptext }}</p>
+   <p class="help-text" data-valtype='help'>{{ include.helptext }}</p>
   {% endif %}
 </div>

@@ -1,0 +1,13 @@
+{% for page in include.fields %}
+  <div class="page"{% if page.group %} data-group="{{ page.group }}"{% endif %}>
+    <header>
+      <h2>{{ page.title | markdownify }}</h2>
+      {% if page.description %}
+        <p class="description">{{ page.description | markdownify }}</p>
+      {% endif %}
+    </header>
+
+    {% assign fields = page.fields %}
+    {% include render_field.html fields=fields %}
+  </div>
+{% endfor %}

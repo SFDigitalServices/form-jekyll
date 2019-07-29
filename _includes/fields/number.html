@@ -1,5 +1,5 @@
 <label class="control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label | markdownify | remove: '<p>' | remove: '</p>'}}</label>
-<div class="">
+<div class="field_number">
   <input type="text"
      id="{{ include.name }}"
      placeholder=""
@@ -8,7 +8,8 @@
      {% unless optional %} required="required"{% endunless %}
      {% if error %} data-error="{{ include.error }}"{% endif %}
      >
+     <span class="units">{{ include.unit }}</span>
   {% if include.helptext %}
-   <p class="help-text" data-valtype='help'>{{ include.helptext }}</p>
+   <p class="help-text" data-valtype='help'>{{ include.helptext | markdownify | remove: '<p>' | remove: '</p>'}}</p>
   {% endif %}
 </div>

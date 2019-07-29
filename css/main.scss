@@ -14,7 +14,7 @@ fieldset {
 label,
 legend {
   display: block;
-  margin: 1.5rem 0 0.25rem;
+  margin: 0 0 0.25rem;
   padding: 0;
 }
 
@@ -322,6 +322,7 @@ input[type='password'],
 input[type='date'],
 input[type='time'],
 input[type='search'],
+textarea,
 select {
   padding: 1rem;
 }
@@ -438,9 +439,9 @@ input[type='file'] {
 }
 
 
-.checkbox input {
-  &:checked + span::before {
-    background-size: 75% 60%;
+.checkbox input:checked {
+  + span::before {
+    background-size: 50% 40%;
     background-repeat: no-repeat;
     background-position: center;
     background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyMCAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTUuNzUwMTUgMTUuNzU1QzUuNTg1ODUgMTUuNzU1NSA1LjQyMzA2IDE1LjcyMzYgNS4yNzExNyAxNS42NjA5QzUuMTE5MjcgMTUuNTk4MyA0Ljk4MTI4IDE1LjUwNjIgNC44NjUxNSAxNS4zOUwwLjM2NTE1MSAxMC44OUMwLjI0NTkzNyAxMC43NzQ1IDAuMTUwOTE1IDEwLjYzNjQgMC4wODU2Mjg4IDEwLjQ4MzhDMC4wMjAzNDI0IDEwLjMzMTIgLTAuMDEzOTAxMiAxMC4xNjcyIC0wLjAxNTEwMzkgMTAuMDAxMkMtMC4wMTYzMDY2IDkuODM1MjMgMC4wMTU1NTU3IDkuNjcwNjkgMC4wNzg2MjM5IDkuNTE3MTZDMC4xNDE2OTIgOS4zNjM2NCAwLjIzNDcwMyA5LjIyNDIxIDAuMzUyMjMxIDkuMTA3MDFDMC40Njk3NTggOC45ODk4MiAwLjYwOTQ0OSA4Ljg5NzIgMC43NjMxNTEgOC44MzQ1N0MwLjkxNjg1NCA4Ljc3MTkzIDEuMDgxNDkgOC43NDA1NCAxLjI0NzQ2IDguNzQyMjFDMS40MTM0MiA4Ljc0Mzg4IDEuNTc3MzkgOC43Nzg1OSAxLjcyOTggOC44NDQzMUMxLjg4MjIxIDguOTEwMDIgMi4wMjAwMSA5LjAwNTQ0IDIuMTM1MTUgOS4xMjQ5OEw1Ljc1MDE1IDEyLjc0TDE3Ljg3MDIgMC42MTk5NzZDMTguMTA2MiAwLjM5MjU5IDE4LjQyMjIgMC4yNjcwMjUgMTguNzQ5OSAwLjI3MDMyN0MxOS4wNzc3IDAuMjczNjI5IDE5LjM5MSAwLjQwNTUzNSAxOS42MjI1IDAuNjM3NjMxQzE5Ljg1MzkgMC44Njk3MjggMTkuOTg0OSAxLjE4MzQ0IDE5Ljk4NzMgMS41MTEyMUMxOS45ODk3IDEuODM4OTcgMTkuODYzMiAyLjE1NDU1IDE5LjYzNTIgMi4zODk5OEw2LjYzNTE1IDE1LjM5QzYuNTE5MDIgMTUuNTA2MiA2LjM4MTAzIDE1LjU5ODMgNi4yMjkxNCAxNS42NjA5QzYuMDc3MjQgMTUuNzIzNiA1LjkxNDQ1IDE1Ljc1NTUgNS43NTAxNSAxNS43NTVaIiBmaWxsPSIjMUMzRTU3Ii8+Cjwvc3ZnPgo=');
@@ -652,11 +653,9 @@ form {
   }
 }
 
-.help-block {
+.help-text {
   font-size: 0.875rem;
   color: $slate-blue;
-  float: left;
-  clear: left;
 }
 
 .has-error .help-block {
@@ -665,7 +664,6 @@ form {
   color: $white;
   padding: 0.25rem 0.75rem;
   border-radius: $radius;
-  display: inline-block;
   @include font-smoothing;
 
   li {
@@ -698,4 +696,90 @@ form {
 
 .btn.submit {
   float: right;
+}
+
+// Field-specific styles
+
+.field_number {
+  input {
+    width: 5rem;
+  }
+
+  input, .units {
+    display: inline-block;
+  }
+
+  .units {
+    margin-left: 0.5rem;
+  }
+}
+
+.field_price {
+  input {
+    width: 10rem;
+  }
+
+  input, .dollar {
+    display: inline-block;
+  }
+
+  .dollar {
+    font-weight: $t-light;
+    font-size: 3rem;
+    line-height: 1;
+    position: relative;
+    top: 0.75rem;
+    margin-right: 0.5rem;
+    color: $slate-blue;
+  }
+}
+
+.field_address {
+  label {
+    font-size: 0.88rem;
+    margin: 0.75rem 0 0;
+  }
+}
+
+.field-address-zip {
+  width: 7rem;
+}
+
+.optional {
+  opacity: 0.8;
+}
+
+.other-label {
+  margin-top: 0.5rem;
+}
+
+.other-label,
+.other-input {
+  display: inline-block;
+}
+
+.other-input label {
+  font-size: 0;
+  height: 0;
+  margin: 0;
+}
+
+.other-input input {
+  margin-top: 0.25rem;
+  margin-left: 0.5rem;
+  font-size: 0.88rem;
+  line-height: 1;
+  padding: 0.5rem;
+  height: 2.5rem;
+}
+
+@media screen and (min-width: 48rem) {
+  .field-address-state,
+  .field-address-zip {
+    display: inline-block;
+  }
+
+  .field-address-state {
+    margin-right: 0.75rem;
+  }
 }

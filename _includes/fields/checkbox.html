@@ -1,12 +1,21 @@
-<label class=" control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label | markdownify }}</label>
-<div class=" valtype" data-valtype="checkboxes">
-  {% for option in options %}
-    <label class="checkbox">
-      <input type="checkbox" value="{{ option.label | markdownify }}" name="{{ include.name }}" {% if option.checked %}checked="checked"{% endif %}>
-      <span>{{ option.label | markdownify }}</span>
-    </label>
-  {% endfor %}
-  {% if include.helptext %}
-   <p class="help-block valtype" data-valtype='help'>{{ include.helptext }}</p>
-  {% endif %}
-</div>
+{% if options %}
+  <legend class=" control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label | markdownify | remove: '<p>' | remove: '</p>'}}</legend>
+{% endif %}
+  <div class=" valtype" data-valtype="checkboxes">
+    {% if options %}
+      {% for option in options %}
+        <label class="checkbox">
+          <input type="checkbox" value="{{ option.label  }}" name="{{ include.name }}" {% if option.checked %}checked="checked"{% endif %}>
+          <span>{{ option.label | markdownify | remove: '<p>' | remove: '</p>'}}</span>
+        </label>
+      {% endfor %}
+    {% else %}
+      <label class="checkbox">
+        <input type="checkbox" value="{{ include.label  }}" name="{{ include.name }}" {% if include.checked %}checked="checked"{% endif %}>
+        <span>{{ include.label | markdownify | remove: '<p>' | remove: '</p>'}}</span>
+      </label>
+    {% endif %}
+    {% if include.helptext %}
+     <p class="help-text" data-valtype='help'>{{ include.helptext }}</p>
+    {% endif %}
+  </div>
