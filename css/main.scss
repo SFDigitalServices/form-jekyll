@@ -789,9 +789,32 @@ form {
     display: block;
     border: 3px solid $bright-blue;
     padding: 2rem;
-    @include h4;
+    @include h5;
     color: $bright-blue;
     text-decoration: none;
     border-radius: 8px;
+  }
+}
+
+.field-file {
+  [type="file"] {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute !important;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  [type="file"] + label {
+    @extend button;
+  }
+
+  [type="file"]:focus + label,
+  [type="file"] + label:hover {
+    background: darken($bright-blue, 10%);
+    border-color: darken($bright-blue, 10%);
   }
 }

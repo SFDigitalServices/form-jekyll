@@ -1,5 +1,5 @@
-<div class="">
-  <input class="input-file" id="fileInput" type="file"
+<div class="field-file">
+  <input class="input-file" id="{{ include.name }}" type="file"
   {% unless optional %} required="required"{% endunless %}
   {% if error %} data-error="{{ include.error }}"
   {% else %} data-error="Please upload a file."{% endif %}>
