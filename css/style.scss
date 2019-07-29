@@ -2,16 +2,14 @@
 ---
 
 body {
-  background: #ddd;
+  background: #fff;
 }
 
-.page {
-  background: #fff;
-  box-shadow: 0 1px 4px rgba(#000, 0.06);
-  padding: 0.75rem 2rem;
-  margin-bottom: 2rem;
-  border-radius: 8px;
-}
+$padding: 0.75rem 2rem;
+$radius: 8px;
+$shadow: 0 1px 4px rgba(#000, 0.06);
+
+// Page layout
 
 .form {
   width: 96%;
@@ -23,5 +21,62 @@ header {
   margin-bottom: 2rem;
   h1, p {
     margin: 0;
+  }
+}
+
+// Override .form-section styles so that the
+// "all-conditionals" setting doesn't break
+// the layout for conditionally hidden pages.
+
+.form-section {
+  display: block;
+  max-height: 0;
+  overflow: hidden;
+
+  &.active {
+    max-height: initial;
+    overflow: visible;
+  }
+}
+
+// Form settings
+
+.form-settings {
+  background: #fff;
+  border: 1px solid #d7d7d7;
+  box-shadow: $shadow;
+  padding: $padding;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  border-top-left-radius: $radius;
+}
+
+.all-pages {
+  background: #ddd;
+
+  .form-nav {
+    display: none;
+  }
+
+  .form-section {
+    max-height: initial;
+    overflow: visible;
+    border-radius: $radius;
+    background: #fff;
+    box-shadow: $shadow;
+    padding: $padding;
+    margin-bottom: 2rem;
+  }
+
+  div[data-group] {
+    display: none;
+  }
+
+}
+
+.all-conditionals {
+  div[data-group] {
+    display: block;
   }
 }

@@ -5,3 +5,17 @@ layout: base
 <form class="form">
   {% include render_pages.html fields=site.data.fields %}
 </form>
+
+<div class="form-settings">
+  <h5>Settings</h5>
+
+  <label class="checkbox">
+    <input type="checkbox" id="settings-all-pages" checked>
+    <span>Show all pages</span>
+  </label>
+
+  <label class="checkbox">
+    <input type="checkbox" id="settings-all-conditionals" checked>
+    <span>Show hidden conditionals</span>
+  </label>
+</div>
