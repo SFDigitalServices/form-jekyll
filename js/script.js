@@ -4,6 +4,10 @@ $(document).ready(function(){
   $('.form-section:first-child').addClass('active');
   $(".form").validator();
 
+  $('.form-settings-toggle').click(function() {
+    $('.form-settings').toggleClass('active');
+  })
+
   // Pagination
   $('.form-section-prev').click(function() {
     var currentSection = $(this).parent().parent('.form-section');

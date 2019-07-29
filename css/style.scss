@@ -47,9 +47,31 @@ header {
   box-shadow: $shadow;
   padding: $padding;
   position: fixed;
-  bottom: 0;
+  bottom: 4rem;
   right: 0;
   border-top-left-radius: $radius;
+  transform: translateY(100%);
+  will-change: transform;
+  transition: all 0.2s ease-out;
+
+  .form-settings-toggle {
+    height: 20px;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    transform: rotate(180deg);
+    transform-origin: 50% 50%;
+    opacity: 0.5;
+    transition: all 0.1s ease-out;
+  }
+
+  &.active {
+    transform: translateY(4rem);
+
+    .form-settings-toggle {
+      transform: rotate(0deg);
+    }
+  }
 }
 
 .all-pages {
