@@ -20,36 +20,40 @@ Since YAML is easy to read, non-technical colleagues can easily give feedback on
 ### Example
 
 ```
-- label: Name
-
-- label: Phone number
-  type: phone
-  error: Please enter a valid phone number.
-
-- label: Do you have an email address?
-  type: radio
-  options:
-  - label: Yes
-    shows: email-field
-
-  - label: No
-    hides: email-field
-
-- group: email-field
+- title: Page Title
   fields:
-  - label: Enter your email address here
-    type: email
+  - label: Name
 
-- label: How did you hear about us?
-  optional: true
+  - label: Phone number
+    type: phone
+    error: Please enter a valid phone number.
+
+  - label: Do you have an email address?
+    type: radio
+    options:
+    - label: Yes
+      shows: email-field
+
+    - label: No
+      hides: email-field
+
+  - group: email-field
+    fields:
+    - label: Enter your email address here
+      type: email
+
+  - label: How did you hear about us?
+    optional: true
 ```
 
 ### Field properties
 
 | Property&nbsp;name   | Description                                                                           | Expected format       |
 |----------|---------------------------------------------------------------------------------------|-----------------------|
+| `title` | The title of the current page | Plain text |
+| `fields` | The fields within a page or `group`. | A nested list of fields |
 | `label`    | The field's label                                                                     | Plain text            |
-| `helptext` | The field's help text                                                                 | Plain text / Markdown |
+| `helptext` | The field's help text                                                                 | Markdown |
 | `type`     | The input type. For a full list of fields, see the file names in `_includes/fields.`  | Plain text            |
 | `options`  | The possible answers for `radio`, `checkbox`, and `select` fields.                    | A list of options     |
 | `checked`  | Determines whether a radio or checkbox option should be checked by default.            | `true`                |
@@ -59,7 +63,9 @@ Since YAML is easy to read, non-technical colleagues can easily give feedback on
 | `hides`    | The name of the `group` that should be conditionally hidden if this field is checked.  | The name of a `group` |
 | `level`    |  The header level for `header` fields. For example, `level: 1` will produce an H1. | The number `1`, `2`, or `3`|
 | `group` | The name of the group of fields you wish to conditionally show or hide. | Plain text |
-| `fields` | The fields within a `group`. | A nested list of fields |
+| `url` | The URL of a "link. | Plain text |
+
+
 
 ### Local development
 
