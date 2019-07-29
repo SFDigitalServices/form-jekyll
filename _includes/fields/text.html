@@ -9,6 +9,6 @@
      {% if error %} data-error="{{ include.error }}"{% endif %}
      >
   {% if include.helptext %}
-   <p class="help-text" data-valtype='help'>{{ include.helptext }}</p>
+    <div class="help-text" data-valtype='help'>{{ include.helptext | markdownify }}</div>
   {% endif %}
 </div>

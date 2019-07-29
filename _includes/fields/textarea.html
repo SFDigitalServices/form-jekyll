@@ -5,7 +5,7 @@
     {% unless optional %} required="required"{% endunless %}
     {% if error %} data-error="{{ include.error }}"{% endif %} /> </textarea>
     {% if include.helptext %}
-     <p class="help-text" data-valtype='help'>{{ include.helptext }}</p>
+      <div class="help-text" data-valtype='help'>{{ include.helptext | markdownify }}</div>
     {% endif %}
   </div>
 </div>

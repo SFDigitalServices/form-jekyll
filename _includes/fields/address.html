@@ -25,4 +25,8 @@
     <input type="text" id="{{ include.name}}-zip">
   </div>
 
+  {% if include.helptext %}
+   <div class="help-text" data-valtype='help'>{{ include.helptext | markdownify }}</div>
+  {% endif %}
+
 </fieldset>
