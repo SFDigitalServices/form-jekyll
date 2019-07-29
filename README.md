@@ -12,7 +12,7 @@
 
 - Multiple field types
 - Custom error messages
-- Conditionals
+- Conditionals for radio buttons and checkboxes
 - Markdown-formatted text
 
 Since YAML is easy to read, non-technical colleagues can easily give feedback on form design and content inside a GitHub pull request. And because GitHub Pages uses Jekyll, you can easily deploy a form to a webpage and send the link to external stakeholders.
