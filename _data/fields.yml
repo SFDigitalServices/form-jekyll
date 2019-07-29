@@ -26,7 +26,6 @@
 
   - label: Is the owner also building this ADU?
     type: radio
-    other: true
     options:
     - label: "Yes"
       shows: owner-builder
@@ -61,7 +60,7 @@
 
   - type: paragraph
     label: >
-      Before a building permit can be issued, this form must be completed and signed by the property owner and returned to the agency responsible for issuing the permit. _Note: A copy of the property owner’s driver’s license, form notarization, or other verification acceptable to the agency is required to be presented when the permit is issued to verify the property owner’s signature._
+      ~~Before a building permit can be issued, this form must be completed and signed by the property owner and returned to the agency responsible for issuing the permit.~~ *Note: A copy of the property owner’s driver’s license, form notarization, or other verification acceptable to the agency is required to be presented when the permit is issued to verify the property owner’s signature.*
 
 
 - title: Worker's compensation insurance
@@ -139,7 +138,7 @@
 
 - title: About the project
   fields:
-  - label: What's the address?
+  - label: What's the address? (Don't add the city and state here)
     type: address
 
   - label: Describe the ADUs per ordinance number.
@@ -297,12 +296,12 @@
 
   - group: proposed-affordable
     fields:
-    - label: Proposed number of ffordable dwelling units
+    - label: Proposed number of affordable dwelling units
       type: number
 
   - group: proposed-market-rate
     fields:
-    - label: Proposed number of arket-rate dwelling units
+    - label: Proposed number of market-rate dwelling units
       type: number
 
   - group: proposed-number-buildings
@@ -424,20 +423,23 @@
 
       Grade lines as shown on drawings accompanying this application are assumed to be correct. If actual grade llnes aro not the same as shown, revised drawings showing correct grade lines, cuts and fills, and complete details of retaining walls and wall footings must be submitted to thls department for approval.
 
-      ANY STIPULATION REQUIRED HEREIN OR BY COOE MAY BE APPEALED.
+      Any stipulation required herein or by code may be appealed.
 
-      BUILDING NOT TO BE OCCUPIED UNTIL CERTIFICATE OF FINAL COMPLETION IS POSTED ON THE BUILDING OR PERMIT OF OCCUPANCY GRANTED, WHEN REQUIRED.
+      Building not to be occupied until certificate of final completion is posted on the building or permit of occupancy granted, when required.
 
-      APPROVAL OF THIS APPLICATION DOES NOT CONSTITUTE AN APPROVAL FOR THE ELECTRICAL WIRING OR PLUMBING INSTAllATIONS. A SEPARATE PERMIT FOR THE WIRING AND PLUMBING MUST BE OBTAINED. ~~SEPARATE PERMITS ARE REQUIRED IF ANSWER IS "YES" TO ANY OF ABOVE QUESTIONS (10) (11) (12) (13) (22) OR (24).~~
+      Approval of this application does not constitute an approval for the electrical wiring or plumbing installations. A separate permit for the wiring and plumbing must be obtained. ~~Separate permits are required if answer is "yes" to any of above questions (10) (11) (12) (13) (22) or (24).~~
 
-      THIS IS NOT A BUILDING PERMIT. NO WORK SHALL BE STARTED UNTIL A BUILDING PERMIT IS ISSUED.
+      This is not a building permit. No work shall be started until a building permit is issued.
 
       In dwellings, all insulating materials must have a clearance of not less than two inches from all electrical wires or equipment.
 
   - label: Applicant's Certification
+    type: header
+    level: 3
+
+  - label: I hereby certify and agree that if a permit is issued for the construction described in this application, all the provisions of the permit and all laws and ordinances thereto will be complied with.
     type: checkbox
-    options:
-    - label: I HEREBY CERTIFY AND AGREE THAT IF A PERMIT IS ISSUED FOR THE CONSTRUCTION DESCRIBED IN THIS APPLICATION, ALL THE PROVISIONS OF THE PERMIT AND ALL LAWS AND ORDINANCES THERETO WILL BE COMPLIED WITH.
+
 
   - label: Hold Harmless Clause
     type: header
@@ -578,8 +580,10 @@
 
   - group: street-space
     fields:
-    - label: "You'll need a separate permit for street space. (link)"
-      type: paragraph
+    - label: Learn how to get a street space permit
+      type: link
+      url: https://sfpublicworks.org/services/permits/street-space
+      description: Because you plan to use street space, you'll need an additional permit.
 
   - group: historic-resource
     fields:
@@ -609,6 +613,13 @@
       type: link
       url: https://dbiweb.sfgov.org/dbi_electrical/
       description: Since you are performing electrical work, you'll need a electrical permit.
+
+  - group: new-height
+    fields:
+    - label: Apply for a shadow analysis
+      description: If the "new height at the center line of the front of the building" is 40+ feet&hellip;
+      url: https://sf-planning.org/sites/default/files/FileCenter/Documents/8442-Shadow%20Analysis%20Application.pdf
+      type: link
 
   - label: >
       If any of these apply:
