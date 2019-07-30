@@ -4,6 +4,7 @@ $(document).ready(function(){
   $('.form-section:first-child').addClass('active');
   $(".form").validator();
 
+  // Toggle form settings modal
   $('.form-settings-toggle').click(function() {
     $('.form-settings').toggleClass('active');
   })
