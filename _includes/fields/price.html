@@ -1,5 +1,5 @@
 <label class="control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label | markdownify | remove: '<p>' | remove: '</p>'}}</label>
-<div class="field_price">
+<div class="field-price">
   <div class="prepended dollar">$</div>
   <input type="text" name="{{ include.name }}" placeholder="" class="form-control input-md valtype" data-valtype="placeholder"
   {% unless optional %} required="required"{% endunless %}
