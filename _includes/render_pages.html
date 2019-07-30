@@ -4,15 +4,19 @@
   {% assign title = page.title %}
 
   <div class="form-section"{% if page.group %} data-group="{{ page.group }}"{% endif %}>
+
+    {% comment %} Page headers {% endcomment %}
     <header>
       <h2>{{ title | markdownify }}</h2>
       {% if page.description %}
-        <p class="description">{{ page.description | markdownify }}</p>
+        <p>{{ page.description | markdownify }}</p>
       {% endif %}
     </header>
 
+    {% comment %} Render fields in the page {% endcomment %}
     {% include render_field.html fields=fields title=title %}
 
+    {% comment %} "Previous" and "Next" buttons {% endcomment %}
     <div class="form-group form-nav">
       {% unless forloop.first %}
         <a href="javascript:void(0);" class="btn btn-lg form-section-prev">Previous</a>
