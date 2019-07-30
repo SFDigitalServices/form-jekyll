@@ -42,33 +42,44 @@ header {
 // Form settings
 
 .form-settings {
+  $offset: 4.5rem;
   background: #fff;
   border: 1px solid #d7d7d7;
   box-shadow: $shadow;
   padding: $padding;
   position: fixed;
-  bottom: 4rem;
+  bottom: $offset;
   right: 0;
   border-top-left-radius: $radius;
   transform: translateY(100%);
   will-change: transform;
   transition: all 0.2s ease-out;
 
+  h5 {
+    margin-bottom: 1.5rem;
+  }
+
   .form-settings-toggle {
-    height: 20px;
     position: absolute;
+    z-index: 2;
     top: 2rem;
     right: 2rem;
-    transform: rotate(180deg);
-    transform-origin: 50% 50%;
+    left: 2rem;
+    text-align: right;
     opacity: 0.5;
-    transition: all 0.1s ease-out;
+
+    svg {
+      transform: rotate(180deg);
+      transform-origin: 50% 50%;
+      transition: all 0.1s ease-out;
+      will-change: transform;
+    }
   }
 
   &.active {
-    transform: translateY(4rem);
+    transform: translateY($offset);
 
-    .form-settings-toggle {
+    .form-settings-toggle svg {
       transform: rotate(0deg);
     }
   }
