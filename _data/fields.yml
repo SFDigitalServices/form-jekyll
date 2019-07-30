@@ -62,39 +62,6 @@
     label: >
       ~~Before a building permit can be issued, this form must be completed and signed by the property owner and returned to the agency responsible for issuing the permit.~~ *Note: A copy of the property owner’s driver’s license, form notarization, or other verification acceptable to the agency is required to be presented when the permit is issued to verify the property owner’s signature.*
 
-
-- title: Worker's compensation insurance
-  fields:
-  - label: What best describes your coverage?
-    type: radio
-    options:
-    - label: "I am self-insured for worker's compensation and have a certificate of consent."
-      hides: comp-II
-      shows: comp-I
-
-    - label: "I have third-party worker's compensation insurance."
-      shows: comp-II
-
-    - label: "I plan to employ a contractor who will comply with worker's compensation laws."
-      hides: comp-II
-      shows: comp-V
-
-    - label: "I don't need insurance because I don't plan to employ anyone."
-      hides: comp-II
-      shows: comp-IV
-
-    - label: "I don't need insurance because the work will cost under $100."
-      hides: comp-II
-      shows: comp-III
-
-  - group: comp-II
-    fields:
-    - label: Name of insurance carrier
-
-    - label: Policy number
-      type: number
-
-
 - title: Point of contact
   description: Who should we contact while processing this application?
   group: app-contact
@@ -134,7 +101,6 @@
 
     - label: Email
       type: email
-
 
 - title: About the project
   fields:
@@ -329,7 +295,6 @@
     - label: Proposed bicycle spaces
       type: number
 
-
 - title: Your timeline
   fields:
   - label: How many months do you estimate construction will last?
@@ -338,6 +303,37 @@
   - label: Including foundation work, how deep do you plan to disturb the surface below grade?
     type: number
     unit: feet
+
+- title: Worker's compensation insurance
+  fields:
+  - label: What best describes your coverage?
+    type: radio
+    options:
+    - label: "I am self-insured for worker's compensation and have a certificate of consent."
+      hides: comp-II
+      shows: comp-I
+
+    - label: "I have third-party worker's compensation insurance."
+      shows: comp-II
+
+    - label: "I plan to employ a contractor who will comply with worker's compensation laws."
+      hides: comp-II
+      shows: comp-V
+
+    - label: "I don't need insurance because I don't plan to employ anyone."
+      hides: comp-II
+      shows: comp-IV
+
+    - label: "I don't need insurance because the work will cost under $100."
+      hides: comp-II
+      shows: comp-III
+
+  - group: comp-II
+    fields:
+    - label: Name of insurance carrier
+
+    - label: Policy number
+      type: number
 
 - title: Seismic work
   fields:
@@ -380,7 +376,6 @@
     options:
     - label: "Yes"
     - label: "No"
-
 
 - title: Environmental Assessment
   fields:
@@ -532,7 +527,6 @@
     - label: "No"
       hides: maher
 
-
 - title: Here's what you still need to submit.
   fields:
   - group: remove-services
@@ -638,4 +632,4 @@
     fields:
     - label: Apply for a waiver for the Maher Ordinance
       type: link
-      url: https://www.sfdph.org/dph/EH/HazWaste/hazWasteSiteMitigation.asp
+      url: "https://www.sfdph.org/dph/EH/HazWaste/hazWasteSiteMitigation.asp"
