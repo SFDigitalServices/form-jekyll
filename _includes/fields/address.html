@@ -1,18 +1,18 @@
 <fieldset class="field_address">
-  <legend for="{{include.name}}">{{ include.label | markdownify | remove: '<p>' | remove: '</p>'}}</legend>
+  <legend>{{ include.label | markdownify | remove: '<p>' | remove: '</p>'}}</legend>
 
   <label for="{{ include.name}}-line1">Address Line 1</label>
-  <input type="text" id="{{ include.name}}-line1" {% unless optional %}required="required"{% endunless %}>
+  <input type="text" id="{{ include.name}}-line1" {% unless optional %}required="required" data-error="Please fill in every address field."{% endunless %}>
 
   <label for="{{ include.name}}-line2">Address Line 2 <span class="optional">(optional)</span></label>
   <input type="text" id="{{ include.name}}-line2">
 
   <label for="{{ include.name}}-city">City</label>
-  <input type="text" id="{{ include.name}}-city" {% unless optional %}required="required"{% endunless %}>
+  <input type="text" id="{{ include.name}}-city" {% unless optional %}required="required" data-error="Please fill in every address field."{% endunless %}>
 
   <div class="field-address-state">
     <label for="{{ include.name}}-state">State</label>
-    <select id="{{ include.name}}-state">
+    <select id="{{ include.name}}-state" {% unless optional %}required="required" data-error="Please fill in every address field."{% endunless %}>
       <option value="">Choose a state</option>
       {% for state in site.data.states %}
         <option value="{{ state.value }}">{{ state.text }}</option>
@@ -21,7 +21,7 @@
   </div>
 
   <div class="field-address-zip">
-    <label for="{{ include.name}}-zip">ZIP Code</label>
+    <label for="{{ include.name}}-zip" {% unless optional %}required="required" data-error="Please fill in every address field."{% endunless %}>ZIP Code</label>
     <input type="text" id="{{ include.name}}-zip">
   </div>
 
