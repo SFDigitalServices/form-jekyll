@@ -386,7 +386,7 @@
   fields:
 
   - label: |
-      If the site of your ADU has:
+      If the site of your planned ADU has:
 
       - A current or former gas station
 
@@ -403,7 +403,7 @@
       You need to upload an environmental site assessment.
     type: paragraph
 
-  - label: Will the site of your ADU have anything listed above?
+  - label: Does the site have any of the above?
     type: radio
     options:
     - label: "Yes"
@@ -521,15 +521,17 @@
        I certify I will hire a contractor who complies with California worker's compensation laws for the work described in this permit. Before starting any work, they will file a finished copy of this form with the Central Permit Bureau.
       type: checkbox
 
-- title: Owner-Builder Disclosure Form
+- title: Disclosures for Owner-Builders
   group: owner-builder
   fields:
   - type: paragraph
-    label: We are providing you with an Owner-Builder Acknowledgment and Information Verification Form to make you aware of your responsibilities and possible risk you may incur by having this permit issued in your name as the Owner-Builder.  We will not issue a building permit until you have read and checked off your understanding of each provision. An agent of the owner cannot execute this notice unless you, the property owner, obtain the prior approval of the permitting authority.
-
-  - type: paragraph
     label: |
-      You only need to apply for this permit if you are responsible for construction, and are not hiring a licensed Contractor.
+
+      We would like to inform you of the responsibilities and potential risks of being the owner and builder on this permit.
+
+      Before you continue, the owner must read everything below and confirm they understand it. If you are not the owner, you cannot move forward unless you have approval from the permitting authority.
+
+      _Note: A copy of your driver’s license, form notarization, or other verification acceptable to the agency is required to be presented when the permit is issued to verify the property owner’s signature._
 
   - type: header
     label: About unlicensed workers
@@ -537,7 +539,10 @@
 
   - type: paragraph
     label: |
-      Unlicensed workers often tell property owners to apply for an "Owner-Builder" building permit. When you state you are the owner and the builder, you imply you are providing your own labor and materials. This makes you the responsible party of record on the permit.
+
+      You only need to apply for this permit if you are responsible for construction, and are not hiring a licensed Contractor.
+
+      Unlicensed workers often tell property owners to apply for an "Owner-Builder" building permit, which makes the owner imply they are providing their own labor and materials. This makes them the responsible party of record on the permit.
 
       If you work with anyone other than California licensed Contractors on this project, and it costs $500 or more (including labor and materials), you may be considered as an "employer" under state and federal law.
 
@@ -565,9 +570,9 @@
     label: |
       You can prevent this risk by hiring a licensed Contractor, and filing the permit in their name instead.
 
-      Licensed contractors are regulated by laws designed to protect the public. The law requires contractors to have California licenses and bonds. Contractors must also write their license numbers on permits and contracts.
+      Licensed contractors are regulated by laws designed to protect the public. These laws require contractors to be licensed and bonded in California. Contractors must also write their license numbers on permits and contracts.
 
-      After receiving an Owner-Builder permit, you may want to hire Contractors afterwards. If this happens, you will need to verify whether they have:
+      After receiving an Owner-Builder permit, you may decide to hire Contractors instead. If this happens, you will need to verify whether they have:
 
       - Licenses
 
@@ -575,7 +580,7 @@
 
   - type: header
     level: 5
-    label: More information
+    label: Resources
 
   - type: paragraph
     label: |
@@ -588,34 +593,50 @@
 
       To learn more about licensed contractors, contact the California Contractors’ State License Board.
 
-      **Phone:** 1-800-321-CSLB (2752)
-      **Website:** [www.cslb.ca.gov](www.cslb.ca.gov).
+      - **Phone:** 1-800-321-CSLB (2752)
 
-      **If you are an Owner-Builder**
+      - **Website:** [www.cslb.ca.gov](www.cslb.ca.gov)
 
-      Under California Contractors' State License Law, it is illegal to build a single-family residential structure with the intent to sell it, unless you:
+  - type: header
+    level: 5
+    label: Information for Owner-Builders
 
-      - Contract a licensed general building Contractor for all work
-
-      - Hire licensed subcontractors for 4 structures or less in a calendar year
+  - type: paragraph
+    label: |
 
       If you sell the property listed on this permit, and there are latent defects in the workmanship or materials, you may be held liable for the financial or personal injuries any future owner(s) sustain.
 
-  - type: checkbox
-    label: I have read and understood everything on this page.
+      Also, under California Contractors' State License Law, it is illegal to build a single-family residential structure with the intent to sell it, unless you:
 
-  - type: checkbox
-    label: I am willfully acting as an Owner-Builder. I am aware of the limits of my insurance coverage for injuries to workers on my property.
+      - Contract a licensed general building Contractor for all work
 
-  - type: checkbox
-    label: I am aware of and consent to an Owner-Builder building permit applied for in my name. I understand that I am legally and financially responsible for the proposed work at the project address. I agree to follow all applicable laws and requirements that govern Owner-Builders and employers.
+      - Hire licensed subcontractors for 4 structures or less within a calendar year
 
-  - type: checkbox
-    label: I agree to notify the city immediately if I need to add, remove, or change any information on this form.
+  - type: header
+    level: 5
+    label: "By checking the box below:"
 
   - type: paragraph
-    label: >
-      ~~Before a building permit can be issued, this form must be completed and signed by the property owner and returned to the agency responsible for issuing the permit.~~ *Note: A copy of the property owner’s driver’s license, form notarization, or other verification acceptable to the agency is required to be presented when the permit is issued to verify the property owner’s signature.*
+    label: |
+
+      You declare that you&hellip;
+
+      - Consent to and are aware of the Owner-Builder building permit applied for in your name
+
+      - Are willfully acting as an Owner-Builder
+
+      - Understand the limits of your insurance coverage for injuries to workers on your property
+
+      - Understand you are legally and financially responsible for the proposed work at the project address
+
+      You also agree to&hellip;
+
+      - Follow all applicable laws and requirements for Owner-Builders and employers
+
+      - Notify the city immediately if you need to add, remove, or change any information on this form
+
+  - type: checkbox
+    label: I have read and understood everything on this page.
 
 - title: Let's find out if you need to submit more forms.
   fields:
