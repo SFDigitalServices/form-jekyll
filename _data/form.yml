@@ -15,14 +15,14 @@
   fields:
   - label: Name or DBA
 
+  - label: Mailing address
+    type: address
+
   - label: Phone number
     type: phone
 
   - label: Email address
     type: email
-
-  - label: Mailing address
-    type: address
 
   - label: Is the owner also building this ADU?
     type: radio
@@ -35,42 +35,15 @@
       hides: owner-builder
       shows: app-contact
 
-- title: Owner-Builder Disclosure Form
-  group: owner-builder
-  fields:
-  - label: >
-      We are providing you with an Owner-Builder Acknowledgment and Information Verification Form to make you aware of your responsibilities and possible risk you may incur by having this permit issued in your name as the Owner-Builder.  We will not issue a building permit until you have read and checked off your understanding of each provision. An agent of the owner cannot execute this notice unless you, the property owner, obtain the prior approval of the permitting authority.
-    type: paragraph
-
-  - type: checkbox
-    label: Read and check off each statement below to signify you understand or verify this information.
-    options:
-    - label: I understand a frequent practice of unlicensed persons is to have the property owner obtain an “Owner-Builder” building permit that erroneously implies that the property owner is providing his or her own labor and material personally. I, as an Owner-Builder, may be held liable and subject to serious financial risk for any injuries sustained by an unlicensed person and his or her employees while working on my property. My homeowner’s insurance may not provide coverage for those injuries. I am willfully acting as an Owner-Builder and am aware of the limits of my insurance coverage for injuries to workers on my property.
-    - label: I understand building permits are not required to be signed by property owners unless they are responsible for the construction and are not hiring a licensed Contractor to assume this responsibility.
-    - label: I understand as an “Owner-Builder” I am the responsible party of record on the permit. I understand that I may protect myself from potential financial risk by hiring a licensed Contractor and having the permit filed in his or her name instead of my own.
-    - label: I understand Contractors are required by law to be licensed and bonded in California and to list their license numbers on permits and contracts.
-    - label: I understand if I employ or otherwise engage any persons, other than California licensed Contractors, and the total value of my construction is at least five hundred dollars ($500), including labor and materials, I may be considered an “employer” under state and federal law.
-    - label: I understand if I am considered an “employer” under state and federal law, I must register with the state and federal government, withhold payroll taxes, provide workers’ compensation disability insurance, and contribute to unemployment compensation for each “employee.” I also understand my failure to abide by these laws may subject me to serious financial risk.
-    - label: I understand under California Contractors’ State License Law, an Owner-Builder who builds single-family residential structures cannot legally build them with the intent to offer them for sale, unless all work is performed by licensed subcontractors and the number of structures does not exceed four within any calendar year, or all of the work is performed under contract with a licensed general building Contractor.
-    - label: I understand as an Owner-Builder if I sell the property for which this permit is issued, I may be held liable for any financial or personal injuries sustained by any subsequent owner(s) that result from any latent construction defects in the workmanship or materials.
-    - label: I understand I may obtain more information regarding my obligations as an “employer” from the Internal Revenue Service, the United States Small Business Administration, the California Department of Benefit Payments, and the California Division of Industrial Accidents. I also understand I may contact the California Contractors’ State License Board (CSLB) at 1-800-321-CSLB (2752) or www.cslb.ca.gov for more information about licensed contractors.
-    - label: I am aware of and consent to an Owner-Builder building permit applied for in my name, and understand that I am the party legally and financially responsible for proposed construction activity at the project address.
-    - label: I agree that, as the party legally and financially responsible for this proposed construction activity, I will abide by all applicable laws and requirements that govern Owner-Builders as well as employers.
-    - label: I agree to notify the issuer of this form immediately of any additions, deletions, or changes to any of the information I have provided on this form. Licensed contractors are regulated by laws designed to protect the public. If you contract with someone who does not have a license, the Contractors’ State License Board may be unable to assist you with any financial loss you may sustain as a result of a complaint. Your only remedy against unlicensed Contractors may be in civil court. It is also important for you to understand that if an unlicensed Contractor or employee of that individual or firm is injured while working on your property, you may be held liable for damages. If you obtain a permit as Owner-Builder and wish to hire Contractors, you will be responsible for verifying whether or not those Contractors are properly licensed and the status of their workers’ compensation insurance coverage.
-
-  - type: paragraph
-    label: >
-      ~~Before a building permit can be issued, this form must be completed and signed by the property owner and returned to the agency responsible for issuing the permit.~~ *Note: A copy of the property owner’s driver’s license, form notarization, or other verification acceptable to the agency is required to be presented when the permit is issued to verify the property owner’s signature.*
-
-- title: Point of contact
-  description: Who should we contact while processing this application?
+- title: Contact Information
+  description: Who should we talk to when working on your application?
   group: app-contact
   fields:
   - label: Name
 
   - label: Title
 
-  - label: Relationship to the owner
+  - label: Relationship to owner
     type: radio
     other: true
     options:
@@ -91,7 +64,7 @@
 
   - group: contact-org
     fields:
-    - label: Name of firm / organization
+    - label: Name of organization
 
     - label: Mailing address
       type: address
@@ -102,15 +75,18 @@
     - label: Email
       type: email
 
-- title: About the project
+- title: Your property
   fields:
-  - label: What's the address? (Don't add the city and state here)
+  - label: Property address
     type: address
+    address-fields:
+    - 'street'
+    - 'zip'
 
   - label: Describe the ADUs per ordinance number.
     type: textarea
 
-  - label: Please provide a detailed description of the work that will be covered under this application.
+  - label: Please describe the work you are proposing in detail.
     type: textarea
     helptext: If applicable, list any special authorizations or changes to the Planning Code or Zoning Maps.
 
@@ -306,21 +282,21 @@
 
 - title: Worker's compensation insurance
   fields:
-  - label: What best describes your coverage?
+  - label: What best describes your worker's compensation insurance coverage for this project?
     type: radio
     options:
-    - label: "I am self-insured for worker's compensation and have a certificate of consent."
+    - label: "I am self-insured and have a certificate of consent."
       hides: comp-II
       shows: comp-I
 
-    - label: "I have third-party worker's compensation insurance."
+    - label: "I have third-party insurance."
       shows: comp-II
 
-    - label: "I plan to employ a contractor who will comply with worker's compensation laws."
+    - label: "I plan to hire a contractor who will follow worker's compensation laws."
       hides: comp-II
       shows: comp-V
 
-    - label: "I don't need insurance because I don't plan to employ anyone."
+    - label: "I don't need insurance because I'm not hiring anyone."
       hides: comp-II
       shows: comp-IV
 
@@ -474,6 +450,33 @@
     - label: >
        I certify as the owner (or the agent for the owner) that in the performance of the work for which this permit is issued, I will employ a contractor who complies with the workers' compensation laws of California and who, prior to the commencement of any work, will file a completed copy of this form with the Central Permit Bureau.
       type: checkbox
+
+- title: Owner-Builder Disclosure Form
+  group: owner-builder
+  fields:
+  - label: >
+      We are providing you with an Owner-Builder Acknowledgment and Information Verification Form to make you aware of your responsibilities and possible risk you may incur by having this permit issued in your name as the Owner-Builder.  We will not issue a building permit until you have read and checked off your understanding of each provision. An agent of the owner cannot execute this notice unless you, the property owner, obtain the prior approval of the permitting authority.
+    type: paragraph
+
+  - type: checkbox
+    label: Read and check off each statement below to signify you understand or verify this information.
+    options:
+    - label: I understand a frequent practice of unlicensed persons is to have the property owner obtain an “Owner-Builder” building permit that erroneously implies that the property owner is providing his or her own labor and material personally. I, as an Owner-Builder, may be held liable and subject to serious financial risk for any injuries sustained by an unlicensed person and his or her employees while working on my property. My homeowner’s insurance may not provide coverage for those injuries. I am willfully acting as an Owner-Builder and am aware of the limits of my insurance coverage for injuries to workers on my property.
+    - label: I understand building permits are not required to be signed by property owners unless they are responsible for the construction and are not hiring a licensed Contractor to assume this responsibility.
+    - label: I understand as an “Owner-Builder” I am the responsible party of record on the permit. I understand that I may protect myself from potential financial risk by hiring a licensed Contractor and having the permit filed in his or her name instead of my own.
+    - label: I understand Contractors are required by law to be licensed and bonded in California and to list their license numbers on permits and contracts.
+    - label: I understand if I employ or otherwise engage any persons, other than California licensed Contractors, and the total value of my construction is at least five hundred dollars ($500), including labor and materials, I may be considered an “employer” under state and federal law.
+    - label: I understand if I am considered an “employer” under state and federal law, I must register with the state and federal government, withhold payroll taxes, provide workers’ compensation disability insurance, and contribute to unemployment compensation for each “employee.” I also understand my failure to abide by these laws may subject me to serious financial risk.
+    - label: I understand under California Contractors’ State License Law, an Owner-Builder who builds single-family residential structures cannot legally build them with the intent to offer them for sale, unless all work is performed by licensed subcontractors and the number of structures does not exceed four within any calendar year, or all of the work is performed under contract with a licensed general building Contractor.
+    - label: I understand as an Owner-Builder if I sell the property for which this permit is issued, I may be held liable for any financial or personal injuries sustained by any subsequent owner(s) that result from any latent construction defects in the workmanship or materials.
+    - label: I understand I may obtain more information regarding my obligations as an “employer” from the Internal Revenue Service, the United States Small Business Administration, the California Department of Benefit Payments, and the California Division of Industrial Accidents. I also understand I may contact the California Contractors’ State License Board (CSLB) at 1-800-321-CSLB (2752) or www.cslb.ca.gov for more information about licensed contractors.
+    - label: I am aware of and consent to an Owner-Builder building permit applied for in my name, and understand that I am the party legally and financially responsible for proposed construction activity at the project address.
+    - label: I agree that, as the party legally and financially responsible for this proposed construction activity, I will abide by all applicable laws and requirements that govern Owner-Builders as well as employers.
+    - label: I agree to notify the issuer of this form immediately of any additions, deletions, or changes to any of the information I have provided on this form. Licensed contractors are regulated by laws designed to protect the public. If you contract with someone who does not have a license, the Contractors’ State License Board may be unable to assist you with any financial loss you may sustain as a result of a complaint. Your only remedy against unlicensed Contractors may be in civil court. It is also important for you to understand that if an unlicensed Contractor or employee of that individual or firm is injured while working on your property, you may be held liable for damages. If you obtain a permit as Owner-Builder and wish to hire Contractors, you will be responsible for verifying whether or not those Contractors are properly licensed and the status of their workers’ compensation insurance coverage.
+
+  - type: paragraph
+    label: >
+      ~~Before a building permit can be issued, this form must be completed and signed by the property owner and returned to the agency responsible for issuing the permit.~~ *Note: A copy of the property owner’s driver’s license, form notarization, or other verification acceptable to the agency is required to be presented when the permit is issued to verify the property owner’s signature.*
 
 - title: Let's find out if you need to submit more forms.
   fields:
