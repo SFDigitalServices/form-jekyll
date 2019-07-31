@@ -17,6 +17,17 @@
   {% assign description = field.description %}
 
   {% comment %}
+    Address field formats
+  {% endcomment %}
+
+  {% if field.address-fields %}
+    {% assign address-fields = field.address-fields %}
+  {% else %}
+    {% assign address-fields = 'full' %}
+  {% endif %}
+
+
+  {% comment %}
     Include the appropriate markup for each field type
   {% endcomment %}
 
@@ -37,7 +48,7 @@
         {% elsif field.type == 'select' %}
           {% include fields/select.html label=label helptext=helptext option=options name=name error=error %}
         {% elsif field.type == 'address' %}
-          {% include fields/address.html label=label helptext=helptext name=name error=error %}
+          {% include fields/address.html label=label helptext=helptext name=name error=error address-fields=address-fields %}
         {% elsif field.type == 'price' %}
           {% include fields/price.html label=label helptext=helptext name=name error=error %}
         {% elsif field.type == 'email' %}
