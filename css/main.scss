@@ -656,6 +656,10 @@ form {
 .help-text {
   font-size: 0.875rem;
   color: $slate-blue;
+
+  p:first-child {
+    margin-top: 0.25rem;
+  }
 }
 
 .has-error .help-block {
