@@ -505,9 +505,11 @@
   - label: I hereby certify and agree that if I am issued a permit for the construction described in this application, all the provisions of the permit and all laws and ordinances thereto will be complied with.
     type: checkbox
 
+- title: Terms
+  fields:
   - label: Hold Harmless Clause
     type: header
-    level: 3
+    level: 4
 
   - label: |
       The permittee(s) by acceptance of the permit, agree(s) to indemnify and hold harmless the City and County of San Francisco from and against any and all claims, demands and actions for damages resulting from operations under this permit, regardless of negligence of the City and County of San Francisco, and to assume the defense of the City and County of San Francisco against all such claims, demands or actions.
@@ -529,12 +531,12 @@
 
   - group: comp-III
     fields:
-    - label: The work will cost 100 or less.
+    - label: The work will cost $100 or less.
       type: checkbox
 
   - group: comp-IV
     fields:
-    - label: >
+    - label: |
        The California worker's compensation laws do not apply to me. When I perform the work described in this permit, I do not plan to employ anyone in a way that would subject me to them.
 
         If California worker's compensation laws do apply to this project, and I fail to comply with them, I understand that the city will revoke my permit.
@@ -542,7 +544,7 @@
 
   - group: comp-V
     fields:
-    - label: >
+    - label: |
        I certify I will hire a contractor who complies with California worker's compensation laws for the work described in this permit. Before starting any work, they will file a finished copy of this form with the Central Permit Bureau.
       type: checkbox
 
@@ -551,13 +553,15 @@
   fields:
   - type: paragraph
     label: |
-
       We would like to inform you, the owner, of the responsibilities and potential risks of being the owner and builder on this permit. If you are not the owner, you cannot move forward unless you have approval from the permitting authority.
 
-      Before you continue, you must read everything below and confirm they understand it.
+      Before you continue, you must read the following pages and confirm you understand them.
 
       _Note: A copy of your driver’s license, form notarization, or other verification acceptable to the agency is required to be presented when the permit is issued to verify the property owner’s signature._
 
+- title: Disclosures for Owner-Builders
+  group: owner-builder
+  fields:
   - type: header
     label: About unlicensed workers
     level: 5
@@ -622,6 +626,12 @@
 
       - **Website:** [www.cslb.ca.gov](www.cslb.ca.gov)
 
+  - type: checkbox
+    label: I understand and agree to everything on this page.
+
+- title: Disclosures for Owner-Builders
+  group: owner-builder
+  fields:
   - type: header
     level: 5
     label: Information for Owner-Builders
@@ -637,6 +647,12 @@
 
       - Hire licensed subcontractors for 4 structures or less within a calendar year
 
+  - type: checkbox
+    label: I understand and agree to everything on this page.
+
+- title: Disclosures for Owner-Builders
+  group: owner-builder
+  fields:
   - type: header
     level: 5
     label: "By checking the box below:"
