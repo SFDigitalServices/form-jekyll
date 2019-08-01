@@ -795,14 +795,14 @@
     - label: "Apply for a plumbing permit"
       type: link
       url: https://dbiweb.sfgov.org/dbi_plumbing/
-      description: Since you are performing plumbing work, you'll need a plumbing permit.
+      description: Since you are performing plumbing work, you will need a plumbing permit.
 
   - group: electrical
     fields:
     - label: "Apply for an electrical permit"
       type: link
       url: https://dbiweb.sfgov.org/dbi_electrical/
-      description: Since you are performing electrical work, you'll need a electrical permit.
+      description: Since you are performing electrical work, you will need a electrical permit.
 
   - group: new-height
     fields:
