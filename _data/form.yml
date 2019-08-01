@@ -1,13 +1,22 @@
-- title: Get ready to apply to an ADU.
+- title: Are you ready to apply for an ADU?
   fields:
-  - label: >
-      *Here's what to expect:*
+  - label: |
+      This application will ask you about:
 
-      - Here's one thing to expect
+      - The owner's and agent's contact information
 
-      - And another
+      - Construction details like the project address, cost, and excavation area
 
-      - And yet another
+      - How you are currently using the land, and how you plan to change it
+
+      - Safety-related topics like fire protection, seismic retrofitting, and worker's compensation insurance
+
+      If you are not building the ADU yourself, you might need a professional to help you answer some questions. If you have not yet hired a architect, contractor or engineer, you might want to do so before applying.
+
+      If you're ready, press "Next" to get started.
+
+
+
     type: paragraph
 
 - title: About the Owner
@@ -87,6 +96,9 @@
 
   - label: Proposed use
 
+- title: Construction work
+  fields:
+
   - label: Please describe the work you are proposing in detail.
     type: textarea
     helptext: |
@@ -97,8 +109,6 @@
       - A detailed description of all other planned work
       - Any special authorizations or changes to the Planning Code or Zoning Maps
 
-- title: Construction work
-  fields:
   - label: Type of construction
     type: select
     options:
@@ -461,21 +471,36 @@
   - type: paragraph
     label: |
 
-      You will still need to apply for permits for:
+      You need to apply for separate permits for any:
 
-      - Adding or changing any auto runways
+      - Additions or changes to auto runways
 
-      - Any building extensions
+      - Building extensions
 
-      - Any changes of occupancy
+      - Changes of occupancy
 
-      - Any electrical work
+      - Electrical work
 
-      - Any plumbing work
+      - Plumbing work
 
-      - Any street space used during construction
+      - Street space used during construction
 
-      If we approve this application, you will still need to get these permits approved.
+      Even if we approve this application, the status of these permits will not change.
+
+  - type: header
+    label: Your identity
+    level: 4
+
+  - type: paragraph
+    label: |
+      By checking the box below, you certify that:
+
+      - You are either the owner, the lessee, or an authorized agent for them
+
+      - You are authorized to sign this permit application
+
+  - label: I declare under penalty of perjury that my application is true and correct.
+    type: checkbox
 
   - label: I hereby certify and agree that if I am issued a permit for the construction described in this application, all the provisions of the permit and all laws and ordinances thereto will be complied with.
     type: checkbox
@@ -527,9 +552,9 @@
   - type: paragraph
     label: |
 
-      We would like to inform you of the responsibilities and potential risks of being the owner and builder on this permit.
+      We would like to inform you, the owner, of the responsibilities and potential risks of being the owner and builder on this permit. If you are not the owner, you cannot move forward unless you have approval from the permitting authority.
 
-      Before you continue, the owner must read everything below and confirm they understand it. If you are not the owner, you cannot move forward unless you have approval from the permitting authority.
+      Before you continue, you must read everything below and confirm they understand it.
 
       _Note: A copy of your driver’s license, form notarization, or other verification acceptable to the agency is required to be presented when the permit is issued to verify the property owner’s signature._
 
@@ -572,11 +597,11 @@
 
       Licensed contractors are regulated by laws designed to protect the public. These laws require contractors to be licensed and bonded in California. Contractors must also write their license numbers on permits and contracts.
 
-      After receiving an Owner-Builder permit, you may decide to hire Contractors instead. If this happens, you will need to verify whether they have:
+      After receiving an Owner-Builder permit, you may decide to hire Contractors instead. If this happens, you will need to verify whether they:
 
-      - Licenses
+      - Are licensed in California
 
-      - Active workers' compensation insurance coverage
+      - Have current workers' compensation insurance coverage
 
   - type: header
     level: 5
@@ -636,9 +661,10 @@
       - Notify the city immediately if you need to add, remove, or change any information on this form
 
   - type: checkbox
-    label: I have read and understood everything on this page.
+    label: I understand and agree to everything on this page.
 
-- title: Let's find out if you need to submit more forms.
+- title: Almost done!
+  description: All that's left is to find out whether you will need to submit more forms.
   fields:
   - label: Will the work involve any of the following?
     type: checkbox
@@ -681,7 +707,7 @@
     - label: "No"
       hides: maher
 
-- title: Here's what you still need to submit.
+- title: Great. Here's what you still need to submit.
   fields:
   - group: remove-services
     fields:
