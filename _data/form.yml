@@ -20,7 +20,7 @@
 - title: About the Owner
   description: Let's get started by learning a little more about you.
   fields:
-  - label: Name or DBA
+  - label: Name
 
   - label: Mailing address
     type: address
