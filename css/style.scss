@@ -26,6 +26,24 @@ header {
   }
 }
 
+// Conditional styles
+
+[data-group] {
+  display: none;
+
+  &.form-section.active {
+    display: none;
+  }
+}
+
+.is-conditionally-visible[data-group] {
+  display: block;
+
+  &.form-section.active {
+    display: block;
+  }
+}
+
 // Override .form-section styles so that the
 // "all-conditionals" setting doesn't break
 // the layout for conditionally hidden pages.

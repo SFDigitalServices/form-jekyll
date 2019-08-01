@@ -9,35 +9,62 @@ $(document).ready(function(){
     $('.form-settings').toggleClass('active');
   })
 
-  // Pagination
+  // ---- Pagination ----
+
+  // Track the current page number
+  var activePageNum = 0;
+  var activePage = $('.form-section').eq(activePageNum);
+
+  function paginate(count) {
+    // Hide the current page
+    $('.form-section').eq(activePageNum).removeClass('active');
+
+    // Evaluate the previous / next page
+    activePageNum = activePageNum + count;
+
+    function checkPage(number) {
+      var activePage = $('.form-section').eq(activePageNum);
+
+      // If we're conditionally hiding this page,
+      // evaluate the previous / next one
+      if (activePage.attr('data-group') && !activePage.hasClass('is-conditionally-visible')) {
+        activePageNum = activePageNum + number;
+        checkPage();
+      } else {
+        // If the page is visible, show it
+        activePage.addClass('active');
+      }
+    }
+
+    checkPage(count);
+
+    event.preventDefault();
+  }
+
+  // Previous page
   $('.form-section-prev').click(function() {
-    var currentSection = $(this).parent().parent('.form-section');
-    currentSection.removeClass('active');
-    currentSection.prev('.form-section').addClass('active');
-    e.preventDefault();
+    paginate(-1);
   });
 
+  // Next page
   $('.form-section-next').click(function() {
-    var currentSection = $(this).parent().parent('.form-section');
-    currentSection.removeClass('active');
-    currentSection.next('.form-section').addClass('active');
-    e.preventDefault();
+    paginate(1);
   });
 
   // Conditionals
   $("input[type='radio'][data-shows]").change(function () {
     var group = $(this).attr('data-shows');
-    $("div").find("[data-group='" + group + "']").show();
+    $("div").find("[data-group='" + group + "']").addClass('is-conditionally-visible');
   });
 
   $("input[type='checkbox'][data-shows]").change(function () {
     var group = $(this).attr('data-shows');
-    $("div").find("[data-group='" + group + "']").toggle();
+    $("div").find("[data-group='" + group + "']").toggleClass('is-conditionally-visible');
   });
 
   $("input[data-hides]").change(function () {
     var group = $(this).attr('data-hides');
-    $("div").find("[data-group='" + group + "']").hide();
+    $("div").find("[data-group='" + group + "']").removeClass('is-conditionally-visible');
   });
 
   // Settings
