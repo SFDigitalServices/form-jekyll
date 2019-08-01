@@ -4,14 +4,30 @@ $(document).ready(function(){
   $('.form-section:first-child').addClass('active');
   $(".form").validator();
 
+  // Set state of Settings checkboxes
+  // (Firefox doesn't clear page classes on reload)
+  if ($('body').hasClass('all-pages')) {
+    $('#settings-all-pages').prop('checked', true);
+  } else {
+    $('#settings-all-pages').prop('checked', false);
+  }
+
+  if ($('body').hasClass('all-conditionals')) {
+    $('#settings-all-conditionals').prop('checked', true);
+  } else {
+    $('#settings-all-conditionals').prop('checked', false);
+  }
+
+
   // Toggle form settings modal
   $('.form-settings-toggle').click(function() {
     $('.form-settings').toggleClass('active');
-  })
+  });
 
   // ---- Pagination ----
 
   // Track the current page number
+  // (The first page is always shown on page load)
   var activePageNum = 0;
   var activePage = $('.form-section').eq(activePageNum);
 
@@ -70,9 +86,9 @@ $(document).ready(function(){
   // Settings
   $('#settings-all-pages').change(function() {
     $('body').toggleClass('all-pages');
-  })
+  });
 
   $('#settings-all-conditionals').change(function() {
     $('body').toggleClass('all-conditionals');
-  })
+  });
 });
