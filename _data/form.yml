@@ -15,8 +15,6 @@
 
       If you're ready, press "Next" to get started.
 
-
-
     type: paragraph
 
 - title: About the Owner
@@ -26,6 +24,14 @@
 
   - label: Mailing address
     type: address
+
+  - label: Is this also the address of your project?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: project-address
+    - label: "No"
+      hides: project-address
 
   - label: Phone number
     type: phone
@@ -86,11 +92,13 @@
 
 - title: Your property
   fields:
-  - label: What is the address of the property?
-    type: address
-    address-fields:
-    - 'street'
-    - 'zip'
+  - group: project-address
+    fields:
+    - label: Project address
+      type: address
+      address-fields:
+      - 'street'
+      - 'zip'
 
   - label: Present use
 
@@ -166,83 +174,57 @@
       type: number
       unit: square feet
 
-- title: How are you currently using the land?
+- title: Square feet of parking space
   fields:
-  - label: Current parking space
+  - label: How much parking space does the property have?
     type: number
     unit: gross square feet
 
-  - label: Current residential space
-    type: number
-    unit: gross square feet
-
-  - label: Current retail commercial space
-    type: number
-    unit: gross square feet
-
-  - label: Current number of affordable dwelling units
-    type: number
-
-  - label: Current number of market-rate dwelling units
-    type: number
-
-  - label: Current number of buildings
-    type: number
-
-  - label: Current number of stories
-    type: number
-
-  - label: Current number of basements or cellars
-    type: number
-
-  - label: Current number of parking spaces
-    type: number
-
-  - label: Current number of bicycle spaces
-    type: number
-
-- title: What are you planning to change?
-  fields:
-  - label: Check all that apply.
-    type: checkbox
+  - label: Will this change after construction?
+    type: radio
     options:
-    - label: Parking gross square feet
+    - label: "Yes"
       shows: proposed-parking-gsf
+    - label: "No"
+      hides: proposed-parking-gsf
 
-    - label: Residential gross square feet
-      shows: proposed-residential-gsf
-
-    - label: Retail commercial gross square feet
-      shows: proposed-commercial-gsf
-
-    - label: Number of affordable dwelling units
-      shows: proposed-affordable
-
-    - label: Number of market-rate dwelling units
-      shows: proposed-market-rate
-
-    - label: Number of buildings
-      shows: proposed-number-buildings
-
-    - label: Number of stories
-      shows: proposed-number-stories
-
-    - label: Number of basements or cellars
-      shows: proposed-number-basements
-
-    - label: Number of parking spaces
-      shows: proposed-parking-spaces
-
-    - label: Number of bicycle spaces
-      shows: proposed-bicycle-spaces
-
-- title: Fill in your proposed changes.
+- title: Number of parking spaces
   fields:
+  - label: How many parking spaces does the property have?
+    type: number
+
+  - label: Will this change after construction?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: proposed-parking-spaces
+    - label: "No"
+      hides: proposed-parking-spaces
+
+  - group: proposed-parking-spaces
+    fields:
+    - label: Proposed number of parking spaces
+      type: number
+
   - group: proposed-parking-gsf
     fields:
     - label: Proposed parking space
       type: number
       unit: gross square feet
+
+- title: Square feet of residential space
+  fields:
+  - label: How much residential space does the property have?
+    type: number
+    unit: gross square feet
+
+  - label: Will this change after construction?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: proposed-residential-gsf
+    - label: "No"
+      hides: proposed-residential-gsf
 
   - group: proposed-residential-gsf
     fields:
@@ -250,45 +232,133 @@
       type: number
       unit: gross square feet
 
-  - group: proposed-commercial-gsf
-    fields:
-    - label: Proposed retail commercial space
-      type: number
-      unit: gross square feet
+- title: Number of affordable dwelling units
+  fields:
+  - label: How many affordable dwelling units does the property have?
+    type: number
+
+  - label: Will this change after construction?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: proposed-affordable
+    - label: "No"
+      hides: proposed-affordable
 
   - group: proposed-affordable
     fields:
     - label: Proposed number of affordable dwelling units
       type: number
 
+- title: Number of market-rate dwelling units
+  fields:
+  - label: How many market-rate dwelling units does the property have?
+    type: number
+    unit: gross square feet
+
+  - label: Will this change after construction?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: proposed-market-rate
+    - label: "No"
+      hides: proposed-market-rate
+
   - group: proposed-market-rate
     fields:
     - label: Proposed number of market-rate dwelling units
       type: number
 
-  - group: proposed-number-buildings
+- title: Square feet of commercial space
+  fields:
+  - label: How much commercial space does the property have?
+    type: number
+    unit: gross square feet
+
+  - label: Will this change after construction?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: proposed-commercial-gsf
+    - label: "No"
+      hides: proposed-commercial-gsf
+
+  - group: proposed-commercial-gsf
+    fields:
+    - label: Proposed commercial space
+      type: number
+      unit: gross square feet
+
+- title: Number of buildings
+  fields:
+  - label: How many buildings does the property have?
+    type: number
+
+  - label: Will this change after construction?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: proposed-buildings
+    - label: "No"
+      hides: proposed-buildings
+
+  - group: proposed-buildings
     fields:
     - label: Proposed number of buildings
       type: number
 
-  - group: proposed-number-stories
+- title: Number of stories
+  fields:
+  - label: How many stories does the property have?
+    type: number
+
+  - label: Will this change after construction?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: proposed-stories
+    - label: "No"
+      hides: proposed-stories
+
+  - group: proposed-stories
     fields:
     - label: Proposed number of stories
       type: number
 
-  - group: proposed-number-basements
+- title: Number of basements / cellars
+  fields:
+  - label: How many basements or cellars does the property have?
+    type: number
+
+  - label: Will this change after construction?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: proposed-basements
+    - label: "No"
+      hides: proposed-basements
+
+  - group: proposed-basements
     fields:
     - label: Proposed number of basements or cellars
       type: number
 
-  - group: proposed-parking-spaces
-    fields:
-    - label: Proposed parking spaces
-      type: number
+- title: Bicycle spaces
+  fields:
+  - label: How many bicycle spaces does the property have?
+    type: number
+
+  - label: Will this change after construction?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: proposed-bicycle-spaces
+    - label: "No"
+      hides: proposed-bicycle-spaces
 
   - group: proposed-bicycle-spaces
     fields:
-    - label: Proposed bicycle spaces
+    - label: Proposed number of bicycle spaces
       type: number
 
 - title: Fire protection
