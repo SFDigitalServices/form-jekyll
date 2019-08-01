@@ -1,4 +1,4 @@
-<label class="control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label | markdownify | remove: '<p>' | remove: '</p>'}}</label>
+<label class="control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label | markdownify | remove: '<p>' | remove: '</p>' | improve}}</label>
 <div class="">
   <input type="text" name="{{ include.name }}" placeholder="" class="form-control input-md valtype" data-valtype="placeholder"
   {% unless optional %} required="required"{% endunless %}
@@ -8,6 +8,6 @@
     data-error="Please enter a valid phone number."
   {% endif %}>
   {% if include.helptext %}
-    <div class="help-text" data-valtype='help'>{{ include.helptext | markdownify }}</div>
+    <div class="help-text" data-valtype='help'>{{ include.helptext | markdownify | improve }}</div>
   {% endif %}
 </div>

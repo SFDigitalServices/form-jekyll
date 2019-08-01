@@ -1,11 +1,11 @@
-<label class="control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label | markdownify | remove: '<p>' | remove: '</p>'}}</label>
+<label class="control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label | markdownify | remove: '<p>' | remove: '</p>' | improve}}</label>
 <div class="">
   <div class="textarea">
     <textarea class="form-control valtype" data-valtype="textarea" name="{{ include.name }}"
     {% unless optional %} required="required"{% endunless %}
     {% if error %} data-error="{{ include.error }}"{% endif %} /> </textarea>
     {% if include.helptext %}
-      <div class="help-text" data-valtype='help'>{{ include.helptext | markdownify }}</div>
+      <div class="help-text" data-valtype='help'>{{ include.helptext | markdownify | improve }}</div>
     {% endif %}
   </div>
 </div>

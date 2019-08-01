@@ -2,5 +2,5 @@
   {% if include.description %}
     <p>{{ include.description }}</p>
   {% endif %}
-  <a href="{{ include.url }}" target="_blank">{{ field.label }}</a>
+  <a href="{{ include.url }}" target="_blank">{{ field.label  | improve}}</a>
 </div>

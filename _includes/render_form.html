@@ -9,7 +9,7 @@
     <header>
       <h2>{{ title | markdownify }}</h2>
       {% if page.description %}
-        <p>{{ page.description | markdownify }}</p>
+        <p>{{ page.description | markdownify | improve }}</p>
       {% endif %}
     </header>
 

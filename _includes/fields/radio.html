@@ -1,4 +1,4 @@
-<label class=" control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label | markdownify | remove: '<p>' | remove: '</p>'}}</label>
+<label class=" control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label | markdownify | remove: '<p>' | remove: '</p>' | improve}}</label>
 <div class=" valtype" data-valtype="radios">
   {% for option in options %}
     <label class="radio">
@@ -10,7 +10,7 @@
     {% if error %}
       data-error="{{ include.error }}"
     {% endif %}>
-    <span>{{ option.label | markdownify | remove: '<p>' | remove: '</p>'}}</span>
+    <span>{{ option.label | markdownify | remove: '<p>' | remove: '</p>' | improve }}</span>
     </label>
   {% endfor %}
   {% if include.other %}
@@ -24,6 +24,6 @@
     </div>
   {% endif %}
   {% if include.helptext %}
-    <div class="help-text" data-valtype='help'>{{ include.helptext | markdownify }}</div>
+    <div class="help-text" data-valtype='help'>{{ include.helptext | markdownify | improve }}</div>
   {% endif %}
 </div>

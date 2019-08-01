@@ -1,3 +1,5 @@
 title: ADU Form
 sass:
   style: compressed
+plugins:
+- jekyll-typogrify

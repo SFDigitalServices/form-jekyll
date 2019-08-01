@@ -1,7 +1,7 @@
 {% assign address-error = "Please fill in a complete address." %}
 
 <fieldset class="field-address">
-  <legend>{{ include.label | markdownify | remove: '<p>' | remove: '</p>'}}</legend>
+  <legend>{{ include.label | markdownify | remove: '<p>' | remove: '</p>' | improve}}</legend>
 
   {% if include.address-fields contains 'street' or include.address-fields == 'full' %}
     <label for="{{ include.name}}-line1">Address Line 1</label>
@@ -37,7 +37,7 @@
   {% endif %}
 
   {% if include.helptext %}
-   <div class="help-text" data-valtype='help'>{{ include.helptext | markdownify }}</div>
+   <div class="help-text" data-valtype='help'>{{ include.helptext | markdownify | improve }}</div>
   {% endif %}
 
 </fieldset>
