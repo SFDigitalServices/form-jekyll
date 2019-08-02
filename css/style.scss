@@ -39,6 +39,7 @@ header {
 .is-conditionally-visible[data-group] {
   display: block;
 
+  .all-pages &,
   &.form-section.active {
     display: block;
   }
