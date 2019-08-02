@@ -2,24 +2,6 @@
   {% comment %}
     Assign variables
   {% endcomment %}
-  {% assign label = field.label %}
-  {% assign helptext = field.helptext %}
-  {% capture name %}{{ title | slugify }}-field-{{ forloop.index }}{% endcapture %}
-  {% assign options  = field.options %}
-  {% assign error  = field.error %}
-  {% assign optional = field.optional %}
-  {% assign group  = field.group %}
-  {% assign fields  = field.fields %}
-  {% assign unit  = field.unit %}
-  {% assign other  = field.other %}
-  {% assign level = field.level %}
-  {% assign url = field.url %}
-  {% assign description = field.description %}
-  {% assign maxlength = field.maxlength %}
-
-  {% comment %}
-    Address field formats
-  {% endcomment %}
 
   {% if field.address-fields %}
     {% assign address-fields = field.address-fields %}
@@ -27,6 +9,20 @@
     {% assign address-fields = 'full' %}
   {% endif %}
 
+  {% assign description = field.description %}
+  {% assign error  = field.error %}
+  {% assign fields  = field.fields %}
+  {% assign group  = field.group %}
+  {% assign helptext = field.helptext %}
+  {% assign label = field.label %}
+  {% assign level = field.level %}
+  {% assign maxlength = field.maxlength %}
+  {% capture name %}{{ title | slugify }}-field-{{ forloop.index }}{% endcapture %}
+  {% assign optional = field.optional %}
+  {% assign options  = field.options %}
+  {% assign other  = field.other %}
+  {% assign unit  = field.unit %}
+  {% assign url = field.url %}
 
   {% comment %}
     Render each field
