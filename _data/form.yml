@@ -174,9 +174,9 @@
       type: number
       unit: square feet
 
-- title: Square feet of parking space
+- title: Parking area
   fields:
-  - label: How much parking space does the property have?
+  - label: How many square feet of parking space does the property have?
     type: number
     unit: gross square feet
 
@@ -188,7 +188,13 @@
     - label: "No"
       hides: proposed-parking-gsf
 
-- title: Number of parking spaces
+  - group: proposed-parking-gsf
+    fields:
+    - label: Proposed parking space
+      type: number
+      unit: gross square feet
+
+- title: Parking spaces
   fields:
   - label: How many parking spaces does the property have?
     type: number
@@ -206,15 +212,9 @@
     - label: Proposed number of parking spaces
       type: number
 
-  - group: proposed-parking-gsf
-    fields:
-    - label: Proposed parking space
-      type: number
-      unit: gross square feet
-
-- title: Square feet of residential space
+- title: Residential area
   fields:
-  - label: How much residential space does the property have?
+  - label: How many square feet of residential space does the property have?
     type: number
     unit: gross square feet
 
@@ -232,7 +232,7 @@
       type: number
       unit: gross square feet
 
-- title: Number of affordable dwelling units
+- title: Affordable dwelling units
   fields:
   - label: How many affordable dwelling units does the property have?
     type: number
@@ -250,7 +250,7 @@
     - label: Proposed number of affordable dwelling units
       type: number
 
-- title: Number of market-rate dwelling units
+- title: Market-rate dwelling units
   fields:
   - label: How many market-rate dwelling units does the property have?
     type: number
@@ -269,9 +269,9 @@
     - label: Proposed number of market-rate dwelling units
       type: number
 
-- title: Square feet of commercial space
+- title: Commercial area
   fields:
-  - label: How much commercial space does the property have?
+  - label: How many square feet of commercial space does the property have?
     type: number
     unit: gross square feet
 
@@ -289,7 +289,7 @@
       type: number
       unit: gross square feet
 
-- title: Number of buildings
+- title: Buildings
   fields:
   - label: How many buildings does the property have?
     type: number
@@ -307,7 +307,7 @@
     - label: Proposed number of buildings
       type: number
 
-- title: Number of stories
+- title: Building stories
   fields:
   - label: How many stories does the property have?
     type: number
@@ -325,7 +325,7 @@
     - label: Proposed number of stories
       type: number
 
-- title: Number of basements / cellars
+- title: Basements / cellars
   fields:
   - label: How many basements or cellars does the property have?
     type: number
