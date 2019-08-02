@@ -171,6 +171,9 @@
     fields:
     - label: State the new height at the center line of the front of the building.
       helptext: If the height will be over 40 feet, you may need a shadow analysis.
+      type: number
+      unit: inches
+
 
   - group: new-ground-floor
     fields:
@@ -424,6 +427,7 @@
 
     - label: Policy number
       type: number
+      maxlength: 15
 
 - title: Seismic work
   fields:
@@ -443,6 +447,7 @@
     fields:
     - label: Enter your seismic retrofitting permit application number.
       type: number
+      maxlength: 15
 
   - label: >
       Have you filed for voluntary seismic strengthening under [Administrative Bulletin AB-094](https://sfdbi.org/sites/default/files/migrated/FileCenter/Documents/Administrative_Bulletins/2013_AB/AB_094_updated_010114.pdf)?
@@ -458,6 +463,7 @@
     fields:
     - label: Enter your seismic strengthening permit application number.
       type: number
+      maxlength: 15
 
   - label: >
       Does the building comply with the ordinances for ADUS: [95-17](http://default.sfplanning.org/plans-and-programs/planning-for-the-city/accessory-dwelling-units/ADU_Ord_095-17_170125_signed.pdf), [162-16](https://sfgov.legistar.com/View.ashx?M=F&ID=4617538&GUID=2625970B-6704-46C2-A972-68BF0C206D9C) or [162-17](https://sfbos.org/sites/default/files/o0162-17.pdf)?
@@ -814,7 +820,6 @@
 
         - Mailing a notice to every tenant and the property owner
 
-
         Also, please upload the following.
 
     - label: Upload a copy of your notice
@@ -894,7 +899,6 @@
       - Answer to "amount of excavation" is 50+ cubic yards
 
       - PIM says the slope is at least 20%
-
 
       Tell them here to attach a geotechnical report (link?)
     type: paragraph
