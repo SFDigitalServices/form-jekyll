@@ -1,17 +1,17 @@
-<label class="control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label | markdownify | remove: '<p>' | remove: '</p>' | improve}}</label>
+<label class="control-label valtype" for="{{ name }}" data-valtype="label">{{ label | markdownify | remove: '<p>' | remove: '</p>' | improve}}</label>
 <div class="field-number">
   <input type="text"
-     id="{{ include.name }}"
+     id="{{ name }}"
      placeholder=""
      class="form-control input-md valtype
-     {% if include.maxlength %} length-{{include.maxlength | default: '5'}}{% endif %}"
+     length-{{maxlength | default: '5' }}"
      data-valtype="placeholder"
      {% unless optional %} required="required"{% endunless %}
-     {% if error %} data-error="{{ include.error }}"{% endif %}
-     {% if include.maxlength %} maxlength="{{include.maxlength | default: 5}}"{% endif %}
+     {% if error %} data-error="{{ error }}"{% endif %}
+     {% if maxlength %} maxlength="{{maxlength | default: '5'}}"{% endif %}
      >
-     <span class="units">{{ include.unit }}</span>
-  {% if include.helptext %}
-    <div class="help-text" data-valtype='help'>{{ include.helptext | markdownify | improve }}</div>
+     <span class="units">{{ unit }}</span>
+  {% if helptext %}
+    <div class="help-text" data-valtype='help'>{{ helptext | markdownify | improve }}</div>
   {% endif %}
 </div>

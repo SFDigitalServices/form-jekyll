@@ -33,37 +33,37 @@
   {% endcomment %}
 
     {% if field.group %}
-      {% include fields/group.html group=group field=fields %}
+      {% include fields/group.html %}
     {% elsif field.type == 'header' %}
-      {% include fields/header.html level=level label=label %}
+      {% include fields/header.html %}
     {% elsif field.type == 'paragraph' %}
-      {% include fields/paragraph.html label=label %}
+      {% include fields/paragraph.html %}
     {% elsif field.type == 'link' %}
-      {% include fields/link.html label=label url=url description=description %}
+      {% include fields/link.html %}
     {% else %}
       <div class="form-group">
         {% if field.type == 'radio' %}
-          {% include fields/radio.html label=label helptext=helptext option=options name=name error=error other=other %}
+          {% include fields/radio.html %}
         {% elsif field.type == 'checkbox' %}
-          {% include fields/checkbox.html label=label helptext=helptext option=options name=name error=error %}
+          {% include fields/checkbox.html %}
         {% elsif field.type == 'select' %}
-          {% include fields/select.html label=label helptext=helptext option=options name=name error=error %}
+          {% include fields/select.html %}
         {% elsif field.type == 'address' %}
-          {% include fields/address.html label=label helptext=helptext name=name error=error address-fields=address-fields %}
+          {% include fields/address.html %}
         {% elsif field.type == 'price' %}
-          {% include fields/price.html label=label helptext=helptext name=name error=error %}
+          {% include fields/price.html %}
         {% elsif field.type == 'email' %}
-          {% include fields/email.html label=label helptext=helptext name=name error=error %}
+          {% include fields/email.html %}
         {% elsif field.type == 'phone' %}
-          {% include fields/phone.html label=label helptext=helptext name=name error=error %}
+          {% include fields/phone.html %}
         {% elsif field.type == 'textarea' %}
-          {% include fields/textarea.html label=label helptext=helptext name=name error=error%}
+          {% include fields/textarea.html %}
         {% elsif field.type == 'number' %}
-          {% include fields/number.html label=label helptext=helptext name=name error=error unit=unit maxlength=maxlength %}
+          {% include fields/number.html %}
         {% elsif field.type == 'file' %}
-          {% include fields/file.html label=label helptext=helptext name=name error=error %}
+          {% include fields/file.html %}
         {% else %}
-          {% include fields/text.html helptext=helptext name=name error=error maxlength=maxlength %}
+          {% include fields/text.html %}
         {% endif %}
         <p class="help-block with-errors"></p>
       </div>
