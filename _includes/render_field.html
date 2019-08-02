@@ -39,7 +39,7 @@
   {% elsif field.type == 'link' %}
     {% include {{ includepath }} %}
   {% else %}
-    <div class="form-group">
+    <div class="form-group field-{{ field.type }}">
       {% if field.type %}
         {% include {{ includepath }} %}
       {% else %}

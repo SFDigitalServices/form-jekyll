@@ -1,5 +1,5 @@
 <label class="control-label valtype" for="{{ name }}" data-valtype="label">{{ label | markdownify | remove: '<p>' | remove: '</p>' | improve}}</label>
-<div class="">
+<div class="field-container">
   <select class="form-control input-md valtype" data-valtype="option" name="{{ name }}"
   {% unless optional %} required="required"{% endunless %}
   {% if error %} data-error="{{ error }}" {% endif %}>

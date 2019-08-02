@@ -3,7 +3,7 @@
     <legend class=" control-label valtype" for="{{ name }}" data-valtype="label">{{ label | markdownify | remove: '<p>' | remove: '</p>' | improve}}</legend>
   {% endif %}
 
-  <div class=" valtype" data-valtype="checkboxes">
+  <div class="field-container valtype" data-valtype="checkboxes">
     {% if options %}
       {% for option in options %}
         <label class="checkbox">

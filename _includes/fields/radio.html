@@ -1,6 +1,6 @@
 <fieldset>
   <legend class=" control-label valtype" for="{{ name }}" data-valtype="label">{{ label | markdownify | remove: '<p>' | remove: '</p>' | improve}}</legend>
-  <div class=" valtype" data-valtype="radios">
+  <div class="field-container valtype" data-valtype="radios">
     {% for option in options %}
       <label class="radio">
         <input type="radio" value="{{ option.label  }}" name="{{ name }}"
