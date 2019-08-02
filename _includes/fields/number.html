@@ -3,10 +3,12 @@
   <input type="text"
      id="{{ include.name }}"
      placeholder=""
-     class="form-control input-md valtype"
+     class="form-control input-md valtype
+     {% if include.maxlength %} length-{{include.maxlength | default: '5'}}{% endif %}"
      data-valtype="placeholder"
      {% unless optional %} required="required"{% endunless %}
      {% if error %} data-error="{{ include.error }}"{% endif %}
+     {% if include.maxlength %} maxlength="{{include.maxlength | default: 5}}"{% endif %}
      >
      <span class="units">{{ include.unit }}</span>
   {% if include.helptext %}

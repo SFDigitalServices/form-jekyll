@@ -32,7 +32,7 @@
   {% if include.address-fields contains 'zip' or include.address-fields == 'full' %}
     <div class="field-address-zip">
       <label for="{{ include.name}}-zip" {% unless optional %}required="required" data-error="{{ address-error }}"{% endunless %}>ZIP Code</label>
-      <input type="text" id="{{ include.name}}-zip">
+      <input type="text" id="{{ include.name}}-zip" maxlength="5" class="length-5">
     </div>
   {% endif %}
 

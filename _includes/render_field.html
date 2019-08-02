@@ -15,6 +15,7 @@
   {% assign level = field.level %}
   {% assign url = field.url %}
   {% assign description = field.description %}
+  {% assign maxlength = field.maxlength %}
 
   {% comment %}
     Address field formats
@@ -58,11 +59,11 @@
         {% elsif field.type == 'textarea' %}
           {% include fields/textarea.html label=label helptext=helptext name=name error=error%}
         {% elsif field.type == 'number' %}
-          {% include fields/number.html label=label helptext=helptext name=name error=error unit=unit %}
+          {% include fields/number.html label=label helptext=helptext name=name error=error unit=unit maxlength=maxlength %}
         {% elsif field.type == 'file' %}
           {% include fields/file.html label=label helptext=helptext name=name error=error %}
         {% else %}
-          {% include fields/text.html label=label helptext=helptext name=name error=error %}
+          {% include fields/text.html helptext=helptext name=name error=error maxlength=maxlength %}
         {% endif %}
         <p class="help-block with-errors"></p>
       </div>

@@ -135,20 +135,24 @@
 
   - label: How many months do you estimate construction will last?
     type: number
+    maxlength: 2
 
 - title: Construction impact
   fields:
 
   - label: Area of excavation / disturbance
     type: number
+    maxlength: 4
     unit: square feet
 
   - label: Amount of excavation
     type: number
+    maxlength: 5
     unit: cubic yards
 
   - label: Including foundation work, how deep do you plan to disturb the surface below grade?
     type: number
+    maxlength: 3
     unit: feet
 
   - label: Will the work involve any of the following?
@@ -172,6 +176,7 @@
     fields:
     - label: What will the new ground floor area be?
       type: number
+      maxlength: 4
       unit: square feet
 
 - title: Parking area
