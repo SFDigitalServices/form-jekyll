@@ -40,12 +40,11 @@ $(document).ready(function(){
 
     function checkPage(number) {
       var activePage = $('.form-section').eq(activePageNum);
-
       // If we're conditionally hiding this page,
       // evaluate the previous / next one
       if (activePage.attr('data-group') && !activePage.hasClass('is-conditionally-visible')) {
         activePageNum = activePageNum + number;
-        checkPage();
+        checkPage(number);
       } else {
         // If the page is visible, show it
         activePage.addClass('active');
