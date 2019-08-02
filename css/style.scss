@@ -134,3 +134,10 @@ header {
     display: block;
   }
 }
+
+.nav-on-top {
+  display: none;
+  .top-nav & {
+    display: block;
+  }
+}

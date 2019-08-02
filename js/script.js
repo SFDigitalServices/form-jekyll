@@ -18,6 +18,12 @@ $(document).ready(function(){
     $('#settings-all-conditionals').prop('checked', false);
   }
 
+  if ($('body').hasClass('top-nav')) {
+    $('#settings-top-nav').prop('checked', true);
+  } else {
+    $('#settings-top-nav').prop('checked', false);
+  }
+
 
   // Toggle form settings modal
   $('.form-settings-toggle').click(function() {
@@ -89,5 +95,9 @@ $(document).ready(function(){
 
   $('#settings-all-conditionals').change(function() {
     $('body').toggleClass('all-conditionals');
+  });
+
+  $('#settings-top-nav').change(function() {
+    $('body').toggleClass('top-nav');
   });
 });

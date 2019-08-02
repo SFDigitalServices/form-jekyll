@@ -4,6 +4,9 @@
   {% assign title = page.title %}
 
   <div class="form-section"{% if page.group %} data-group="{{ page.group }}"{% endif %}>
+    <div class="nav-on-top">
+      {% include form-nav.html %}
+    </div>
 
     {% comment %} Page headers {% endcomment %}
     <header>
@@ -16,17 +19,6 @@
     {% comment %} Render fields in the page {% endcomment %}
     {% include render_field.html %}
 
-    {% comment %} "Previous" and "Next" buttons {% endcomment %}
-    <div class="form-group form-nav">
-      {% unless forloop.first %}
-        <a href="javascript:void(0);" class="btn btn-lg form-section-prev">Previous</a>
-      {% endunless %}
-
-      {% if forloop.last %}
-        <a href="javascript:void(0);" id="submit" class="btn btn-lg submit">Submit</a>
-      {% else %}
-        <a href="javascript:void(0);" class="btn btn-lg form-section-next">Next</a>
-      {% endif %}
-    </div>
+    {% include form-nav.html %}
   </div>
 {% endfor %}
