@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
-  // Initial state
+  //  ---- Initial state  ----
+
   $('.form-section:first-child').addClass('active');
   $(".form").validator();
 
@@ -72,7 +73,10 @@ $(document).ready(function(){
     paginate(1);
   });
 
-  // Conditionals
+  //  ---- Conditionals  ----
+
+  // Radio buttons and checkboxes
+
   $("input[type='radio'][data-shows]").change(function () {
     var group = $(this).attr('data-shows');
     $("div").find("[data-group='" + group + "']").addClass('is-conditionally-visible');
@@ -88,6 +92,8 @@ $(document).ready(function(){
     $("div").find("[data-group='" + group + "']").removeClass('is-conditionally-visible');
   });
 
+  // Match text field values
+
   $("input[data-if]").keyup(function() {
     var value = $(this).attr('data-if');
 
@@ -101,7 +107,10 @@ $(document).ready(function(){
     }
   });
 
-  // Settings
+
+
+  //  ---- Settings modal toggles  ----
+
   $('#settings-all-pages').change(function() {
     $('body').toggleClass('all-pages');
   });
