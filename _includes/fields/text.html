@@ -7,6 +7,8 @@
      {% if maxlength %} length-{{ maxlength }}{% endif %}"
      data-valtype="placeholder"
      {% unless optional %} required="required"{% endunless %}
+     {% if "if" %} data-if="{{ if }}"{% endif %}
+     {% if shows %} data-shows="{{ shows }}"{% endif %}
      {% if error %} data-error="{{ error }}"{% endif %}
      {% if maxlength %} maxlength="{{ maxlength }}"{% endif %}
      >

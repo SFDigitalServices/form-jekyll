@@ -88,6 +88,19 @@ $(document).ready(function(){
     $("div").find("[data-group='" + group + "']").removeClass('is-conditionally-visible');
   });
 
+  $("input[data-if]").keyup(function() {
+    var value = $(this).attr('data-if');
+
+    var group = $(this).attr('data-shows');
+    var groups = $("div").find("[data-group='" + group + "']");
+
+    if ($(this).val() === value) {
+      groups.addClass('is-conditionally-visible');
+    } else {
+      groups.removeClass('is-conditionally-visible');
+    }
+  });
+
   // Settings
   $('#settings-all-pages').change(function() {
     $('body').toggleClass('all-pages');
