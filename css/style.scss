@@ -20,9 +20,13 @@ $shadow: 0 1px 4px rgba(#000, 0.06);
 header {
   border-bottom: 5px solid #4F66EE;
   padding-bottom: 1.5rem;
-  margin-bottom: 2rem;
-  h2, p {
-    margin-bottom: 0;
+  margin: 2rem 0;
+  h2 {
+    margin: 0;
+  }
+
+  p {
+    margin: 0.25rem 0 0;
   }
 }
 

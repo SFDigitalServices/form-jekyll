@@ -1,7 +1,7 @@
 {% for page in include.fields %}
 
   {% assign fields = page.fields %}
-  {% assign title = page.title %}
+  {% assign label = page.title %}
 
   <div class="form-section"{% if page.group %} data-group="{{ page.group }}"{% endif %}>
     <div class="nav-on-top">
@@ -10,9 +10,9 @@
 
     {% comment %} Page headers {% endcomment %}
     <header>
-      <h2>{{ title | markdownify }}</h2>
+      {% include fields/header.html %}
       {% if page.description %}
-        <p>{{ page.description | markdownify | improve }}</p>
+        {{ page.description | markdownify | improve }}
       {% endif %}
     </header>
 

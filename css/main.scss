@@ -16,6 +16,7 @@ legend {
   display: block;
   margin: 0 0 0.25rem;
   padding: 0;
+  line-height: 1.5;
 }
 
 div[data-group] {
@@ -288,8 +289,31 @@ button {
   -webkit-font-size-adjust: 100%;
 }
 
+input,
+textarea,
+select {
+  color: $slate-blue;
+}
+
 body {
   line-height: 1.75;
+}
+
+.site {
+  font-size: 1.0625em;
+}
+
+label,
+legend {
+  font-size: (24em / 17);
+  letter-spacing: -0.016em;
+  line-height: 1.5;
+  @include font-smoothing;
+  margin-bottom: 0.5rem;
+}
+
+legend {
+  margin-bottom: 0.75rem;
 }
 
 b, strong {
@@ -379,26 +403,30 @@ input[type='file'] {
 
 // Checkbox and radio button styles
 
+$rc-size: 3rem;
+
 .checkbox,
 .radio {
   position: relative;
-  padding-left: 3rem;
+  padding-left: $rc-size + 0.75rem;
   margin-bottom: 1rem;
+  min-height: $rc-size;
 
   input,
   span::before {
     position: absolute;
-    top: -0.25rem;
+    top: 0;
     left: 0;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: $rc-size;
+    height: $rc-size;
   }
 
   input {
     -webkit-appearance: none;
     -moz-appearance: none;
     opacity: 0;
-
+    padding: 0;
+    margin: 0;
     &:focus + span:before {
       @include input-border-focus;
     }
@@ -406,6 +434,8 @@ input[type='file'] {
 
   span {
     display: block;
+    font-size: initial;
+    padding-top: 0.75rem;
     &::before {
       content: '';
       @include input-border;
@@ -421,10 +451,10 @@ input[type='file'] {
 
   span::after {
     content: '';
-    width: 1.5rem;
-    height: 1.5rem;
-    top: 0.25rem;
-    left: 0.5rem;
+    width: $rc-size * 0.625;
+    height: $rc-size * 0.625;
+    top: $rc-size * 0.1875;
+    left: $rc-size * 0.1875;
     z-index: 2;
     position: absolute;
   }
@@ -607,6 +637,11 @@ h5 {
 
 .form-group {
   margin-bottom: 1.5rem;
+
+  p + &,
+  ul + & {
+    margin-top: 2rem;
+  }
 }
 
 form {
@@ -654,11 +689,11 @@ form {
 }
 
 .help-text {
-  font-size: 0.875rem;
   color: $slate-blue;
+  font-size: (15rem / 17);
 
   p:first-child {
-    margin-top: 0.25rem;
+    margin-top: 0.5rem;
   }
 }
 
@@ -736,8 +771,12 @@ form {
 
 .field-address {
   label {
-    font-size: 0.88rem;
-    margin: 0.75rem 0 0;
+    font-size: (15rem / 17);
+    margin: 0 0 0.25rem;
+  }
+
+  input {
+    margin-bottom: 0.75rem;
   }
 }
 
