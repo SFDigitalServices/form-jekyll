@@ -5,26 +5,26 @@ $(document).ready(function(){
   $('.form-section:first-child').addClass('active');
   $(".form").validator();
 
-  // Set state of Settings checkboxes
-  // (Firefox doesn't clear page classes on reload)
-  if ($('body').hasClass('all-pages')) {
-    $('#settings-all-pages').prop('checked', true);
-  } else {
-    $('#settings-all-pages').prop('checked', false);
+  // --- Settings checkboxes ---
+
+  function settingInit(setting) {
+    // Set initial state
+    // (Firefox doesn't clear page classes on reload)
+    if ($('body').hasClass(setting)) {
+      $('#settings-' + setting).prop('checked', true);
+    } else {
+      $('#settings-' + setting).prop('checked', false);
+    }
+
+    // Add / remove <body> classes
+    $('#settings-' + setting).change(function() {
+      $('body').toggleClass(setting);
+    });
   }
 
-  if ($('body').hasClass('all-conditionals')) {
-    $('#settings-all-conditionals').prop('checked', true);
-  } else {
-    $('#settings-all-conditionals').prop('checked', false);
-  }
-
-  if ($('body').hasClass('top-nav')) {
-    $('#settings-top-nav').prop('checked', true);
-  } else {
-    $('#settings-top-nav').prop('checked', false);
-  }
-
+  settingInit('all-pages');
+  settingInit('all-conditionals');
+  settingInit('top-nav');
 
   // Toggle form settings modal
   $('.form-settings-toggle').click(function() {
@@ -93,33 +93,48 @@ $(document).ready(function(){
   });
 
   // Match text field values
-
   $("input[data-if]").keyup(function() {
-    var value = $(this).attr('data-if');
+
+    var trigger = $(this).attr('data-if');
 
     var group = $(this).attr('data-shows');
     var groups = $("div").find("[data-group='" + group + "']");
 
-    if ($(this).val() === value) {
-      groups.addClass('is-conditionally-visible');
+    // Check to see whether "data-if" begins with
+    // an "<" or ">" symbol
+    if (trigger.match("^[<>]")) {
+      var value = parseInt(trigger.substr(1));
+      var operator = trigger.charAt(0);
+
+      if (operator === '<') {
+        // "Less than" conditionals
+        if ($(this).val() === '') {
+          groups.removeClass('is-conditionally-visible');
+        } else if ($(this).val() < value) {
+          groups.addClass('is-conditionally-visible');
+        } else {
+          groups.removeClass('is-conditionally-visible');
+        }
+      } else {
+        // "Greater than" conditionals
+        if ($(this).val() === '') {
+          groups.removeClass('is-conditionally-visible');
+        } else if ($(this).val() > value) {
+          groups.addClass('is-conditionally-visible');
+        } else {
+          groups.removeClass('is-conditionally-visible');
+        }
+      }
+
     } else {
-      groups.removeClass('is-conditionally-visible');
+      // Matching conditionals
+      if ($(this).val() === '') {
+        groups.removeClass('is-conditionally-visible');
+      } else if ($(this).val() === trigger) {
+        groups.addClass('is-conditionally-visible');
+      } else {
+        groups.removeClass('is-conditionally-visible');
+      }
     }
-  });
-
-
-
-  //  ---- Settings modal toggles  ----
-
-  $('#settings-all-pages').change(function() {
-    $('body').toggleClass('all-pages');
-  });
-
-  $('#settings-all-conditionals').change(function() {
-    $('body').toggleClass('all-conditionals');
-  });
-
-  $('#settings-top-nav').change(function() {
-    $('body').toggleClass('top-nav');
   });
 });
