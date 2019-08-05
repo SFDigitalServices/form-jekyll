@@ -75,21 +75,31 @@ $(document).ready(function(){
 
   //  ---- Conditionals  ----
 
-  // Radio buttons and checkboxes
-
-  $("input[type='radio'][data-shows]").change(function () {
+  // Checking radio buttons
+  $("input[type='radio'][data-shows]").change(function() {
     var group = $(this).attr('data-shows');
-    $("div").find("[data-group='" + group + "']").addClass('is-conditionally-visible');
+    var groups = $("div").find("[data-group='" + group + "']");
+
+    $(this).addClass('is-triggering');
+    groups.addClass('is-conditionally-visible');
   });
 
-  $("input[type='checkbox'][data-shows]").change(function () {
-    var group = $(this).attr('data-shows');
-    $("div").find("[data-group='" + group + "']").toggleClass('is-conditionally-visible');
-  });
-
-  $("input[data-hides]").change(function () {
+  // Unchecking radio buttons
+  $("input[data-hides]").change(function() {
     var group = $(this).attr('data-hides');
-    $("div").find("[data-group='" + group + "']").removeClass('is-conditionally-visible');
+    var groups = $("div").find("[data-group='" + group + "']");
+
+    $(this).removeClass('is-triggering');
+    groups.removeClass('is-conditionally-visible');
+  });
+
+  // Toggling checkboxes
+  $("input[type='checkbox'][data-shows]").change(function() {
+    var group = $(this).attr('data-shows');
+    var groups = $("div").find("[data-group='" + group + "']");
+
+    $(this).toggleClass('is-triggering');
+    groups.toggleClass('is-conditionally-visible');
   });
 
   // Match text field values
@@ -100,41 +110,35 @@ $(document).ready(function(){
     var group = $(this).attr('data-shows');
     var groups = $("div").find("[data-group='" + group + "']");
 
+    function showIf(value, condition) {
+      if (value === '') {
+        $(this).removeClass('is-triggering');
+        groups.removeClass('is-conditionally-visible');
+      } else if (condition) {
+        $(this).addClass('is-triggering');
+        groups.addClass('is-conditionally-visible');
+      } else {
+        $(this).removeClass('is-triggering');
+        groups.removeClass('is-conditionally-visible');
+      }
+    }
+
     // Check to see whether "data-if" begins with
     // an "<" or ">" symbol
     if (trigger.match("^[<>]")) {
-      var value = parseInt(trigger.substr(1));
+      var number = parseInt(trigger.substr(1));
       var operator = trigger.charAt(0);
-
       if (operator === '<') {
         // "Less than" conditionals
-        if ($(this).val() === '') {
-          groups.removeClass('is-conditionally-visible');
-        } else if ($(this).val() < value) {
-          groups.addClass('is-conditionally-visible');
-        } else {
-          groups.removeClass('is-conditionally-visible');
-        }
+        showIf(value, value < number);
       } else {
         // "Greater than" conditionals
-        if ($(this).val() === '') {
-          groups.removeClass('is-conditionally-visible');
-        } else if ($(this).val() > value) {
-          groups.addClass('is-conditionally-visible');
-        } else {
-          groups.removeClass('is-conditionally-visible');
-        }
+        showIf(value, value > number);
       }
 
     } else {
       // Matching conditionals
-      if ($(this).val() === '') {
-        groups.removeClass('is-conditionally-visible');
-      } else if ($(this).val() === trigger) {
-        groups.addClass('is-conditionally-visible');
-      } else {
-        groups.removeClass('is-conditionally-visible');
-      }
+      showIf(value, value === trigger);
     }
   });
 });
