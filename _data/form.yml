@@ -144,11 +144,21 @@
     type: number
     maxlength: 4
     unit: square feet
+    if: ">999"
+    shows: geotechnical
 
   - label: Amount of excavation
     type: number
     maxlength: 5
     unit: cubic yards
+    if: ">49"
+    shows: geotechnical
+
+  - group: geotechnical
+    fields:
+    - label: Upload a geotechnical report
+      type: file
+      helptext: Also show this if PIM says the slope is at least 20%
 
   - label: Including foundation work, how deep do you plan to disturb the surface below grade?
     type: number
@@ -890,18 +900,6 @@
       description: If the "new height at the center line of the front of the building" is 40+ feet&hellip;
       url: https://sf-planning.org/sites/default/files/FileCenter/Documents/8442-Shadow%20Analysis%20Application.pdf
       type: link
-
-  - label: >
-      If any of these apply:
-
-      - Answer to "Area of expansion" is 1000+ square feet
-
-      - Answer to "amount of excavation" is 50+ cubic yards
-
-      - PIM says the slope is at least 20%
-
-      Tell them here to attach a geotechnical report (link?)
-    type: paragraph
 
   - group: maher
     fields:
