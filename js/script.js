@@ -75,70 +75,101 @@ $(document).ready(function(){
 
   //  ---- Conditionals  ----
 
+  function showGroup(el) {
+    el.addClass('is-triggering');
+
+    // Get the groups that match this field's data-shows value
+    var groups = $("div").find("[data-group='" + el.attr('data-shows') + "']");
+    // Then, show them
+    groups.addClass('is-conditionally-visible');
+  }
+
+  function hideGroup(el, attr = 'data-shows') {
+    el.removeClass('is-triggering');
+
+    // For text fields
+    if (attr === 'data-shows') {
+      // See how many other fields are conditionally showing this group
+      var activeTriggers = $("input[data-shows='" + el.attr(attr) + "']").filter("[class~='is-triggering']").length;
+      console.log(activeTriggers);
+
+      // If no other fields are triggering this conditional...
+      if (activeTriggers === 0) {
+        // Get the groups that match this field's data-shows value
+        var groups = $("div").find("[data-group='" + el.attr(attr) + "']");
+        // Then, hide them
+        groups.removeClass('is-conditionally-visible');
+      }
+
+    // For radio buttons
+    } else {
+      // Get the groups that match this field's data-shows value
+      var groups = $("div").find("[data-group='" + el.attr(attr) + "']");
+      // Then, hide them
+      groups.removeClass('is-conditionally-visible');
+    }
+  }
+
+  // For toggling checkboxes
+  function toggleGroup(el) {
+    el.toggleClass('is-triggering');
+
+    // Get the groups that match this field's data-shows value
+    var groups = $("div").find("[data-group='" + el.attr('data-shows') + "']");
+    // Then, toggle their visiblity
+    groups.toggleClass('is-conditionally-visible');
+  }
+
   // Checking radio buttons
   $("input[type='radio'][data-shows]").change(function() {
-    var group = $(this).attr('data-shows');
-    var groups = $("div").find("[data-group='" + group + "']");
-
-    $(this).addClass('is-triggering');
-    groups.addClass('is-conditionally-visible');
+    showGroup($(this));
   });
 
   // Unchecking radio buttons
   $("input[data-hides]").change(function() {
-    var group = $(this).attr('data-hides');
-    var groups = $("div").find("[data-group='" + group + "']");
-
-    $(this).removeClass('is-triggering');
-    groups.removeClass('is-conditionally-visible');
+    hideGroup($(this), 'data-hides');
   });
 
   // Toggling checkboxes
   $("input[type='checkbox'][data-shows]").change(function() {
-    var group = $(this).attr('data-shows');
-    var groups = $("div").find("[data-group='" + group + "']");
-
-    $(this).toggleClass('is-triggering');
-    groups.toggleClass('is-conditionally-visible');
+    toggleGroup($(this));
   });
 
   // Match text field values
   $("input[data-if]").keyup(function() {
 
     var trigger = $(this).attr('data-if');
+    var value = $(this).val();
 
-    var group = $(this).attr('data-shows');
-    var groups = $("div").find("[data-group='" + group + "']");
-
-    function showIf(value, condition) {
+    function showIf(el, equation) {
       if (value === '') {
-        $(this).removeClass('is-triggering');
-        groups.removeClass('is-conditionally-visible');
-      } else if (condition) {
-        $(this).addClass('is-triggering');
-        groups.addClass('is-conditionally-visible');
+        // If the field's blank
+        hideGroup(el);
+      } else if (equation) {
+        // If the condition is met
+        showGroup(el);
       } else {
-        $(this).removeClass('is-triggering');
-        groups.removeClass('is-conditionally-visible');
+        // If the condition isn't met
+        hideGroup(el);
       }
     }
 
-    // Check to see whether "data-if" begins with
-    // an "<" or ">" symbol
+    // If the trigger begins with
+    // an "<" or ">" symbol...
     if (trigger.match("^[<>]")) {
-      var number = parseInt(trigger.substr(1));
+      var condition = parseInt(trigger.substr(1));
       var operator = trigger.charAt(0);
+
       if (operator === '<') {
         // "Less than" conditionals
-        showIf(value, value < number);
+        showIf($(this), value < condition);
       } else {
         // "Greater than" conditionals
-        showIf(value, value > number);
+        showIf($(this), value > condition);
       }
-
+    // Otherwise, match the value exactly
     } else {
-      // Matching conditionals
-      showIf(value, value === trigger);
+      showIf($(this), value === trigger);
     }
   });
 });
