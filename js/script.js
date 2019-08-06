@@ -50,9 +50,11 @@ $(document).ready(function(){
 
     function checkPage(number) {
       var activePage = $('.form-section').eq(activePageNum);
+      var isHidden = activePage.attr('data-group') && !activePage.hasClass('is-conditionally-visible');
+
       // If we're conditionally hiding the activePage,
       // go to the previous / next one
-      if (activePage.attr('data-group') && !activePage.hasClass('is-conditionally-visible')) {
+      if (isHidden) {
         activePageNum = activePageNum + number;
         checkPage(number);
       } else {
