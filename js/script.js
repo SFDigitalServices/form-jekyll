@@ -77,61 +77,47 @@ $(document).ready(function(){
 
   function showGroup(el) {
     el.addClass('is-triggering');
+    var shows = el.attr('data-shows');
 
-    // Get the groups that match this field's data-shows value
-    var groups = $("div").find("[data-group='" + el.attr('data-shows') + "']");
-    // Then, show them
+    // Show the groups tied to this conditional
+    var groups = $("div").find("[data-group='" + shows + "']");
     groups.addClass('is-conditionally-visible');
   }
 
-  function hideGroup(el, attr = 'data-shows') {
+  function hideGroup(el) {
     el.removeClass('is-triggering');
+    var shows = el.attr('data-shows');
+    // Get the groups tied to this conditional
+    var groups = $("div").find("[data-group='" + shows + "']");
 
-    // For text fields
-    if (attr === 'data-shows') {
-      // See how many other fields are conditionally showing this group
-      var activeTriggers = $("input[data-shows='" + el.attr(attr) + "']").filter("[class~='is-triggering']").length;
-
-      // If no other fields are triggering this conditional...
+    if (shows) {
+      // Get the number of inputs currently
+      // triggering this conditional
+      var activeTriggers = $("input[data-shows='" + shows + "']").filter("[class~='is-triggering']").length;
+      // If there are no other triggers,
+      // hide the conditional
       if (activeTriggers === 0) {
-        // Get the groups that match this field's data-shows value
-        var groups = $("div").find("[data-group='" + el.attr(attr) + "']");
-        // Then, hide them
         groups.removeClass('is-conditionally-visible');
       }
-
-    // For radio buttons
     } else {
-      // Get the groups that match this field's data-shows value
-      var groups = $("div").find("[data-group='" + el.attr(attr) + "']");
-      // Then, hide them
       groups.removeClass('is-conditionally-visible');
     }
   }
 
-  // For toggling checkboxes
-  function toggleGroup(el) {
-    el.toggleClass('is-triggering');
-
-    // Get the groups that match this field's data-shows value
-    var groups = $("div").find("[data-group='" + el.attr('data-shows') + "']");
-    // Then, toggle their visiblity
-    groups.toggleClass('is-conditionally-visible');
-  }
-
   // Toggling radio buttons
   $("input[type='radio']").change(function() {
+    var name = $(this).attr('name');
+    var shows = $(this).attr('data-shows');
 
     // If the button triggers a conditional,
     // show the group
-    if ($(this).attr('data-shows')) {
+    if (shows) {
       showGroup($(this));
     }
 
-    // When a different radio button is selected,
-    // make sure the group is hidden
-    var otherRadios = $("input[name='" + $(this).attr('name') + "']:not(this):not[data-shows=" + $(this).attr('data-shows') + "]");
-
+    // If the interaction deselects another radio button,
+    // make sure its conditional is hidden
+    var otherRadios = $("input[name=" + name + "]:not(this, [data-shows=" + shows + "])");
     otherRadios.each(function(){
         hideGroup($(this));
     })
@@ -139,43 +125,45 @@ $(document).ready(function(){
 
   // Toggling checkboxes
   $("input[type='checkbox'][data-shows]").change(function() {
-    toggleGroup($(this));
+    if ($(this).is(':checked')) {
+      showGroup($(this));
+    } else {
+      hideGroup($(this));
+    }
   });
 
   // Match text field values
   $("input[data-if]").keyup(function() {
 
-    var trigger = $(this).attr('data-if');
-    var value = $(this).val();
+    var fullTrigger = $(this).attr('data-if');
+    var currentValue = $(this).val();
 
     function showIf(el, equation) {
-      if (value === '' || equation === false) {
-        // If the field's blank, or the condition isn't met
+      if (currentValue === '' || equation === false) {
         hideGroup(el);
       } else {
-        // If the condition is met
         showGroup(el);
       }
     }
 
     // If the trigger begins with
     // an "<" or ">" symbol...
-    if (trigger.match("^[<>]")) {
+    if (fullTrigger.match("^[<>]")) {
 
       // Separate the number from the "<" or ">" symbol
-      var condition = parseInt(trigger.substr(1));
-      var operator = trigger.charAt(0);
+      var triggerNumber = parseInt(fullTrigger.substr(1));
+      var triggerOperator = fullTrigger.charAt(0);
 
-      if (operator === '<') {
+      if (triggerOperator === '<') {
         // "Less than" conditionals
-        showIf($(this), value < condition);
+        showIf($(this), currentValue < triggerNumber);
       } else {
         // "Greater than" conditionals
-        showIf($(this), value > condition);
+        showIf($(this), currentValue > triggerNumber);
       }
     // Otherwise, match the value exactly
     } else {
-      showIf($(this), value === trigger);
+      showIf($(this), currentValue === fullTrigger);
     }
   });
 });
