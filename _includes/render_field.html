@@ -10,20 +10,21 @@
   {% endif %}
 
   {% assign description = field.description %}
-  {% assign error  = field.error %}
-  {% assign fields  = field.fields %}
-  {% assign group  = field.group %}
+  {% assign error = field.error %}
+  {% assign fields = field.fields %}
+  {% assign group = field.group %}
   {% assign helptext = field.helptext %}
   {% assign if = field.if %}
   {% assign label = field.label %}
   {% assign level = field.level %}
   {% assign maxlength = field.maxlength %}
-  {% capture name %}{{ title | slugify }}-field-{{ forloop.index }}{% endcapture %}
+  {% capture name %}{{ label | slugify }}-field-{{ forloop.index }}{% endcapture %}
   {% assign optional = field.optional %}
-  {% assign options  = field.options %}
-  {% assign other  = field.other %}
-  {% assign shows  = field.shows %}
-  {% assign unit  = field.unit %}
+  {% assign options = field.options %}
+  {% assign other = field.other %}
+  {% assign shows = field.shows %}
+  {% assign size = field.size %}
+  {% assign unit = field.unit %}
   {% assign url = field.url %}
 
   {% comment %}
