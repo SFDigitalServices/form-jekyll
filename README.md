@@ -60,7 +60,6 @@ Since YAML is easy to read, non-technical colleagues can easily give feedback on
 | `optional` | Determines whether a field is optional                                                | `true`                |
 | `error`    | The custom error message that should display if the field is invalid or blank.        | Plain text            |
 | `shows`    | The name of the `group` that should be conditionally shown if this field is checked.  | The name of a `group` |
-| `hides`    | The name of the `group` that should be conditionally hidden if this field is checked.  | The name of a `group` |
 | `level`    |  The header level for `header` fields. For example, `level: 1` will produce an H1. | The number `1`, `2`, or `3`|
 | `group` | The name of the group of fields you wish to conditionally show or hide. | Plain text |
 | `url` | The URL of a "link. | Plain text |

@@ -119,14 +119,22 @@ $(document).ready(function(){
     groups.toggleClass('is-conditionally-visible');
   }
 
-  // Checking radio buttons
-  $("input[type='radio'][data-shows]").change(function() {
-    showGroup($(this));
-  });
+  // Toggling radio buttons
+  $("input[type='radio']").change(function() {
 
-  // Unchecking radio buttons
-  $("input[data-hides]").change(function() {
-    hideGroup($(this), 'data-hides');
+    // If the button triggers a conditional,
+    // show the group
+    if ($(this).attr('data-shows')) {
+      showGroup($(this));
+    }
+
+    // When a different radio button is selected,
+    // make sure the group is hidden
+    var otherRadios = $("input[name='" + $(this).attr('name') + "']:not(this):not[data-shows=" + $(this).attr('data-shows') + "]");
+
+    otherRadios.each(function(){
+        hideGroup($(this));
+    })
   });
 
   // Toggling checkboxes

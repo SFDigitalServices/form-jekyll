@@ -1,5 +1,4 @@
 - title: Are you ready to apply for an ADU?
-  fields:
   - label: |
       This application will ask you about:
 
@@ -30,8 +29,8 @@
     options:
     - label: "Yes"
       shows: project-address
+
     - label: "No"
-      hides: project-address
 
   - label: Phone number
     type: phone
@@ -44,10 +43,8 @@
     options:
     - label: "Yes"
       shows: owner-builder
-      hides: app-contact
 
     - label: "No"
-      hides: owner-builder
       shows: app-contact
 
 - title: Contact Information
@@ -63,7 +60,6 @@
     other: true
     options:
     - label: Lessee
-      hides: contact-org
 
     - label: Architect
       shows: contact-org
@@ -72,10 +68,8 @@
       shows: contact-org
 
     - label: Engineer
-      hides: contact-org
 
     - label: Attorney
-      hides: contact-org
 
   - group: contact-org
     fields:
@@ -204,8 +198,8 @@
     options:
     - label: "Yes"
       shows: proposed-parking-gsf
+
     - label: "No"
-      hides: proposed-parking-gsf
 
   - group: proposed-parking-gsf
     fields:
@@ -223,8 +217,8 @@
     options:
     - label: "Yes"
       shows: proposed-parking-spaces
+
     - label: "No"
-      hides: proposed-parking-spaces
 
   - group: proposed-parking-spaces
     fields:
@@ -242,8 +236,8 @@
     options:
     - label: "Yes"
       shows: proposed-residential-gsf
+
     - label: "No"
-      hides: proposed-residential-gsf
 
   - group: proposed-residential-gsf
     fields:
@@ -261,8 +255,8 @@
     options:
     - label: "Yes"
       shows: proposed-affordable
+
     - label: "No"
-      hides: proposed-affordable
 
   - group: proposed-affordable
     fields:
@@ -280,8 +274,8 @@
     options:
     - label: "Yes"
       shows: proposed-market-rate
+
     - label: "No"
-      hides: proposed-market-rate
 
   - group: proposed-market-rate
     fields:
@@ -299,8 +293,8 @@
     options:
     - label: "Yes"
       shows: proposed-commercial-gsf
+
     - label: "No"
-      hides: proposed-commercial-gsf
 
   - group: proposed-commercial-gsf
     fields:
@@ -318,8 +312,8 @@
     options:
     - label: "Yes"
       shows: proposed-buildings
+
     - label: "No"
-      hides: proposed-buildings
 
   - group: proposed-buildings
     fields:
@@ -336,8 +330,8 @@
     options:
     - label: "Yes"
       shows: proposed-stories
+
     - label: "No"
-      hides: proposed-stories
 
   - group: proposed-stories
     fields:
@@ -354,8 +348,8 @@
     options:
     - label: "Yes"
       shows: proposed-basements
+
     - label: "No"
-      hides: proposed-basements
 
   - group: proposed-basements
     fields:
@@ -372,8 +366,8 @@
     options:
     - label: "Yes"
       shows: proposed-bicycle-spaces
+
     - label: "No"
-      hides: proposed-bicycle-spaces
 
   - group: proposed-bicycle-spaces
     fields:
@@ -389,7 +383,6 @@
       shows: sprinklers
 
     - label: "No"
-      hides: sprinklers
 
   - group: sprinklers
     fields:
@@ -402,7 +395,6 @@
       shows: alarms
 
     - label: "No"
-      hides: alarms
 
   - group: alarms
     fields:
@@ -414,22 +406,18 @@
     type: radio
     options:
     - label: "I am self-insured and have a certificate of consent."
-      hides: comp-II
       shows: comp-I
 
     - label: "I have third-party insurance."
       shows: comp-II
 
     - label: "I plan to hire a contractor who will follow worker's compensation laws."
-      hides: comp-II
       shows: comp-V
 
     - label: "I don't need insurance because I'm not hiring anyone."
-      hides: comp-II
       shows: comp-IV
 
     - label: "I don't need insurance because the work will cost under $100."
-      hides: comp-II
       shows: comp-III
 
   - group: comp-II
@@ -448,11 +436,8 @@
     options:
     - label: "Yes"
       shows: seismic-retro-mandatory
-      hides: seismic-retro-number
 
     - label: "No"
-      shows: seismic-retro-mandatory
-      hides: seismic-retro-number
 
   - group: seismic-retro-number
     fields:
@@ -468,7 +453,6 @@
       shows: seismic-strength
 
     - label: "No"
-      hides: seismic-strength
 
   - group: seismic-strength
     fields:
@@ -485,6 +469,7 @@
     type: radio
     options:
     - label: "Yes"
+
     - label: "No"
 
 - title: Environmental Assessment
@@ -513,8 +498,8 @@
     options:
     - label: "Yes"
       shows: environmental-assessment
+
     - label: "No"
-      hides: environmental-assessment
 
   - group: environmental-assessment
     fields:
@@ -806,7 +791,6 @@
       shows: remove-services
 
     - label: "No"
-      hides: remove-services
 
   - label: Is this site currently in industrial use?
     helptext: Only show this if "amount of excavation" is 50+ cubic yards, and PIM shows the site is in a Maher area
@@ -816,7 +800,6 @@
       shows: maher
 
     - label: "No"
-      hides: maher
 
 - title: Great. Here's what you still need to submit.
   fields:
