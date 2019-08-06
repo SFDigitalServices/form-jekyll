@@ -18,14 +18,13 @@
     type: paragraph
 
 - title: About the Owner
-  description: Let's get started by learning a little more about you.
   fields:
   - label: Name
 
   - label: Mailing address
     type: address
 
-  - label: Is this also the address of your project?
+  - label: Is this also the address of the project?
     type: radio
     options:
     - label: "Yes"
@@ -53,8 +52,6 @@
   group: app-contact
   fields:
   - label: Name
-
-  - label: Title
 
   - label: Relationship to owner
     type: radio
