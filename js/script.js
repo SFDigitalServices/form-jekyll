@@ -91,7 +91,6 @@ $(document).ready(function(){
     if (attr === 'data-shows') {
       // See how many other fields are conditionally showing this group
       var activeTriggers = $("input[data-shows='" + el.attr(attr) + "']").filter("[class~='is-triggering']").length;
-      console.log(activeTriggers);
 
       // If no other fields are triggering this conditional...
       if (activeTriggers === 0) {
@@ -142,15 +141,12 @@ $(document).ready(function(){
     var value = $(this).val();
 
     function showIf(el, equation) {
-      if (value === '') {
-        // If the field's blank
+      if (value === '' || equation === false) {
+        // If the field's blank, or the condition isn't met
         hideGroup(el);
-      } else if (equation) {
+      } else {
         // If the condition is met
         showGroup(el);
-      } else {
-        // If the condition isn't met
-        hideGroup(el);
       }
     }
 
