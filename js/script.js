@@ -157,6 +157,8 @@ $(document).ready(function(){
     // If the trigger begins with
     // an "<" or ">" symbol...
     if (trigger.match("^[<>]")) {
+
+      // Separate the number from the "<" or ">" symbol
       var condition = parseInt(trigger.substr(1));
       var operator = trigger.charAt(0);
 
