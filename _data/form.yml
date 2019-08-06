@@ -109,6 +109,7 @@
 
   - label: Please describe the work you are proposing in detail.
     type: textarea
+    size: large
     helptext: |
       You should include:
 
