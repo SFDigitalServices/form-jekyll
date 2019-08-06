@@ -442,8 +442,8 @@
 
 - title: Seismic work
   fields:
-  - label: >
-      Have you filed for mandatory seismic retrofitting under [Chapter 4D of the Existing Building Code](http://library.amlegal.com/nxt/gateway.dll/California/sfbuilding/existingbuildingcode2016edition/chapter4dmandatoryearthquakeretrofitofwo?f=templates$fn=default.htm$3.0)?
+  - label: Have you applied for a seismic retrofitting permit?
+    helptext: This is required for all city construction. For more information, see [Chapter 4D of the Existing Building Code](http://library.amlegal.com/nxt/gateway.dll/California/sfbuilding/existingbuildingcode2016edition/chapter4dmandatoryearthquakeretrofitofwo?f=templates$fn=default.htm$3.0).
     type: radio
     options:
     - label: "Yes"
@@ -460,8 +460,8 @@
       type: number
       maxlength: 15
 
-  - label: >
-      Have you filed for voluntary seismic strengthening under [Administrative Bulletin AB-094](https://sfdbi.org/sites/default/files/migrated/FileCenter/Documents/Administrative_Bulletins/2013_AB/AB_094_updated_010114.pdf)?
+  - label: Have you filed for a seismic strengthening permit?
+    helptext: This permit is optional. For more information, see [Administrative Bulletin AB-094](https://sfdbi.org/sites/default/files/migrated/FileCenter/Documents/Administrative_Bulletins/2013_AB/AB_094_updated_010114.pdf).
     type: radio
     options:
     - label: "Yes"
@@ -477,8 +477,11 @@
       maxlength: 15
 
   - label: >
-      Does the building comply with the ordinances for ADUS: [95-17](http://default.sfplanning.org/plans-and-programs/planning-for-the-city/accessory-dwelling-units/ADU_Ord_095-17_170125_signed.pdf), [162-16](https://sfgov.legistar.com/View.ashx?M=F&ID=4617538&GUID=2625970B-6704-46C2-A972-68BF0C206D9C) or [162-17](https://sfbos.org/sites/default/files/o0162-17.pdf)?
-    helptext: This will be subject to review from the Planning department.
+      Does the building follow the ordinances for ADUS?
+    helptext: >
+      See Ordinances [95-17](http://default.sfplanning.org/plans-and-programs/planning-for-the-city/accessory-dwelling-units/ADU_Ord_095-17_170125_signed.pdf), [162-16](https://sfgov.legistar.com/View.ashx?M=F&ID=4617538&GUID=2625970B-6704-46C2-A972-68BF0C206D9C) or [162-17](https://sfbos.org/sites/default/files/o0162-17.pdf).
+
+      After you submit, the planning department will check to see if you comply.
     type: radio
     options:
     - label: "Yes"
