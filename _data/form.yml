@@ -135,15 +135,15 @@
 
   - label: Area of excavation / disturbance
     type: number
-    maxlength: 4
     unit: square feet
+    maxlength: 4
     shows: geotechnical
     if: ">999"
 
   - label: Amount of excavation
     type: number
-    maxlength: 5
     unit: cubic yards
+    maxlength: 5
     shows: geotechnical
     if: ">49"
 

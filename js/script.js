@@ -26,7 +26,7 @@ $(document).ready(function(){
   settingInit('all-conditionals');
   settingInit('top-nav');
 
-  // Toggle form settings modal
+  // Show / hide settings modal
   $('.form-settings-toggle').click(function() {
     $('.form-settings').toggleClass('active');
   });
@@ -42,13 +42,13 @@ $(document).ready(function(){
     // Hide the current page
     $('.form-section').eq(activePageNum).removeClass('active');
 
-    // Evaluate the previous / next page
+    // Go to the previous / next page
     activePageNum = activePageNum + count;
 
     function checkPage(number) {
       var activePage = $('.form-section').eq(activePageNum);
-      // If we're conditionally hiding this page,
-      // evaluate the previous / next one
+      // If we're conditionally hiding the activePage,
+      // go to the previous / next one
       if (activePage.attr('data-group') && !activePage.hasClass('is-conditionally-visible')) {
         activePageNum = activePageNum + number;
         checkPage(number);
@@ -59,7 +59,6 @@ $(document).ready(function(){
     }
 
     checkPage(count);
-
     event.preventDefault();
   }
 
@@ -94,6 +93,7 @@ $(document).ready(function(){
       // Get the number of inputs currently
       // triggering this conditional
       var activeTriggers = $("input[data-shows='" + shows + "']").filter("[class~='is-triggering']").length;
+
       // If there are no other triggers,
       // hide the conditional
       if (activeTriggers === 0) {
@@ -134,7 +134,6 @@ $(document).ready(function(){
 
   // Match text field values
   $("input[data-if]").keyup(function() {
-
     var fullTrigger = $(this).attr('data-if');
     var currentValue = $(this).val();
 
