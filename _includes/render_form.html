@@ -4,9 +4,6 @@
   {% assign label = page.title %}
 
   <div class="form-section"{% if page.group %} data-group="{{ page.group }}"{% endif %}>
-    <div class="nav-on-top">
-      {% include form-nav.html %}
-    </div>
 
     {% comment %} Page headers {% endcomment %}
     <header class="hero-banner default">
@@ -20,6 +17,10 @@
 
     <div class="form-content">
       <div class="form-content-inner">
+
+        <div class="nav-on-top">
+          {% include form-nav.html %}
+        </div>
         {% comment %} Render fields in the page {% endcomment %}
         {% include render_field.html %}
 
