@@ -109,7 +109,10 @@ $shadow: 0 1px 4px rgba(#000, 0.06);
 .all-pages {
   background: #ddd;
 
-  .form-nav {
+  .form-nav,
+  .sfgov-alpha-banner,
+  header[role="banner"],
+  .sfgov-footer {
     display: none;
   }
 
