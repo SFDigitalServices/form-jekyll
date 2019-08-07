@@ -34,6 +34,14 @@ $(document).ready(function(){
     $('.form-settings').toggleClass('active');
   });
 
+  // ---- File inputs ---
+
+  $("input[type='file']").change(function() {
+    var file = $(this).val().replace(/C:\\fakepath\\/i, '');
+
+    $(this).next('.file-custom').attr('data-filename', file);
+  });
+
   // ---- Pagination ----
 
   // Track the current page number

@@ -1,10 +1,13 @@
 <div class="field-container">
+  <label class="control-label valtype" for="{{ name }}" data-valtype="label">
+    <span class="label">
+      {% include elements/label.html %}
+    </span>
   <input class="input-file" id="{{ name }}" type="file"
   {% unless optional %} required="required"{% endunless %}
   {% if error %} data-error="{{ error }}"
   {% else %} data-error="Please upload a file."{% endif %}>
-  <label class="control-label valtype" for="{{ name }}" data-valtype="label">
-    {% include elements/label.html %}
+  <span class="file-custom" data-filename=""></span>
   </label>
 
   {% include elements/helptext.html %}
