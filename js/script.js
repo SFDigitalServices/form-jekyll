@@ -2,6 +2,12 @@ $(document).ready(function(){
 
   //  ---- Initial state  ----
 
+  window.hypothesisConfig = function () {
+    return {
+      "theme": "clean"
+    };
+  };
+
   // Make the first page visible
   $('.form-section:first-child').addClass('active');
 
