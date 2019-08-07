@@ -87,7 +87,7 @@ $shadow: 0 1px 4px rgba(#000, 0.06);
     text-align: right;
     opacity: 0.5;
 
-    svg {
+    img {
       transform: rotate(180deg);
       transform-origin: 50% 50%;
       transition: all 0.1s ease-out;
@@ -98,7 +98,7 @@ $shadow: 0 1px 4px rgba(#000, 0.06);
   &.active {
     transform: translateY($offset);
 
-    .form-settings-toggle svg {
+    .form-settings-toggle img {
       transform: rotate(0deg);
     }
   }
