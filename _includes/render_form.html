@@ -9,16 +9,23 @@
     </div>
 
     {% comment %} Page headers {% endcomment %}
-    <header class="page-header">
-      {% include fields/header.html %}
+    <header class="hero-banner default">
+      <h1>
+        {{ label | markdownify | remove: '<p>' | remove: '</p>' }}
+      </h1>
       {% if page.description %}
         {{ page.description | markdownify | improve }}
       {% endif %}
     </header>
 
-    {% comment %} Render fields in the page {% endcomment %}
-    {% include render_field.html %}
+    <div class="form-content">
+      <div class="form-content-inner">
+        {% comment %} Render fields in the page {% endcomment %}
+        {% include render_field.html %}
 
-    {% include form-nav.html %}
+        {% include form-nav.html %}
+      </div>
+    </div>
+
   </div>
 {% endfor %}

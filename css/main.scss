@@ -630,8 +630,12 @@ h5 {
   }
 }
 
-form {
-  margin-top: 1rem;
+.form-content {
+  @include contain-1090;
+}
+
+.form-content-inner {
+  max-width: 38rem;
 }
 
 .form-section-nav {
