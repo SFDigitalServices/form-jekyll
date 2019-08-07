@@ -34,6 +34,7 @@
 
   - label: Phone number
     type: phone
+    optional: true
 
   - label: Email address
     type: email
