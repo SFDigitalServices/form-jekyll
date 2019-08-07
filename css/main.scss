@@ -1,6 +1,13 @@
 ---
 ---
 
+@import 'variables';
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: "Rubik", sans-serif;
 }
@@ -217,45 +224,6 @@ textarea {
 *::after {
   box-sizing: border-box;
 }
-
-// Color variables
-
-$black: #212123;
-$white: #FFFFFF;
-$dark-blue: #0C1464;
-$slate-blue: #1C3E57;
-$bright-blue: #4F66EE;
-
-$red-1: #F5E9E5;
-$red-2: #EFCABB;
-$red-3: #C9563A;
-$red-4: #BC4427;
-
-$yellow-1: #F8F1DF;
-$yellow-2: #F9E3A3;
-$yellow-3: #F4C435;
-$yellow-4: #E7B22E;
-
-$green-1: #E9F7EC;
-$green-2: #C0E2C5;
-$green-3: #00896D;
-$green-4: #1B674D;
-
-$blue-1: #EDF4F7;
-$blue-2: #A9D6EA;
-
-$purple-1: #EDEBF6;
-$purple-2: #CCCCED;
-$purple-3: #8266BC;
-$purple-4: #5D4099;
-
-// Measurements
-
-$radius: 8px;
-$base-font-size: 16;
-$t-light: 300;
-$t-normal: 400;
-$t-bold: 500;
 
 // Mixins
 
@@ -887,3 +855,5 @@ form {
     margin-bottom: 1rem;
   }
 }
+
+@import 'sfgov';

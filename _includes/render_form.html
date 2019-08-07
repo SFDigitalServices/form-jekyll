@@ -9,7 +9,7 @@
     </div>
 
     {% comment %} Page headers {% endcomment %}
-    <header>
+    <header class="page-header">
       {% include fields/header.html %}
       {% if page.description %}
         {{ page.description | markdownify | improve }}
