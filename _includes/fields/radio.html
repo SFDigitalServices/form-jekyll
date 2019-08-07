@@ -1,5 +1,7 @@
 <fieldset>
-  <legend class=" control-label valtype" for="{{ name }}" data-valtype="label">{{ label | markdownify | remove: '<p>' | remove: '</p>' | improve}}</legend>
+  <legend class=" control-label valtype" for="{{ name }}" data-valtype="label">
+    {% include elements/label.html %}
+  </legend>
   <div class="field-container valtype" data-valtype="radios">
     {% for option in options %}
       <label class="radio">
@@ -26,8 +28,7 @@
         <input type="text">
       </div>
     {% endif %}
-    {% if helptext %}
-      <div class="help-text" data-valtype='help'>{{ helptext | markdownify | improve }}</div>
-    {% endif %}
+
+    {% include elements/helptext.html %}
   </div>
 </fieldset>

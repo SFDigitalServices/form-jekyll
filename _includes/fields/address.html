@@ -1,13 +1,13 @@
 {% assign address-error = "Please fill in a complete address." %}
 
 <fieldset class="field-address">
-  <legend>{{ label | markdownify | remove: '<p>' | remove: '</p>' | improve}}</legend>
+  <legend>{% include elements/label.html %}</legend>
 
   {% if address-fields contains 'street' or address-fields == 'full' %}
     <label for="{{ name}}-line1">Address Line 1</label>
     <input type="text" id="{{ name}}-line1" {% unless optional %}required="required" data-error="{{ address-error }}"{% endunless %}>
 
-    <label for="{{ name}}-line2">Address Line 2 <span class="optional">(optional)</span></label>
+    <label for="{{ name}}-line2">Address Line 2 {% unless optional %}<span class="optional">(optional)</span>{% endunless %}</label>
     <input type="text" id="{{ name }}-line2">
   {% endif %}
 
@@ -36,8 +36,6 @@
     </div>
   {% endif %}
 
-  {% if helptext %}
-   <div class="help-text" data-valtype='help'>{{ helptext | markdownify | improve }}</div>
-  {% endif %}
+  {% include elements/helptext.html %}
 
 </fieldset>
