@@ -8,10 +8,6 @@ html, body {
   padding: 0;
 }
 
-body {
-  font-family: "Rubik", sans-serif;
-}
-
 fieldset {
   margin: 0;
   padding: 0;
@@ -262,11 +258,10 @@ input,
 textarea,
 select,
 button {
-  font-family: 'Rubik', HelveticaNeue, Arial, sans-serif;
-  color: $black;
+  @include rubik;
+  @include fs-body-short;
+  color: $slate-blue;
   font-weight: $t-normal;
-  font-size: 100%;
-  line-height: 1.75;
   -webkit-font-size-adjust: 100%;
 }
 

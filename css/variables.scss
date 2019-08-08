@@ -460,9 +460,3 @@ $breakpointz: (
     @include fs-pull-large;
   }
 }
-
-body {
-  @include rubik;
-  @include fs-body-short;
-  color: $slate-blue;
-}
