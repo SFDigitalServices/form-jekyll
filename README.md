@@ -29,7 +29,7 @@ Since YAML is easy to read, non-technical colleagues can easily give feedback on
 
   - label: Phone number
     type: phone
-    error: Please enter a valid phone number.
+    error: You need to enter a valid phone number.
 
   - label: Do you have an email address?
     type: radio

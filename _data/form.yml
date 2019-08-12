@@ -95,7 +95,7 @@
 - title: Construction work
   fields:
 
-  - label: Please describe the work you are proposing in detail.
+  - label: Describe the work you are proposing in detail.
     type: textarea
     size: large
     helptext: |
@@ -810,7 +810,7 @@
 
         - Mailing a notice to every tenant and the property owner
 
-        Also, please upload the following.
+        Also, you must upload the following.
 
     - label: Upload a copy of your notice
       type: file
