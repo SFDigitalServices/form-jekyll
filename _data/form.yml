@@ -14,7 +14,7 @@
       If you are not building the ADU yourself, you might need a professional to help you answer some questions. If you have not yet hired a architect, contractor or engineer, you might want to do so before applying.
     type: paragraph
 
-- title: About the Owner
+- title: About the owner
   fields:
   - label: Name
 
@@ -25,9 +25,9 @@
     type: radio
     options:
     - label: "Yes"
-      shows: project-address
 
     - label: "No"
+      shows: project-address
 
   - label: Phone number
     type: phone
@@ -45,7 +45,7 @@
     - label: "No"
       shows: app-contact
 
-- title: Contact Information
+- title: Contact information
   description: Who should we talk to when working on your application?
   group: app-contact
   fields:
@@ -55,8 +55,6 @@
     type: radio
     other: true
     options:
-    - label: Lessee
-
     - label: Architect
       shows: contact-org
 
@@ -121,24 +119,25 @@
     - label: "V-A: Protected Wood Frame"
     - label: "V-B: Unprotected Wood Frame"
 
-  - label: Issued / estimated job cost
+  - label: Estimated cost
     type: price
 
-  - label: How many months do you estimate construction will last?
+  - label: How long do you estimate it will take you to build the ADU?
     type: number
     maxlength: 2
+    unit: months
 
 - title: Construction impact
   fields:
 
-  - label: Area of excavation / disturbance
+  - label: Excavation area
     type: number
     unit: square feet
     maxlength: 4
     shows: geotechnical
     if: ">999"
 
-  - label: Amount of excavation
+  - label: Excavation volume
     type: number
     unit: cubic yards
     maxlength: 5
@@ -151,7 +150,7 @@
       type: file
       helptext: Also show this if PIM says the slope is at least 20%
 
-  - label: Including foundation work, how deep do you plan to disturb the surface below grade?
+  - label: Including foundation work, how deep will you disturb the surface below grade?
     type: number
     maxlength: 3
     unit: feet
@@ -159,7 +158,7 @@
   - label: Will the work involve any of the following?
     type: checkbox
     options:
-    - label: Adding height to the building
+    - label: Adding height to the existing building
       shows: new-height
 
     - label: Adding a deck or horizontal extension
@@ -170,7 +169,7 @@
 
   - group: new-height
     fields:
-    - label: State the new height at the center line of the front of the building.
+    - label: What is the new height at the center line of the front of the building?
       helptext: If the height will be over 40 feet, you may need a shadow analysis.
       type: number
       unit: inches
@@ -199,7 +198,7 @@
 
   - group: proposed-parking-gsf
     fields:
-    - label: Proposed parking space
+    - label: How much parking space will there be after construction?
       type: number
       unit: gross square feet
 
@@ -218,7 +217,7 @@
 
   - group: proposed-parking-spaces
     fields:
-    - label: Proposed number of parking spaces
+    - label: How many parking spaces will there be after construction?
       type: number
 
 - title: Residential area
@@ -237,7 +236,7 @@
 
   - group: proposed-residential-gsf
     fields:
-    - label: Proposed residential space
+    - label: How much residential space will there be after construction?
       type: number
       unit: gross square feet
 
@@ -256,7 +255,7 @@
 
   - group: proposed-affordable
     fields:
-    - label: Proposed number of affordable dwelling units
+    - label: How many affordable dwelling units will there be after construction?
       type: number
 
 - title: Market-rate dwelling units
@@ -275,7 +274,7 @@
 
   - group: proposed-market-rate
     fields:
-    - label: Proposed number of market-rate dwelling units
+    - label: How many market-rate dwelling units will there be after construction?
       type: number
 
 - title: Commercial area
@@ -294,7 +293,7 @@
 
   - group: proposed-commercial-gsf
     fields:
-    - label: Proposed commercial space
+    - label: How much commercial space will there be after construction?
       type: number
       unit: gross square feet
 
@@ -313,7 +312,7 @@
 
   - group: proposed-buildings
     fields:
-    - label: Proposed number of buildings
+    - label: How many buildings will there be after construction?
       type: number
 
 - title: Building stories
@@ -331,7 +330,7 @@
 
   - group: proposed-stories
     fields:
-    - label: Proposed number of stories
+    - label: How many stories will there be after construction?
       type: number
 
 - title: Basements / cellars
@@ -349,7 +348,7 @@
 
   - group: proposed-basements
     fields:
-    - label: Proposed number of basements or cellars
+    - label: How many basements or cellars will there be after construction?
       type: number
 
 - title: Bicycle spaces
@@ -367,7 +366,7 @@
 
   - group: proposed-bicycle-spaces
     fields:
-    - label: Proposed number of bicycle spaces
+    - label: How many bicycle spaces will there be after construction?
       type: number
 
 - title: Fire protection
@@ -468,17 +467,17 @@
 
     - label: "No"
 
-- title: Environmental Assessment
+- title: Environmental assessment
   fields:
 
   - label: |
-      If the site of your planned ADU has:
+      If your site has:
 
       - A current or former gas station
 
       - A parking lot
 
-      - Auto repair
+      - An auto repair shop
 
       - Dry cleaners
 
@@ -516,9 +515,9 @@
 
       - Have a certificate of final completion posted on the building
 
-      - Receive a permit of occupancy from us
+      - Get a permit of occupancy from us
 
-      Any stipulation required herein or by code may be appealed.
+      You will need to follow any stipulations that come up in your application and inspections. You must also follow building code.
 
   - type: header
     label: Your application
@@ -526,12 +525,12 @@
 
   - type: paragraph
     label: |
-      We will assume that grade lines on the drawings attached to this application are correct. If they are not, you must submit revised drawings to us for approval.
+      We will assume that grade lines on the drawings attached to this application are correct. If they are not, you must submit revised drawings for us to approve.
 
-      These drawings should have accurate grade lines and cuts and fills. They should also have complete details of retaining walls and wall footings.
+      These drawings must have accurate grade lines and cuts and fills. They must also have complete details of retaining walls and wall footings.
 
   - type: header
-    label: Requirements for your ADU
+    label: Building requirements
     level: 4
 
   - type: paragraph
@@ -547,7 +546,7 @@
   - type: paragraph
     label: |
 
-      You need to apply for separate permits for any:
+      You will still need to apply for separate permits for any:
 
       - Additions or changes to auto runways
 
@@ -561,7 +560,7 @@
 
       - Street space used during construction
 
-      Even if we approve this application, the status of these permits will not change.
+      If we approve this application, you will still need to get these other permits approved.
 
   - type: header
     label: Your identity
@@ -578,7 +577,7 @@
   - label: I declare under penalty of perjury that my application is true and correct.
     type: checkbox
 
-  - label: I hereby certify and agree that if I am issued a permit for the construction described in this application, all the provisions of the permit and all laws and ordinances thereto will be complied with.
+  - label: I hereby certify and agree that if I am issued a permit for the construction described in this application, I will comply with all the provisions of the permit and all relevant laws and ordinances.
     type: checkbox
 
 - title: Terms
@@ -588,9 +587,7 @@
     level: 4
 
   - label: |
-      The permittee(s) by acceptance of the permit, agree(s) to indemnify and hold harmless the City and County of San Francisco from and against any and all claims, demands and actions for damages resulting from operations under this permit, regardless of negligence of the City and County of San Francisco, and to assume the defense of the City and County of San Francisco against all such claims, demands or actions.
-
-      I hereby affirm under penalty of perjury the following declaration(s):
+      By accepting this permit, I agree to indemnify and hold harmless the City and County of San Francisco from and against any and all claims, demands and actions for damages resulting from operations under this permit, regardless of negligence of the City and County of San Francisco, and to assume the defense of the City and County of San Francisco against all such claims, demands or actions.
     type: paragraph
 
   - group: comp-I
