@@ -18,17 +18,6 @@
   fields:
   - label: Name
 
-  - label: Mailing address
-    type: address
-
-  - label: Is this also the address of the project?
-    type: radio
-    options:
-    - label: "Yes"
-
-    - label: "No"
-      shows: project-address
-
   - label: Phone number
     type: phone
     optional: true
@@ -36,7 +25,30 @@
   - label: Email address
     type: email
 
-  - label: Is the owner also building this ADU?
+- title: About the owner
+  fields:
+  - label: Mailing address
+    type: address
+
+  - label: Will this also be the address of your ADU?
+    type: radio
+    options:
+    - label: "Yes"
+
+    - label: "No"
+      shows: project-address
+
+  - group: project-address
+    fields:
+    - label: Project address
+      type: address
+      address-fields:
+      - 'street'
+      - 'zip'
+
+- title: About the owner
+  fields:
+  - label: Are you, the owner, also building this ADU?
     type: radio
     options:
     - label: "Yes"
@@ -45,7 +57,7 @@
     - label: "No"
       shows: app-contact
 
-- title: Contact information
+- title: Builder's information
   description: Who should we talk to when working on your application?
   group: app-contact
   fields:
@@ -80,14 +92,6 @@
 
 - title: Your property
   fields:
-  - group: project-address
-    fields:
-    - label: Project address
-      type: address
-      address-fields:
-      - 'street'
-      - 'zip'
-
   - label: Present use
 
   - label: Proposed use
@@ -188,7 +192,7 @@
     type: number
     unit: gross square feet
 
-  - label: Will this change after construction?
+  - label: Will this change after you build the ADU(s)?
     type: radio
     options:
     - label: "Yes"
@@ -198,7 +202,7 @@
 
   - group: proposed-parking-gsf
     fields:
-    - label: How much parking space will there be after construction?
+    - label: How much parking space will there be?
       type: number
       unit: gross square feet
 
@@ -207,7 +211,7 @@
   - label: How many parking spaces does the property have?
     type: number
 
-  - label: Will this change after construction?
+  - label: Will this change after you build the ADU(s)?
     type: radio
     options:
     - label: "Yes"
@@ -217,7 +221,7 @@
 
   - group: proposed-parking-spaces
     fields:
-    - label: How many parking spaces will there be after construction?
+    - label: How many parking spaces will there be?
       type: number
 
 - title: Residential area
@@ -226,7 +230,7 @@
     type: number
     unit: gross square feet
 
-  - label: Will this change after construction?
+  - label: Will this change after you build the ADU(s)?
     type: radio
     options:
     - label: "Yes"
@@ -236,7 +240,7 @@
 
   - group: proposed-residential-gsf
     fields:
-    - label: How much residential space will there be after construction?
+    - label: How much residential space will there be?
       type: number
       unit: gross square feet
 
@@ -245,7 +249,7 @@
   - label: How many affordable dwelling units does the property have?
     type: number
 
-  - label: Will this change after construction?
+  - label: Will this change after you build the ADU(s)?
     type: radio
     options:
     - label: "Yes"
@@ -255,7 +259,7 @@
 
   - group: proposed-affordable
     fields:
-    - label: How many affordable dwelling units will there be after construction?
+    - label: How many affordable dwelling units will there be?
       type: number
 
 - title: Market-rate dwelling units
@@ -264,7 +268,7 @@
     type: number
     unit: gross square feet
 
-  - label: Will this change after construction?
+  - label: Will this change after you build the ADU(s)?
     type: radio
     options:
     - label: "Yes"
@@ -274,7 +278,7 @@
 
   - group: proposed-market-rate
     fields:
-    - label: How many market-rate dwelling units will there be after construction?
+    - label: How many market-rate dwelling units will there be?
       type: number
 
 - title: Commercial area
@@ -283,7 +287,7 @@
     type: number
     unit: gross square feet
 
-  - label: Will this change after construction?
+  - label: Will this change after you build the ADU(s)?
     type: radio
     options:
     - label: "Yes"
@@ -293,7 +297,7 @@
 
   - group: proposed-commercial-gsf
     fields:
-    - label: How much commercial space will there be after construction?
+    - label: How much commercial space will there be?
       type: number
       unit: gross square feet
 
@@ -302,7 +306,7 @@
   - label: How many buildings does the property have?
     type: number
 
-  - label: Will this change after construction?
+  - label: Will this change after you build the ADU(s)?
     type: radio
     options:
     - label: "Yes"
@@ -312,7 +316,7 @@
 
   - group: proposed-buildings
     fields:
-    - label: How many buildings will there be after construction?
+    - label: How many buildings will there be?
       type: number
 
 - title: Building stories
@@ -320,7 +324,7 @@
   - label: How many stories does the property have?
     type: number
 
-  - label: Will this change after construction?
+  - label: Will this change after you build the ADU(s)?
     type: radio
     options:
     - label: "Yes"
@@ -330,7 +334,7 @@
 
   - group: proposed-stories
     fields:
-    - label: How many stories will there be after construction?
+    - label: How many stories will there be?
       type: number
 
 - title: Basements / cellars
@@ -338,7 +342,7 @@
   - label: How many basements or cellars does the property have?
     type: number
 
-  - label: Will this change after construction?
+  - label: Will this change after you build the ADU(s)?
     type: radio
     options:
     - label: "Yes"
@@ -348,7 +352,7 @@
 
   - group: proposed-basements
     fields:
-    - label: How many basements or cellars will there be after construction?
+    - label: How many basements or cellars will there be?
       type: number
 
 - title: Bicycle spaces
@@ -356,7 +360,7 @@
   - label: How many bicycle spaces does the property have?
     type: number
 
-  - label: Will this change after construction?
+  - label: Will this change after you build the ADU(s)?
     type: radio
     options:
     - label: "Yes"
@@ -366,7 +370,7 @@
 
   - group: proposed-bicycle-spaces
     fields:
-    - label: How many bicycle spaces will there be after construction?
+    - label: How many bicycle spaces will there be?
       type: number
 
 - title: Fire protection
@@ -436,7 +440,7 @@
 
   - group: seismic-retro-number
     fields:
-    - label: Enter your seismic retrofitting permit application number.
+    - label: What is your seismic retrofitting permit application number?
       type: number
       maxlength: 15
 
@@ -451,7 +455,7 @@
 
   - group: seismic-strength
     fields:
-    - label: Enter your seismic strengthening permit application number.
+    - label: What is your seismic strengthening permit application number?
       type: number
       maxlength: 15
 
@@ -548,7 +552,7 @@
 
       You will still need to apply for separate permits for any:
 
-      - Additions or changes to auto runways
+      - Additions or changes to driveways or auto runways
 
       - Building extensions
 
@@ -758,7 +762,7 @@
   - label: Will the work involve any of the following?
     type: checkbox
     options:
-    - label: Building an auto runway
+    - label: Building a driveway or auto runway
       show: auto-runway
 
     - label: Using street space
