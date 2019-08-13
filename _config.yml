@@ -4,3 +4,9 @@ sass:
   sass_dir: css
 plugins:
 - jekyll-typogrify
+defaults:
+  -
+    scope:
+      path: ""
+    values:
+      layout: "base"

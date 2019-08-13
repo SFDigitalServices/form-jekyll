@@ -23,7 +23,9 @@
         <span class="hero-banner--border-contain"></span>
       </span>
 
-      {{ content }}
+      <form class="form">
+        {% include render_form.html form=page.form %}
+      </form>
     </main>
 
     {% include sfgov/footer.html %}

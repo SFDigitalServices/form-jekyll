@@ -1,4 +1,6 @@
-{% for page in include.fields %}
+{% capture currentform %}{{ include.form }}{% endcapture %}
+
+{% for page in site.data[currentform] %}
 
   {% assign fields = page.fields %}
   {% assign label = page.title %}
