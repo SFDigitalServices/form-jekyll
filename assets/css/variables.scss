@@ -162,7 +162,7 @@ $breakpointz: (
 }
 
 @mixin background-image($file-name, $position: 50% 50%, $color: transparent) {
-  background: url('/images/#{$file-name}') no-repeat $position $color;
+  background: url('/assets/images/#{$file-name}') no-repeat $position $color;
 }
 
 @mixin less-than($breakpoint) {
