@@ -8,7 +8,7 @@
 
 ### What is it?
 
-`form-jekyll` is a Jekyll template that lets you easily build a prototype of an SF.GOV form in a YAML file. Right now, it lets you add:
+`form-jekyll` is a Jekyll theme that lets you easily build a prototype of an SF.GOV form in a YAML file. Right now, it lets you add:
 
 - Multiple field types
 - Custom error messages
