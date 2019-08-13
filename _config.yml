@@ -1,12 +1,11 @@
 title: ADU Form
 sass:
   style: compressed
-  sass_dir: _sass
+  sass_dir: assets/css
 plugins:
 - jekyll-typogrify
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
     values:
-      layout: "base"
+      layout: "default"
