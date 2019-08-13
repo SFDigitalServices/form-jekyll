@@ -1,0 +1,12 @@
+<div class="form-group form-nav">
+  {% if forloop.first %}
+    <a href="javascript:void(0);" class="btn btn-lg form-section-next">Start</a>
+  {% else %}
+    <a href="javascript:void(0);" class="btn btn-lg form-section-prev">Previous</a>
+    {% if forloop.last %}
+      <a href="javascript:void(0);" id="submit" class="btn btn-lg submit">Submit</a>
+    {% else %}
+      <a href="javascript:void(0);" class="btn btn-lg form-section-next">Next</a>
+    {% endif %}
+  {% endif %}
+</div>

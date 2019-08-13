@@ -1,6 +1,6 @@
 <div class="field-link">
-  {% if include.description %}
-    <p>{{ include.description }}</p>
+  {% if description %}
+    <p>{{ description }}</p>
   {% endif %}
-  <a href="{{ include.url }}" target="_blank">{{ field.label }}</a>
+  <a href="{{ url }}" target="_blank">{{ label | improve}}</a>
 </div>

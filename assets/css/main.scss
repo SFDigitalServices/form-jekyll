@@ -1,8 +1,11 @@
 ---
 ---
 
-body {
-  font-family: "Rubik", sans-serif;
+@import 'variables';
+
+html, body {
+  margin: 0;
+  padding: 0;
 }
 
 fieldset {
@@ -12,10 +15,12 @@ fieldset {
 }
 
 label,
+.label,
 legend {
   display: block;
   margin: 0 0 0.25rem;
   padding: 0;
+  line-height: 1.5;
 }
 
 div[data-group] {
@@ -54,6 +59,17 @@ textarea {
 
 textarea {
   resize: vertical;
+  &.textarea-small {
+    height: 1.75rem * 3;
+  }
+
+  &.textarea-medium {
+    height: 1.75rem * 5;
+  }
+
+  &.textarea-large {
+    height: 1.75rem * 9;
+  }
 }
 
 .help-block {
@@ -206,45 +222,6 @@ textarea {
   box-sizing: border-box;
 }
 
-// Color variables
-
-$black: #212123;
-$white: #FFFFFF;
-$dark-blue: #0C1464;
-$slate-blue: #1C3E57;
-$bright-blue: #4F66EE;
-
-$red-1: #F5E9E5;
-$red-2: #EFCABB;
-$red-3: #C9563A;
-$red-4: #BC4427;
-
-$yellow-1: #F8F1DF;
-$yellow-2: #F9E3A3;
-$yellow-3: #F4C435;
-$yellow-4: #E7B22E;
-
-$green-1: #E9F7EC;
-$green-2: #C0E2C5;
-$green-3: #00896D;
-$green-4: #1B674D;
-
-$blue-1: #EDF4F7;
-$blue-2: #A9D6EA;
-
-$purple-1: #EDEBF6;
-$purple-2: #CCCCED;
-$purple-3: #8266BC;
-$purple-4: #5D4099;
-
-// Measurements
-
-$radius: 8px;
-$base-font-size: 16;
-$t-light: 300;
-$t-normal: 400;
-$t-bold: 500;
-
 // Mixins
 
 @mixin font-smoothing {
@@ -281,15 +258,34 @@ input,
 textarea,
 select,
 button {
-  font-family: 'Rubik', HelveticaNeue, Arial, sans-serif;
-  color: $black;
+  @include rubik;
+  @include fs-body-short;
+  color: $slate-blue;
   font-weight: $t-normal;
-  font-size: 100%;
   -webkit-font-size-adjust: 100%;
 }
 
-body {
-  line-height: 1.75;
+input,
+textarea,
+select {
+  color: $slate-blue;
+}
+
+.site {
+  font-size: 1.0625em;
+}
+
+label,
+legend {
+  font-size: (24em / 17);
+  letter-spacing: -0.016em;
+  line-height: 1.5;
+  @include font-smoothing;
+  margin-bottom: 0.5rem;
+}
+
+legend {
+  margin-bottom: 0.75rem;
 }
 
 b, strong {
@@ -324,7 +320,7 @@ input[type='time'],
 input[type='search'],
 textarea,
 select {
-  padding: 1rem;
+  padding: 0.64rem 1rem;
 }
 
 // Cross-browser consistency / bug fixes
@@ -379,26 +375,30 @@ input[type='file'] {
 
 // Checkbox and radio button styles
 
+$rc-size: 3rem;
+
 .checkbox,
 .radio {
   position: relative;
-  padding-left: 3rem;
+  padding-left: $rc-size + 0.75rem;
   margin-bottom: 1rem;
+  min-height: $rc-size;
 
   input,
   span::before {
     position: absolute;
-    top: -0.25rem;
+    top: 0;
     left: 0;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: $rc-size;
+    height: $rc-size;
   }
 
   input {
     -webkit-appearance: none;
     -moz-appearance: none;
     opacity: 0;
-
+    padding: 0;
+    margin: 0;
     &:focus + span:before {
       @include input-border-focus;
     }
@@ -406,6 +406,8 @@ input[type='file'] {
 
   span {
     display: block;
+    font-size: initial;
+    padding-top: 0.75rem;
     &::before {
       content: '';
       @include input-border;
@@ -421,20 +423,26 @@ input[type='file'] {
 
   span::after {
     content: '';
-    width: 1.5rem;
-    height: 1.5rem;
-    top: 0.25rem;
-    left: 0.5rem;
+    width: $rc-size * 0.625;
+    height: $rc-size * 0.625;
+    top: $rc-size * 0.1875;
+    left: $rc-size * 0.1875;
     z-index: 2;
     position: absolute;
   }
 
-  input:checked + span::after {
-    background: $slate-blue;
+  input:checked {
+   + span::after {
+      background: $slate-blue;
+    }
+
+    &:focus + span:after {
+      background: $bright-blue;
+    }
   }
 
   input:focus + span:before {
-    background: $bright-blue;
+    background: $white;
   }
 }
 
@@ -444,11 +452,12 @@ input[type='file'] {
     background-size: 50% 40%;
     background-repeat: no-repeat;
     background-position: center;
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyMCAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTUuNzUwMTUgMTUuNzU1QzUuNTg1ODUgMTUuNzU1NSA1LjQyMzA2IDE1LjcyMzYgNS4yNzExNyAxNS42NjA5QzUuMTE5MjcgMTUuNTk4MyA0Ljk4MTI4IDE1LjUwNjIgNC44NjUxNSAxNS4zOUwwLjM2NTE1MSAxMC44OUMwLjI0NTkzNyAxMC43NzQ1IDAuMTUwOTE1IDEwLjYzNjQgMC4wODU2Mjg4IDEwLjQ4MzhDMC4wMjAzNDI0IDEwLjMzMTIgLTAuMDEzOTAxMiAxMC4xNjcyIC0wLjAxNTEwMzkgMTAuMDAxMkMtMC4wMTYzMDY2IDkuODM1MjMgMC4wMTU1NTU3IDkuNjcwNjkgMC4wNzg2MjM5IDkuNTE3MTZDMC4xNDE2OTIgOS4zNjM2NCAwLjIzNDcwMyA5LjIyNDIxIDAuMzUyMjMxIDkuMTA3MDFDMC40Njk3NTggOC45ODk4MiAwLjYwOTQ0OSA4Ljg5NzIgMC43NjMxNTEgOC44MzQ1N0MwLjkxNjg1NCA4Ljc3MTkzIDEuMDgxNDkgOC43NDA1NCAxLjI0NzQ2IDguNzQyMjFDMS40MTM0MiA4Ljc0Mzg4IDEuNTc3MzkgOC43Nzg1OSAxLjcyOTggOC44NDQzMUMxLjg4MjIxIDguOTEwMDIgMi4wMjAwMSA5LjAwNTQ0IDIuMTM1MTUgOS4xMjQ5OEw1Ljc1MDE1IDEyLjc0TDE3Ljg3MDIgMC42MTk5NzZDMTguMTA2MiAwLjM5MjU5IDE4LjQyMjIgMC4yNjcwMjUgMTguNzQ5OSAwLjI3MDMyN0MxOS4wNzc3IDAuMjczNjI5IDE5LjM5MSAwLjQwNTUzNSAxOS42MjI1IDAuNjM3NjMxQzE5Ljg1MzkgMC44Njk3MjggMTkuOTg0OSAxLjE4MzQ0IDE5Ljk4NzMgMS41MTEyMUMxOS45ODk3IDEuODM4OTcgMTkuODYzMiAyLjE1NDU1IDE5LjYzNTIgMi4zODk5OEw2LjYzNTE1IDE1LjM5QzYuNTE5MDIgMTUuNTA2MiA2LjM4MTAzIDE1LjU5ODMgNi4yMjkxNCAxNS42NjA5QzYuMDc3MjQgMTUuNzIzNiA1LjkxNDQ1IDE1Ljc1NTUgNS43NTAxNSAxNS43NTVaIiBmaWxsPSIjMUMzRTU3Ii8+Cjwvc3ZnPgo=');
+    background-image: url('data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNNS43NTAwOSAxNi43NTVDNS41ODU3OSAxNi43NTU2IDUuNDIzIDE2LjcyMzYgNS4yNzExMSAxNi42NjFDNS4xMTkyMSAxNi41OTg0IDQuOTgxMjIgMTYuNTA2MyA0Ljg2NTA5IDE2LjM5TDAuMzY1MDkgMTEuODlDMC4yNDU4NzYgMTEuNzc0NiAwLjE1MDg1NCAxMS42MzY1IDAuMDg1NTY3OCAxMS40ODM5QzAuMDIwMjgxMyAxMS4zMzEzIC0wLjAxMzk2MjMgMTEuMTY3MiAtMC4wMTUxNjQ5IDExLjAwMTNDLTAuMDE2MzY3NiAxMC44MzUzIDAuMDE1NDk0NyAxMC42NzA3IDAuMDc4NTYyOSAxMC41MTcyQzAuMTQxNjMxIDEwLjM2MzcgMC4yMzQ2NDIgMTAuMjI0MyAwLjM1MjE3IDEwLjEwNzFDMC40Njk2OTcgOS45ODk4OCAwLjYwOTM4OCA5Ljg5NzI2IDAuNzYzMDkgOS44MzQ2M0MwLjkxNjc5MyA5Ljc3MiAxLjA4MTQzIDkuNzQwNiAxLjI0NzQgOS43NDIyN0MxLjQxMzM2IDkuNzQzOTQgMS41NzczMyA5Ljc3ODY1IDEuNzI5NzQgOS44NDQzN0MxLjg4MjE1IDkuOTEwMDkgMi4wMTk5NSAxMC4wMDU1IDIuMTM1MDkgMTAuMTI1TDUuNzUwMDkgMTMuNzRMMTcuODcwMSAxLjYyMDA0QzE4LjEwNjIgMS4zOTI2NSAxOC40MjIxIDEuMjY3MDkgMTguNzQ5OSAxLjI3MDM5QzE5LjA3NzYgMS4yNzM2OSAxOS4zOTA5IDEuNDA1NiAxOS42MjI0IDEuNjM3NjlDMTkuODUzOCAxLjg2OTc5IDE5Ljk4NDkgMi4xODM1MSAxOS45ODcyIDIuNTExMjdDMTkuOTg5NiAyLjgzOTAzIDE5Ljg2MzEgMy4xNTQ2MSAxOS42MzUxIDMuMzkwMDRMNi42MzUwOSAxNi4zOUM2LjUxODk2IDE2LjUwNjMgNi4zODA5NyAxNi41OTg0IDYuMjI5MDcgMTYuNjYxQzYuMDc3MTggMTYuNzIzNiA1LjkxNDM5IDE2Ljc1NTYgNS43NTAwOSAxNi43NTVaIiBmaWxsPSIjMUMzRTU3Ii8+Cjwvc3ZnPg==');
   }
 
   &:focus + span::before {
-    background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyMCAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTUuNzUwMTUgMTUuNzU1QzUuNTg1ODUgMTUuNzU1NSA1LjQyMzA2IDE1LjcyMzYgNS4yNzExNyAxNS42NjA5QzUuMTE5MjcgMTUuNTk4MyA0Ljk4MTI4IDE1LjUwNjIgNC44NjUxNSAxNS4zOUwwLjM2NTE1MSAxMC44OUMwLjI0NTkzNyAxMC43NzQ1IDAuMTUwOTE1IDEwLjYzNjQgMC4wODU2Mjg4IDEwLjQ4MzhDMC4wMjAzNDI0IDEwLjMzMTIgLTAuMDEzOTAxMiAxMC4xNjcyIC0wLjAxNTEwMzkgMTAuMDAxMkMtMC4wMTYzMDY2IDkuODM1MjMgMC4wMTU1NTU3IDkuNjcwNjkgMC4wNzg2MjM5IDkuNTE3MTZDMC4xNDE2OTIgOS4zNjM2NCAwLjIzNDcwMyA5LjIyNDIxIDAuMzUyMjMxIDkuMTA3MDFDMC40Njk3NTggOC45ODk4MiAwLjYwOTQ0OSA4Ljg5NzIgMC43NjMxNTEgOC44MzQ1N0MwLjkxNjg1NCA4Ljc3MTkzIDEuMDgxNDkgOC43NDA1NCAxLjI0NzQ2IDguNzQyMjFDMS40MTM0MiA4Ljc0Mzg4IDEuNTc3MzkgOC43Nzg1OSAxLjcyOTggOC44NDQzMUMxLjg4MjIxIDguOTEwMDIgMi4wMjAwMSA5LjAwNTQ0IDIuMTM1MTUgOS4xMjQ5OEw1Ljc1MDE1IDEyLjc0TDE3Ljg3MDIgMC42MTk5NzZDMTguMTA2MiAwLjM5MjU5IDE4LjQyMjIgMC4yNjcwMjUgMTguNzQ5OSAwLjI3MDMyN0MxOS4wNzc3IDAuMjczNjI5IDE5LjM5MSAwLjQwNTUzNSAxOS42MjI1IDAuNjM3NjMxQzE5Ljg1MzkgMC44Njk3MjggMTkuOTg0OSAxLjE4MzQ0IDE5Ljk4NzMgMS41MTEyMUMxOS45ODk3IDEuODM4OTcgMTkuODYzMiAyLjE1NDU1IDE5LjYzNTIgMi4zODk5OEw2LjYzNTE1IDE1LjM5QzYuNTE5MDIgMTUuNTA2MiA2LjM4MTAzIDE1LjU5ODMgNi4yMjkxNCAxNS42NjA5QzYuMDc3MjQgMTUuNzIzNiA1LjkxNDQ1IDE1Ljc1NTUgNS43NTAxNSAxNS43NTVaIiBmaWxsPSIjNEY2NkVFIi8+Cjwvc3ZnPgo=');
+    background-color: $bright-blue;
+    background-image: url('data:image/svg+xml;charset=utf-8;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNNS43NTAwOSAxNi43NTVDNS41ODU3OSAxNi43NTU2IDUuNDIzIDE2LjcyMzYgNS4yNzExMSAxNi42NjFDNS4xMTkyMSAxNi41OTg0IDQuOTgxMjIgMTYuNTA2MyA0Ljg2NTA5IDE2LjM5TDAuMzY1MDkgMTEuODlDMC4yNDU4NzYgMTEuNzc0NiAwLjE1MDg1NCAxMS42MzY1IDAuMDg1NTY3OCAxMS40ODM5QzAuMDIwMjgxMyAxMS4zMzEzIC0wLjAxMzk2MjMgMTEuMTY3MiAtMC4wMTUxNjQ5IDExLjAwMTNDLTAuMDE2MzY3NiAxMC44MzUzIDAuMDE1NDk0NyAxMC42NzA3IDAuMDc4NTYyOSAxMC41MTcyQzAuMTQxNjMxIDEwLjM2MzcgMC4yMzQ2NDIgMTAuMjI0MyAwLjM1MjE3IDEwLjEwNzFDMC40Njk2OTcgOS45ODk4OCAwLjYwOTM4OCA5Ljg5NzI2IDAuNzYzMDkgOS44MzQ2M0MwLjkxNjc5MyA5Ljc3MiAxLjA4MTQzIDkuNzQwNiAxLjI0NzQgOS43NDIyN0MxLjQxMzM2IDkuNzQzOTQgMS41NzczMyA5Ljc3ODY1IDEuNzI5NzQgOS44NDQzN0MxLjg4MjE1IDkuOTEwMDkgMi4wMTk5NSAxMC4wMDU1IDIuMTM1MDkgMTAuMTI1TDUuNzUwMDkgMTMuNzRMMTcuODcwMSAxLjYyMDA0QzE4LjEwNjIgMS4zOTI2NSAxOC40MjIxIDEuMjY3MDkgMTguNzQ5OSAxLjI3MDM5QzE5LjA3NzYgMS4yNzM2OSAxOS4zOTA5IDEuNDA1NiAxOS42MjI0IDEuNjM3NjlDMTkuODUzOCAxLjg2OTc5IDE5Ljk4NDkgMi4xODM1MSAxOS45ODcyIDIuNTExMjdDMTkuOTg5NiAyLjgzOTAzIDE5Ljg2MzEgMy4xNTQ2MSAxOS42MzUxIDMuMzkwMDRMNi42MzUwOSAxNi4zOUM2LjUxODk2IDE2LjUwNjMgNi4zODA5NyAxNi41OTg0IDYuMjI5MDcgMTYuNjYxQzYuMDc3MTggMTYuNzIzNiA1LjkxNDM5IDE2Ljc1NTYgNS43NTAwOSAxNi43NTVaIiBmaWxsPSIjZmZmIi8+Cjwvc3ZnPg==');
   }
 }
 
@@ -606,11 +615,20 @@ h5 {
 }
 
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
+
+  p + &,
+  ul + & {
+    margin-top: 2rem;
+  }
 }
 
-form {
-  margin-top: 1rem;
+.form-content {
+  @include contain-1090;
+}
+
+.form-content-inner {
+  max-width: 38rem;
 }
 
 .form-section-nav {
@@ -654,12 +672,17 @@ form {
 }
 
 .help-text {
-  font-size: 0.875rem;
   color: $slate-blue;
+  font-size: (15rem / 17);
 
   p:first-child {
-    margin-top: 0.25rem;
+    margin-top: 0.5rem;
   }
+
+  p, ul {
+    margin: 0;
+  }
+
 }
 
 .has-error .help-block {
@@ -668,6 +691,7 @@ form {
   color: $white;
   padding: 0.25rem 0.75rem;
   border-radius: $radius;
+  display: inline-block;
   @include font-smoothing;
 
   li {
@@ -705,10 +729,6 @@ form {
 // Field-specific styles
 
 .field-number {
-  input {
-    width: 5rem;
-  }
-
   input, .units {
     display: inline-block;
   }
@@ -740,13 +760,13 @@ form {
 
 .field-address {
   label {
-    font-size: 0.88rem;
-    margin: 0.75rem 0 0;
+    font-size: (15rem / 17);
+    margin: 0 0 0.25rem;
   }
-}
 
-.field-address-zip {
-  width: 7rem;
+  input {
+    margin-bottom: 0.75rem;
+  }
 }
 
 .optional {
@@ -801,24 +821,66 @@ form {
 }
 
 .field-file {
-  [type="file"] {
-    border: 0;
-    clip: rect(0, 0, 0, 0);
-    height: 1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute !important;
-    white-space: nowrap;
-    width: 1px;
+  label {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    height: 6.5rem;
   }
 
-  [type="file"] + label {
-    @extend button;
+  input {
+    min-width: 14rem;
+    margin: 0;
+    filter: alpha(opacity=0);
+    opacity: 0;
   }
 
-  [type="file"]:focus + label,
-  [type="file"] + label:hover {
-    background: darken($bright-blue, 10%);
-    border-color: darken($bright-blue, 10%);
+  .file-custom {
+    font-size: 1rem;
+    position: absolute;
+    padding-top: 2.75rem;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 5;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+
+    &::after {
+      content: attr(data-filename);
+    }
+
+    &::before {
+      @extend button;
+      z-index: 6;
+      content: "Choose a file";
+      background: $white;
+      color: $bright-blue;
+      background-size: 20px 16px;
+      font-weight: $t-bold;
+    }
+
+    &:hover, &:focus, &:active {
+      &::before {
+        box-shadow: inset 0 0 0 2px darken($bright-blue, 10%);
+        color: darken($bright-blue, 10%);
+        background-color: rgba($bright-blue, 0.05);
+        color: $bright-blue;
+      }
+    }
   }
 }
+
+// Field length
+
+
+@for $i from 1 to 16 {
+  .length-#{$i} {
+    width: 2.5rem + (0.65rem * $i);
+    margin-bottom: 1rem;
+  }
+}
+
+@import 'sfgov';

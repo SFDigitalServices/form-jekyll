@@ -1,32 +1,34 @@
-{% for page in include.fields %}
+{% capture currentform %}{{ include.form }}{% endcapture %}
+
+{% for page in site.data[currentform] %}
 
   {% assign fields = page.fields %}
-  {% assign title = page.title %}
+  {% assign label = page.title %}
 
   <div class="form-section"{% if page.group %} data-group="{{ page.group }}"{% endif %}>
 
     {% comment %} Page headers {% endcomment %}
-    <header>
-      <h2>{{ title | markdownify }}</h2>
+    <header class="hero-banner default">
+      <h1>
+        {{ label | markdownify | remove: '<p>' | remove: '</p>' }}
+      </h1>
       {% if page.description %}
-        <p>{{ page.description | markdownify }}</p>
+        {{ page.description | markdownify | improve }}
       {% endif %}
     </header>
 
-    {% comment %} Render fields in the page {% endcomment %}
-    {% include render_field.html fields=fields title=title %}
+    <div class="form-content">
+      <div class="form-content-inner">
 
-    {% comment %} "Previous" and "Next" buttons {% endcomment %}
-    <div class="form-group form-nav">
-      {% unless forloop.first %}
-        <a href="javascript:void(0);" class="btn btn-lg form-section-prev">Previous</a>
-      {% endunless %}
+        <div class="nav-on-top">
+          {% include form-nav.html %}
+        </div>
+        {% comment %} Render fields in the page {% endcomment %}
+        {% include render_field.html %}
 
-      {% if forloop.last %}
-        <a href="javascript:void(0);" id="submit" class="btn btn-lg submit">Submit</a>
-      {% else %}
-        <a href="javascript:void(0);" class="btn btn-lg form-section-next">Next</a>
-      {% endif %}
+        {% include form-nav.html %}
+      </div>
     </div>
+
   </div>
 {% endfor %}

@@ -1,10 +1,14 @@
-<div class="field-file">
-  <input class="input-file" id="{{ include.name }}" type="file"
+<div class="field-container">
+  <label class="control-label valtype" for="{{ name }}" data-valtype="label">
+    <span class="label">
+      {% include elements/label.html %}
+    </span>
+  <input class="input-file" id="{{ name }}" type="file"
   {% unless optional %} required="required"{% endunless %}
-  {% if error %} data-error="{{ include.error }}"
-  {% else %} data-error="Please upload a file."{% endif %}>
-  <label class="control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label | markdownify | remove: '<p>' | remove: '</p>'}}</label>
-  {% if include.helptext %}
-    <div class="help-text" data-valtype='help'>{{ include.helptext | markdownify }}</div>
-  {% endif %}
+  {% if error %} data-error="{{ error }}"
+  {% else %} data-error="You need to upload a file."{% endif %}>
+  <span class="file-custom" data-filename=""></span>
+  </label>
+
+  {% include elements/helptext.html %}
 </div>

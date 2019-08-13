@@ -1,0 +1,462 @@
+// Color variables
+
+$black: #212123;
+$white: #FFFFFF;
+$dark-blue: #0C1464;
+$slate-blue: #1C3E57;
+$bright-blue: #4F66EE;
+
+$red-1: #F5E9E5;
+$red-2: #EFCABB;
+$red-3: #C9563A;
+$red-4: #BC4427;
+
+$yellow-1: #F8F1DF;
+$yellow-2: #F9E3A3;
+$yellow-3: #F4C435;
+$yellow-4: #E7B22E;
+
+$green-1: #E9F7EC;
+$green-2: #C0E2C5;
+$green-3: #00896D;
+$green-4: #1B674D;
+
+$blue-1: #EDF4F7;
+$blue-2: #A9D6EA;
+
+$purple-1: #EDEBF6;
+$purple-2: #CCCCED;
+$purple-3: #8266BC;
+$purple-4: #5D4099;
+
+$grey-1: #f8f8f8;
+$grey-2: #f1f1f1;
+$grey-3: #e9e9e9;
+$grey-4: #d3d3d3;
+$grey-5: #323a45;
+
+// Measurements
+
+$radius: 8px;
+$base-font-size: 16;
+$t-light: 300;
+$t-normal: 400;
+$t-medium: 500;
+$t-bold: 500;
+
+$not-big: 768px;
+$big: 1280px;
+
+$z-menu-mobile: 200;
+$z-menu-mobile-close: 300;
+$z-search-input-clear: 300;
+
+// @todo prefix breakpoints with $bp-
+$tiny-screen: 320px;
+$mobile-screen: 700px;
+$medium-screen: 768px;
+$narrow-screen: 950px;
+$wide-screen: 1280px;
+
+$breakpointz: (
+  'not-big': $not-big,
+  'big': $big
+) !default;
+
+@mixin clearfix {
+  &::after,
+  &::before {
+    content: '';
+    display: table;
+  }
+  &::after {
+    clear: both;
+  }
+}
+
+@mixin visually-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  width: 1px;
+  height: 1px;
+  word-wrap: normal;
+  overflow: hidden;
+  position: absolute !important;
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
+
+@mixin link-colors($normal, $hover: false, $active: false, $visited: false, $focus: false) {
+  &:link {
+    color: $normal;
+  }
+
+  @if $visited {
+    &:visited,
+    &:link:visited {
+      color: $visited;
+    }
+  }
+
+  @else {
+    &:visited,
+    &:link:visited {
+      color: $normal;
+    }
+  }
+
+  @if $focus {
+    &:focus {
+      color: $focus;
+    }
+  }
+
+  @else {
+    &:focus {
+      color: $normal;
+    }
+  }
+
+  @if $hover {
+    &.active:hover,
+    &.is-active:hover,
+    &.active-trail:hover,
+    &.visited:hover,
+    &:hover {
+      color: $hover;
+    }
+  }
+
+  @if $active {
+    &.is-active,
+    &:active,
+    &.active-trail {
+      color: $active;
+    }
+  }
+
+  @else {
+    &.is-active,
+    &:active,
+    &.active-trail {
+      color: $normal;
+    }
+  }
+}
+
+@mixin media($bp) {
+  @media screen and (min-width: #{$bp}) {
+    @content;
+  }
+}
+
+@mixin media-max($bp) {
+  @media screen and (max-width: #{$bp}) {
+    @content;
+  }
+}
+
+@mixin rubik {
+  font-family: "Rubik", sans-serif;
+}
+
+@mixin background-image($file-name, $position: 50% 50%, $color: transparent) {
+  background: url('/assets/images/#{$file-name}') no-repeat $position $color;
+}
+
+@mixin less-than($breakpoint) {
+  @if map-has-key($breakpointz, $breakpoint) {
+    @media (max-width: map-get($breakpointz, $breakpoint)) {
+      @content;
+    }
+  }
+}
+
+@mixin greater-than($breakpoint) {
+  @if map-has-key($breakpointz, $breakpoint) {
+    @media (min-width: map-get($breakpointz, $breakpoint)) {
+      @content;
+    }
+  }
+}
+
+@mixin contain { // @todo Deprecate this mixin.
+  margin: 0 auto;
+  max-width: 1276px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @include  media($medium-screen) {
+    padding-left: 96px;
+    padding-right: 96px;
+  }
+}
+
+@mixin contain-1280 { // Zeplin Artboard.
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 100%;
+}
+
+@mixin contain-1210 { // Para titles.
+  margin: 0 auto;
+  max-width: 1210px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+
+  @include media($wide-screen) {
+    padding: 0;
+  }
+}
+
+@mixin contain-1150 { // Contents with offset.
+  margin: 0 auto;
+  max-width: 1210px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+
+  @include media($wide-screen) {
+    padding: 0 60px 0 0;
+  }
+}
+
+@mixin contain-1090-table { // Match 1090 spacing when a 3-column table is the child.
+  margin: 0 auto;
+  max-width: 1130px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+
+  @include media($medium-screen) {
+    padding: 0;
+  }
+}
+
+@mixin contain-1090 { // Most contents.
+  margin: 0 auto;
+  max-width: 1090px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+
+  @include media($wide-screen) {
+    padding: 0;
+  }
+}
+
+
+@mixin fs-display-1 {
+  font-size: 72px;
+  font-weight: $t-light;
+  letter-spacing: -2px;
+  line-height: 80.2px;
+}
+
+@mixin fs-title-1 {
+  font-size: 62px;
+  font-weight: $t-medium;
+  letter-spacing: 0;
+  line-height: 70px;
+}
+
+@mixin fs-header-title-2 {
+  font-size: 50px;
+  font-weight: $t-light;
+  letter-spacing: 0;
+  line-height: 59px;
+}
+
+@mixin fs-display-1-mobile {
+  font-size: 42px;
+  font-weight: $t-light;
+  letter-spacing: 0;
+  line-height: 43px;
+}
+
+@mixin fs-title-2 {
+  font-size: 40px;
+  font-weight: $t-medium;
+  line-height: 47px;
+}
+
+@mixin fs-title-1-mobile {
+  font-size: 33px;
+  font-weight: $t-medium;
+  line-height: 43px;
+}
+
+@mixin fs-big-description {
+  font-size: 24px;
+  font-weight: $t-normal;
+  line-height: 36px;
+}
+
+@mixin fs-title-5 {
+  font-size: 20px;
+  font-weight: $t-medium;
+  line-height: 27px;
+}
+
+@mixin fs-body-bold {
+  font-size: 17px;
+  font-weight: $t-medium;
+  line-height: 24px;
+}
+
+@mixin fs-body-short {
+  font-size: 17px;
+  font-weight: $t-normal;
+  line-height: 24px;
+}
+
+@mixin fs-body-long {
+  font-size: 17px;
+  font-weight: $t-normal;
+  line-height: 28px;
+}
+
+@mixin fs-title-3 {
+  font-size: 30px;
+  font-weight: $t-medium;
+  line-height: 42px;
+}
+
+@mixin fs-big-description-mobile {
+  font-size: 20px;
+  font-weight: $t-normal;
+  line-height: 29px;
+}
+
+@mixin fs-title-3-mobile {
+  font-size: 24px;
+  font-weight: $t-medium;
+  line-height: 30px;
+}
+
+@mixin fs-title-4 {
+  font-size: 24px;
+  font-weight: $t-normal;
+  line-height: 34px;
+}
+
+@mixin fs-title-3-mobile {
+  font-size: 24px;
+  font-weight: $t-medium;
+  line-height: 30px;
+}
+
+@mixin fs-small-text {
+  font-size: 14px;
+  font-weight: $t-normal;
+  line-height: 18px;
+}
+
+// Styles from older Zeplin file to deprecate.
+// https://app.zeplin.io/project/5ccb490a87477603a8753db7/styleguide
+
+@mixin fs-h1-small {
+  font-size: 33px;
+  font-weight: $t-medium;
+  letter-spacing: -.3px;
+  line-height: 43px;
+}
+
+@mixin fs-display-1-mobile {
+  font-size: 33px;
+  font-weight: $t-light;
+  letter-spacing: 0;
+  line-height: 39px;
+}
+
+@mixin fs-pull-small {
+  font-size: 20px;
+  font-weight: $t-medium;
+  line-height: 34px;
+}
+
+@mixin fs-pull-large {
+  font-size: 20px;
+  font-weight: $t-medium;
+  line-height: 32px;
+}
+
+@mixin fs-news-title {
+  font-size: 20px;
+  font-weight: $t-medium;
+  line-height: 30px;
+}
+
+@mixin fs-new-website-text {
+  font-size: 20px;
+  font-weight: $t-normal;
+  line-height: 28px;
+}
+
+@mixin fs-title-right {
+  font-size: 20px;
+  font-weight: $t-medium;
+  line-height: 24px;
+}
+
+@mixin fs-big-link {
+  font-size: 20px;
+  font-weight: $t-medium;
+  line-height: 27px;
+}
+
+@mixin fs-body-3 {
+  font-size: 17px;
+  font-weight: $t-normal;
+  line-height: 28.9px;
+}
+
+@mixin fs-title {
+  font-size: 17px;
+  font-weight: $t-medium;
+  line-height: 24px;
+  text-decoration: underline;
+}
+
+@mixin fs-nav-link {
+  font-size: 17px;
+  font-weight: $t-medium;
+  line-height: 20px;
+}
+
+@mixin fs-news-type {
+  font-size: 16px;
+  font-weight: $t-bold;
+  line-height: 28px;
+}
+
+// Complex mixins.
+@mixin fs-h1 {
+  @include fs-h1-small;
+  @include  media($medium-screen) {
+    @include fs-title-1;
+  }
+}
+
+@mixin fs-h1-default {
+  @include fs-display-1-mobile;
+  @include  media($medium-screen) {
+    @include fs-display-1;
+  }
+}
+
+@mixin fs-h1-home {
+  @include fs-display-1-mobile;
+  @include  media($medium-screen) {
+    @include fs-display-1;
+  }
+}
+
+@mixin fs-pull {
+  @include fs-pull-small;
+  @include  media($medium-screen) {
+    @include fs-pull-large;
+  }
+}

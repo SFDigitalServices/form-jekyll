@@ -1,11 +1,12 @@
-<label class="control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label | markdownify | remove: '<p>' | remove: '</p>'}}</label>
-<div class="">
+<label class="control-label valtype" for="{{ name }}" data-valtype="label">
+  {% include elements/label.html %}
+</label>
+<div class="field-container">
   <div class="textarea">
-    <textarea class="form-control valtype" data-valtype="textarea" name="{{ include.name }}"
+    <textarea class="form-control valtype textarea-{{ size | default: 'small' }}" data-valtype="textarea" name="{{ name }}"
     {% unless optional %} required="required"{% endunless %}
-    {% if error %} data-error="{{ include.error }}"{% endif %} /> </textarea>
-    {% if include.helptext %}
-      <div class="help-text" data-valtype='help'>{{ include.helptext | markdownify }}</div>
-    {% endif %}
+    {% if error %} data-error="{{ error }}"{% endif %} /> </textarea>
+
+    {% include elements/helptext.html %}
   </div>
 </div>

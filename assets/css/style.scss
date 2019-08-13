@@ -11,18 +11,35 @@ $shadow: 0 1px 4px rgba(#000, 0.06);
 
 // Page layout
 
-.form {
-  width: 96%;
-  max-width: 38rem;
-  margin: 0 auto;
-}
-
-header {
+.page-header {
   border-bottom: 5px solid #4F66EE;
   padding-bottom: 1.5rem;
-  margin-bottom: 2rem;
-  h2, p {
-    margin-bottom: 0;
+  margin: 2rem 0;
+  h2 {
+    margin: 0;
+  }
+
+  p {
+    margin: 0.25rem 0 0;
+  }
+}
+
+// Conditional styles
+
+[data-group] {
+  display: none;
+
+  &.form-section.active {
+    display: none;
+  }
+}
+
+.is-conditionally-visible[data-group] {
+  display: block;
+
+  .all-pages &,
+  &.form-section.active {
+    display: block;
   }
 }
 
@@ -70,7 +87,7 @@ header {
     text-align: right;
     opacity: 0.5;
 
-    svg {
+    img {
       transform: rotate(180deg);
       transform-origin: 50% 50%;
       transition: all 0.1s ease-out;
@@ -81,16 +98,21 @@ header {
   &.active {
     transform: translateY($offset);
 
-    .form-settings-toggle svg {
+    .form-settings-toggle img {
       transform: rotate(0deg);
     }
   }
 }
 
+// Settings body classes
+
 .all-pages {
   background: #ddd;
 
-  .form-nav {
+  .form-nav,
+  .sfgov-alpha-banner,
+  header[role="banner"],
+  .sfgov-footer {
     display: none;
   }
 
@@ -112,6 +134,13 @@ header {
 
 .all-conditionals {
   div[data-group] {
+    display: block;
+  }
+}
+
+.nav-on-top {
+  display: none;
+  .top-nav & {
     display: block;
   }
 }

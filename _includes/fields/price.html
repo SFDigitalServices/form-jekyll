@@ -1,14 +1,16 @@
-<label class="control-label valtype" for="{{ include.name }}" data-valtype="label">{{ include.label | markdownify | remove: '<p>' | remove: '</p>'}}</label>
-<div class="field-price">
+<label class="control-label valtype" for="{{ name }}" data-valtype="label">
+  {% include elements/label.html %}
+</label>
+
+<div class="field-container">
   <div class="prepended dollar">$</div>
-  <input type="text" name="{{ include.name }}" placeholder="" class="form-control input-md valtype" data-valtype="placeholder"
+  <input type="text" name="{{ name }}" placeholder="" class="form-control input-md valtype" data-valtype="placeholder"
   {% unless optional %} required="required"{% endunless %}
   {% if error %}
-    data-error="{{ include.error }}"
+    data-error="{{ error }}"
   {% else %}
-    data-error="Please enter a valid price."
+    data-error="You need to enter a valid price."
   {% endif %}>
-  {% if include.helptext %}
-    <div class="help-text" data-valtype='help'>{{ include.helptext | markdownify }}</div>
-  {% endif %}
+
+  {% include elements/helptext.html %}
 </div>

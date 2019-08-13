@@ -1,0 +1,471 @@
+@import 'variables';
+
+.sfds-layout-container {
+  .sfds-responsive-container {
+    &.sfds-responsive-container-right-zero {
+      padding-right: 0;
+    }
+  }
+}
+
+// ---- Alpha Banner ----
+
+.sfgov-alpha-banner {
+  background: $grey-5;
+  padding: 11px 0;
+  .sfgov-alpha-banner__content {
+    @include contain-1090;
+    @include fs-body-short;
+    color: $white;
+    a {
+      color: $white;
+      font-weight: normal;
+    }
+  }
+}
+
+
+// ---- Logo -----
+
+.branding-link {
+  text-decoration: none;
+  color: $black;
+}
+
+.sfgov-logo__container {
+  @include media($narrow-screen) {
+    padding: 12px 0;
+  }
+}
+
+.sfgov-logo {
+  margin-top: 3px;
+
+  @include media($narrow-screen) {
+    margin-top: 0;
+  }
+}
+
+.sfgov-logo__image {
+  display: block;
+
+  img {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+.sfgov-logo--seal {
+  width: 32px;
+  height: 32px;
+
+  @include media($medium-screen) {
+    height: 42px;
+    margin-right: 4px;
+    width: 42px;
+  }
+}
+
+.sfgov-logo--lockup {
+  width: 86.18px;
+  height: 18px;
+
+  @include media($medium-screen) {
+    width: 112px;
+    height: 23.39px;
+  }
+}
+
+// ---- Header ----
+
+header[role="banner"] {
+  .sfgov-nav-container {
+    .sfgov-nav-container__content {
+      @include clearfix;
+      .sfgov-mobile-nav-btn {
+        display: none;
+      }
+      .sfgov-mobile-btn-close {
+        display: none;
+      }
+      .sfgov-logo__container {
+        float: left;
+        padding: 0;
+        margin: 0;
+      }
+      .head-right--container {
+        float: right;
+        width: 75%;
+        text-align: right;
+        margin-top: 7px;
+        > * {
+          vertical-align: middle;
+        }
+        nav {
+          display: inline-block;
+          .sfgov-nav-inner {
+            .sfgov-nav-close {
+              display: none;
+            }
+            .sfgov-main-navigation {
+              .menu {
+                padding: 0;
+                margin: 0;
+                list-style-type: none;
+                > li {
+                  display: inline-block;
+                  margin-right: 25px;
+                  a {
+                    color: #5168e4;
+                    text-decoration: none;
+                    @include fs-nav-link;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .sfgov-search-311-block {
+          vertical-align: top;
+          margin-top: -10px;
+        }
+        @include less-than('not-big') {
+          nav.sfgov-nav {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  @include less-than('not-big') {
+    position: relative;
+    .sfgov-nav-container {
+      .sfgov-nav-container__content {
+        .sfgov-mobile-menu-container {
+          display: block;
+          float: right;
+          margin-top: 4px;
+        }
+        .sfgov-mobile-btn-close {
+          @include background-image('x-close-white.svg');
+          display: block;
+          width: 24px;
+          height: 24px;
+          background-size: cover;
+          float: right;
+          margin-top: 10px;
+        }
+        .sfgov-mobile-nav-btn {
+          @include rubik;
+          display: inline-block;
+          font-size: 17px;
+          font-weight: $t-medium;
+          margin: 0;
+          padding: 0;
+          background: transparent;
+          color: $bright-blue;
+          width: auto;
+          vertical-align: middle;
+          margin-left: 15px;
+          &.sfgov-mobile-search {
+            width: 26px;
+            height: 26px;
+            @include background-image('search-blue.svg');
+            background-size: cover;
+          }
+        }
+        .head-right--container {
+          width: 54%;
+          margin-top: 3px;
+        }
+      }
+    }
+  }
+}
+
+header[role="banner"] {
+  padding-bottom: 24px;
+  padding-top: 24px;
+
+  @include media($medium-screen) {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  #sfgov-search-autocomplete {
+    left: 0;
+    padding: 15px 20px 60px;
+    top: 74px;
+    width: 100%;
+
+    @include media($medium-screen) {
+      border-radius: 8px;
+      left: auto;
+      min-width: 280px;
+      right: 50px;
+      top: 44px;
+    }
+
+    @include media($narrow-screen) {
+      border-radius: 0 0 8px 8px;
+      left: 8px;
+      min-width: auto;
+      width: calc(100% - 56px);
+    }
+
+    a {
+      border-bottom: 3px solid rgba(28, 62, 87, .1);
+      padding: 10px 0;
+    }
+  }
+
+  .sfgov-menu-btn.is-active {
+    &::before {
+      @include background-image('x-close-white.svg', 50% 50%, $bright-blue);
+      content: '';
+      display: block;
+      height: 80px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 70px;
+      z-index: $z-menu-mobile-close;
+    }
+  }
+}
+
+.sfgov-nav-container {
+  @include contain-1210;
+
+  @include media($medium-screen) {
+    padding-left: 10px;
+    padding-right: 34px;
+  }
+}
+
+// Translate button
+
+.gtranslate_container {
+  display: inline-block;
+  margin-right: 25px;
+
+  @include media-max($medium-screen) {
+    position: absolute;
+    right: 105px;
+  }
+
+  .gtranslate {
+    @include background-image('globe-blue.svg', center left);
+
+    @include media-max($medium-screen) {
+      background-size: 26px 26px;
+      padding: 2px 0;
+    }
+
+    > select {
+      border: 0;
+      appearance: none;
+      font-size: 17px;
+      padding: 0 0 0 28px;
+      margin: -2px 0 0 0;
+      height: auto;
+      background: none;
+      color: $bright-blue;
+      font-weight: $t-medium;
+
+      @include media-max($medium-screen) {
+        margin-top: 0;
+        padding-left: 27px;
+        width: 1px;
+      }
+
+      @include media($medium-screen) {
+        width: 110px;
+      }
+    }
+  }
+}
+
+
+// --- Footer ----
+
+.sfgov-footer {
+  background: $black;
+  color: $white;
+  padding: 22px 0 24.4px;
+
+  @include media($medium-screen) {
+    height: 250px;
+    padding-bottom: 60px;
+    padding-top: 60px;
+  }
+
+  .sfgov-footer__container {
+    @include clearfix;
+    @include contain-1090;
+    .sfgov-footer-nav {
+      @include clearfix;
+      float: none;
+      width: auto;
+      @include media($medium-screen) {
+        float: right;
+        width: 50%;
+      }
+    }
+  }
+
+  .seal {
+    display: inline-block;
+    height: 70px;
+    margin-left: 15px;
+    vertical-align: middle;
+    width: 70px;
+
+    @include media($medium-screen){
+      height: 90px;
+      margin-left: 0;
+      width: 90px;
+    }
+  }
+
+  .logo {
+    float: none;
+    width: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    @include media($medium-screen) {
+      width: 50%;
+      float: left;
+      margin-top: 0;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
+
+  .text {
+    display: inline-block;
+    font-size: 25px;
+    font-weight: $t-light;
+    line-height: 30px;
+    margin-left: 19px;
+    vertical-align: middle;
+
+    @include media($medium-screen) {
+      font-size: 33px;
+      line-height: 39px;
+    }
+  }
+
+  li {
+    display: block;
+  }
+
+  a {
+    color: $white;
+    display: block;
+    padding: 10px 40px 10px 15px;
+    text-decoration: none;
+  }
+
+  .sfgov-footer-navigation {
+    float: none;
+    width: auto;
+    a {
+      @include fs-body-bold;
+    }
+    @include media($medium-screen) {
+      float: left;
+      width: 50%;
+    }
+  }
+
+  .sfgov-footer-navigation-bottom {
+    float: none;
+    width: auto;
+    a {
+      opacity: .7;
+    }
+    @include media($medium-screen) {
+      float: left;
+      width: 50%;
+    }
+  }
+
+  // silly override of pattern lab
+  .sfgov-footer-navigation,
+  .sfgov-footer-navigation-bottom {
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        &:first-child {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+}
+
+// Main content area
+
+main[role="main"] {
+  min-height: calc(100vh - 524px);
+
+  @include media($medium-screen) {
+    min-height: calc(100vh - 418px);
+  }
+}
+
+
+.hero-banner--border {
+  display: block;
+  height: 3px;
+  margin: 0 auto;
+  max-width: 1090px;
+  width: 100%;
+
+  .hero-banner--border-contain {
+    background: rgba(28, 62, 87, .1);
+    display: block;
+    height: 3px;
+    margin-left: 20px;
+    margin-right: 20px;
+
+    @include media($wide-screen) {
+      margin: 0;
+    }
+  }
+}
+
+.hero-banner.default {
+  @include contain-1090;
+  padding-top: 40px;
+
+  @include media($medium-screen) {
+    padding-top: 60px;
+  }
+
+  h1 {
+    @include fs-h1-default;
+    margin-top: 0;
+    color: $black;
+    margin-bottom: 40px;
+
+    @include media($medium-screen) {
+      margin-left: -5px;
+    }
+  }
+
+  .lead-paragraph {
+    color: $black;
+  }
+
+  .path-frontpage & {
+    h1 {
+      @include fs-h1-home;
+      margin-bottom: 27px;
+    }
+  }
+}

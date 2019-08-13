@@ -1,26 +1,26 @@
-{% assign address-error = "Please fill in a complete address." %}
+{% assign address-error = "You need to fill in a complete address." %}
 
 <fieldset class="field-address">
-  <legend>{{ include.label | markdownify | remove: '<p>' | remove: '</p>'}}</legend>
+  <legend>{% include elements/label.html %}</legend>
 
-  {% if include.address-fields contains 'street' or include.address-fields == 'full' %}
-    <label for="{{ include.name}}-line1">Address Line 1</label>
-    <input type="text" id="{{ include.name}}-line1" {% unless optional %}required="required" data-error="{{ address-error }}"{% endunless %}>
+  {% if address-fields contains 'street' or address-fields == 'full' %}
+    <label for="{{ name}}-line1">Address Line 1</label>
+    <input type="text" id="{{ name}}-line1" {% unless optional %}required="required" data-error="{{ address-error }}"{% endunless %}>
 
-    <label for="{{ include.name}}-line2">Address Line 2 <span class="optional">(optional)</span></label>
-    <input type="text" id="{{ include.name }}-line2">
+    <label for="{{ name}}-line2">Address Line 2 {% unless optional %}<span class="optional">(optional)</span>{% endunless %}</label>
+    <input type="text" id="{{ name }}-line2">
   {% endif %}
 
 
-  {% if include.address-fields contains 'city' or include.address-fields == 'full' %}
-    <label for="{{ include.name}}-city">City</label>
-    <input type="text" id="{{ include.name}}-city" {% unless optional %}required="required" data-error="{{ address-error }}"{% endunless %}>
+  {% if address-fields contains 'city' or address-fields == 'full' %}
+    <label for="{{ name}}-city">City</label>
+    <input type="text" id="{{ name}}-city" {% unless optional %}required="required" data-error="{{ address-error }}"{% endunless %}>
   {% endif %}
 
-  {% if include.address-fields contains 'state' or include.address-fields == 'full' %}
+  {% if address-fields contains 'state' or address-fields == 'full' %}
     <div class="field-address-state">
-      <label for="{{ include.name}}-state">State</label>
-      <select id="{{ include.name}}-state" {% unless optional %}required="required" data-error="{{ address-error }}"{% endunless %}>
+      <label for="{{ name}}-state">State</label>
+      <select id="{{ name}}-state" {% unless optional %}required="required" data-error="{{ address-error }}"{% endunless %}>
         <option value="">Choose a state</option>
         {% for state in site.data.states %}
           <option value="{{ state.value }}">{{ state.text }}</option>
@@ -29,15 +29,13 @@
     </div>
   {% endif %}
 
-  {% if include.address-fields contains 'zip' or include.address-fields == 'full' %}
+  {% if address-fields contains 'zip' or address-fields == 'full' %}
     <div class="field-address-zip">
-      <label for="{{ include.name}}-zip" {% unless optional %}required="required" data-error="{{ address-error }}"{% endunless %}>ZIP Code</label>
-      <input type="text" id="{{ include.name}}-zip">
+      <label for="{{ name}}-zip" {% unless optional %}required="required" data-error="{{ address-error }}"{% endunless %}>ZIP Code</label>
+      <input type="text" id="{{ name}}-zip" maxlength="5" class="length-5">
     </div>
   {% endif %}
 
-  {% if include.helptext %}
-   <div class="help-text" data-valtype='help'>{{ include.helptext | markdownify }}</div>
-  {% endif %}
+  {% include elements/helptext.html %}
 
 </fieldset>

@@ -1,1 +1,3 @@
-<h{{include.level | default: "2"}}>{{ include.label | markdownify }}</h{{include.level | default: "2"}}>
+<h{{ level | default: "2"}}>
+  {{ label | markdownify | remove: '<p>' | remove: '</p>' }}
+</h{{ level | default: "2"}}>

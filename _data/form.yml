@@ -1,0 +1,892 @@
+- title: Are you ready to apply for an ADU?
+  fields:
+  - label: |
+      This application will ask you about:
+
+      - The owner's and agent's contact information
+
+      - Construction details like the project address, cost, and excavation area
+
+      - How you are currently using the land, and how you plan to change it
+
+      - Safety-related topics like fire protection, seismic retrofitting, and worker's compensation insurance
+
+      If you are not building the ADU yourself, you might need a professional to help you answer some questions. If you have not yet hired a architect, contractor or engineer, you might want to do so before applying.
+    type: paragraph
+
+- title: About the owner
+  fields:
+  - label: Name
+
+  - label: Phone number
+    type: phone
+    optional: true
+
+  - label: Email address
+    type: email
+
+- title: About the owner
+  fields:
+  - label: Mailing address
+    type: address
+
+  - label: Will this also be the address of your ADU?
+    type: radio
+    options:
+    - label: "Yes"
+
+    - label: "No"
+      shows: project-address
+
+  - group: project-address
+    fields:
+    - label: Project address
+      type: address
+      address-fields:
+      - 'street'
+      - 'zip'
+
+- title: About the owner
+  fields:
+  - label: Are you, the owner, also building this ADU?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: owner-builder
+
+    - label: "No"
+      shows: app-contact
+
+- title: Builder's information
+  description: Who should we talk to when working on your application?
+  group: app-contact
+  fields:
+  - label: Name
+
+  - label: Relationship to owner
+    type: radio
+    other: true
+    options:
+    - label: Architect
+      shows: contact-org
+
+    - label: Contractor
+      shows: contact-org
+
+    - label: Engineer
+
+    - label: Attorney
+
+  - group: contact-org
+    fields:
+    - label: Name of organization
+
+    - label: Mailing address
+      type: address
+
+    - label: Phone number
+      type: phone
+
+    - label: Email
+      type: email
+
+- title: Your property
+  fields:
+  - label: Present use
+
+  - label: Proposed use
+
+- title: Construction work
+  fields:
+
+  - label: Describe the work you are proposing in detail.
+    type: textarea
+    size: large
+    helptext: |
+      You should include:
+
+      - The number of ADUs you plan to add
+      - The city ordinances they each comply with
+      - A detailed description of all other planned work
+      - Any special authorizations or changes to the Planning Code or Zoning Maps
+
+  - label: Type of construction
+    type: select
+    options:
+    - label: "I-A: Fire Resistive Non-Combustible"
+    - label: "I-B: Fire Resistive Non-Combustible"
+    - label: "II-A: Protected Non-Combustible"
+    - label: "II-B: Unprotected Non-Combustible"
+    - label: "III-A: Protected Combustible"
+    - label: "III-B: Unprotected Combustible"
+    - label: "IV: Heavy Timber"
+    - label: "V-A: Protected Wood Frame"
+    - label: "V-B: Unprotected Wood Frame"
+
+  - label: Estimated cost
+    type: price
+
+  - label: How long do you estimate it will take you to build the ADU?
+    type: number
+    maxlength: 2
+    unit: months
+
+- title: Construction impact
+  fields:
+
+  - label: Excavation area
+    type: number
+    unit: square feet
+    maxlength: 4
+    shows: geotechnical
+    if: ">999"
+
+  - label: Excavation volume
+    type: number
+    unit: cubic yards
+    maxlength: 5
+    shows: geotechnical
+    if: ">49"
+
+  - group: geotechnical
+    fields:
+    - label: Upload a geotechnical report
+      type: file
+      helptext: Also show this if PIM says the slope is at least 20%
+
+  - label: Including foundation work, how deep will you disturb the surface below grade?
+    type: number
+    maxlength: 3
+    unit: feet
+
+  - label: Will the work involve any of the following?
+    type: checkbox
+    options:
+    - label: Adding height to the existing building
+      shows: new-height
+
+    - label: Adding a deck or horizontal extension
+      shows: new-ground-floor
+
+    - label: Repairing or replacing the building's foundation
+
+
+  - group: new-height
+    fields:
+    - label: What is the new height at the center line of the front of the building?
+      helptext: If the height will be over 40 feet, you may need a shadow analysis.
+      type: number
+      unit: inches
+
+
+  - group: new-ground-floor
+    fields:
+    - label: What will the new ground floor area be?
+      type: number
+      maxlength: 4
+      unit: square feet
+
+- title: Parking area
+  fields:
+  - label: How many square feet of parking space does the property have?
+    type: number
+    unit: gross square feet
+
+  - label: Will this change after you build the ADU(s)?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: proposed-parking-gsf
+
+    - label: "No"
+
+  - group: proposed-parking-gsf
+    fields:
+    - label: How much parking space will there be?
+      type: number
+      unit: gross square feet
+
+- title: Parking spaces
+  fields:
+  - label: How many parking spaces does the property have?
+    type: number
+
+  - label: Will this change after you build the ADU(s)?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: proposed-parking-spaces
+
+    - label: "No"
+
+  - group: proposed-parking-spaces
+    fields:
+    - label: How many parking spaces will there be?
+      type: number
+
+- title: Residential area
+  fields:
+  - label: How many square feet of residential space does the property have?
+    type: number
+    unit: gross square feet
+
+  - label: Will this change after you build the ADU(s)?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: proposed-residential-gsf
+
+    - label: "No"
+
+  - group: proposed-residential-gsf
+    fields:
+    - label: How much residential space will there be?
+      type: number
+      unit: gross square feet
+
+- title: Affordable dwelling units
+  fields:
+  - label: How many affordable dwelling units does the property have?
+    type: number
+
+  - label: Will this change after you build the ADU(s)?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: proposed-affordable
+
+    - label: "No"
+
+  - group: proposed-affordable
+    fields:
+    - label: How many affordable dwelling units will there be?
+      type: number
+
+- title: Market-rate dwelling units
+  fields:
+  - label: How many market-rate dwelling units does the property have?
+    type: number
+    unit: gross square feet
+
+  - label: Will this change after you build the ADU(s)?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: proposed-market-rate
+
+    - label: "No"
+
+  - group: proposed-market-rate
+    fields:
+    - label: How many market-rate dwelling units will there be?
+      type: number
+
+- title: Commercial area
+  fields:
+  - label: How many square feet of commercial space does the property have?
+    type: number
+    unit: gross square feet
+
+  - label: Will this change after you build the ADU(s)?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: proposed-commercial-gsf
+
+    - label: "No"
+
+  - group: proposed-commercial-gsf
+    fields:
+    - label: How much commercial space will there be?
+      type: number
+      unit: gross square feet
+
+- title: Buildings
+  fields:
+  - label: How many buildings does the property have?
+    type: number
+
+  - label: Will this change after you build the ADU(s)?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: proposed-buildings
+
+    - label: "No"
+
+  - group: proposed-buildings
+    fields:
+    - label: How many buildings will there be?
+      type: number
+
+- title: Building stories
+  fields:
+  - label: How many stories does the property have?
+    type: number
+
+  - label: Will this change after you build the ADU(s)?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: proposed-stories
+
+    - label: "No"
+
+  - group: proposed-stories
+    fields:
+    - label: How many stories will there be?
+      type: number
+
+- title: Basements / cellars
+  fields:
+  - label: How many basements or cellars does the property have?
+    type: number
+
+  - label: Will this change after you build the ADU(s)?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: proposed-basements
+
+    - label: "No"
+
+  - group: proposed-basements
+    fields:
+    - label: How many basements or cellars will there be?
+      type: number
+
+- title: Bicycle spaces
+  fields:
+  - label: How many bicycle spaces does the property have?
+    type: number
+
+  - label: Will this change after you build the ADU(s)?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: proposed-bicycle-spaces
+
+    - label: "No"
+
+  - group: proposed-bicycle-spaces
+    fields:
+    - label: How many bicycle spaces will there be?
+      type: number
+
+- title: Fire protection
+  fields:
+  - label: Does the property have fire sprinklers?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: sprinklers
+
+    - label: "No"
+
+  - group: sprinklers
+    fields:
+    - label: Which areas of the property do the sprinklers cover?
+
+  - label: Does the property have fire alarms?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: alarms
+
+    - label: "No"
+
+  - group: alarms
+    fields:
+    - label: Which areas of the property do the alarms cover?
+
+- title: Worker's compensation insurance
+  fields:
+  - label: What best describes your worker's compensation insurance coverage for this project?
+    type: radio
+    options:
+    - label: "I am self-insured and have a certificate of consent."
+      shows: comp-I
+
+    - label: "I have third-party insurance."
+      shows: comp-II
+
+    - label: "I plan to hire a contractor who will follow worker's compensation laws."
+      shows: comp-V
+
+    - label: "I don't need insurance because I'm not hiring anyone."
+      shows: comp-IV
+
+    - label: "I don't need insurance because the work will cost under $100."
+      shows: comp-III
+
+  - group: comp-II
+    fields:
+    - label: Name of insurance carrier
+
+    - label: Policy number
+      type: number
+      maxlength: 15
+
+- title: Seismic work
+  fields:
+  - label: Have you applied for a seismic retrofitting permit?
+    helptext: This is required for all city construction. For more information, see [Chapter 4D of the Existing Building Code](http://library.amlegal.com/nxt/gateway.dll/California/sfbuilding/existingbuildingcode2016edition/chapter4dmandatoryearthquakeretrofitofwo?f=templates$fn=default.htm$3.0).
+    type: radio
+    options:
+    - label: "Yes"
+      shows: seismic-retro-mandatory
+
+    - label: "No"
+
+  - group: seismic-retro-number
+    fields:
+    - label: What is your seismic retrofitting permit application number?
+      type: number
+      maxlength: 15
+
+  - label: Have you filed for a seismic strengthening permit?
+    helptext: This permit is optional. For more information, see [Administrative Bulletin AB-094](https://sfdbi.org/sites/default/files/migrated/FileCenter/Documents/Administrative_Bulletins/2013_AB/AB_094_updated_010114.pdf).
+    type: radio
+    options:
+    - label: "Yes"
+      shows: seismic-strength
+
+    - label: "No"
+
+  - group: seismic-strength
+    fields:
+    - label: What is your seismic strengthening permit application number?
+      type: number
+      maxlength: 15
+
+  - label: >
+      Does the building follow the ordinances for ADUS?
+    helptext: >
+      See Ordinances [95-17](http://default.sfplanning.org/plans-and-programs/planning-for-the-city/accessory-dwelling-units/ADU_Ord_095-17_170125_signed.pdf), [162-16](https://sfgov.legistar.com/View.ashx?M=F&ID=4617538&GUID=2625970B-6704-46C2-A972-68BF0C206D9C) or [162-17](https://sfbos.org/sites/default/files/o0162-17.pdf).
+
+      After you submit, the planning department will check to see if you comply.
+    type: radio
+    options:
+    - label: "Yes"
+
+    - label: "No"
+
+- title: Environmental assessment
+  fields:
+
+  - label: |
+      If your site has:
+
+      - A current or former gas station
+
+      - A parking lot
+
+      - An auto repair shop
+
+      - Dry cleaners
+
+      - Heavy manufacturing use
+
+      - Underground storage tanks
+
+      You need to upload an environmental site assessment.
+    type: paragraph
+
+  - label: Does the site have any of the above?
+    type: radio
+    options:
+    - label: "Yes"
+      shows: environmental-assessment
+
+    - label: "No"
+
+  - group: environmental-assessment
+    fields:
+    - label: Upload a Phase I Environmental Site Assessment
+      type: file
+
+# Legal language
+
+- title: Terms
+  fields:
+  - type: paragraph
+    label: |
+      This is not a building permit. Until we issue a permit to you, you cannot start work, change the property's occupancy, or change its use. (See the San Francisco Building Code and San Francisco Housing Code.)
+
+      Once we issue a building permit, you must post it at the job. The owner will also be responsible for keeping the approved plans and permit application at the property.
+
+      No one can occupy your ADU until you either:
+
+      - Have a certificate of final completion posted on the building
+
+      - Get a permit of occupancy from us
+
+      You will need to follow any stipulations that come up in your application and inspections. You must also follow building code.
+
+  - type: header
+    label: Your application
+    level: 4
+
+  - type: paragraph
+    label: |
+      We will assume that grade lines on the drawings attached to this application are correct. If they are not, you must submit revised drawings for us to approve.
+
+      These drawings must have accurate grade lines and cuts and fills. They must also have complete details of retaining walls and wall footings.
+
+  - type: header
+    label: Building requirements
+    level: 4
+
+  - type: paragraph
+    label: |
+      All parts of the building, structure, or construction scaffolding must be at least 6 feet from any wire over 750 volts. (See Section 385 of the California Penal Code.)
+
+      All insulation in your ADU must be at least 2 inches away from any electrical wires or equipment.
+
+  - type: header
+    label: Other permits
+    level: 4
+
+  - type: paragraph
+    label: |
+
+      You will still need to apply for separate permits for any:
+
+      - Additions or changes to driveways or auto runways
+
+      - Building extensions
+
+      - Changes of occupancy
+
+      - Electrical work
+
+      - Plumbing work
+
+      - Street space used during construction
+
+      If we approve this application, you will still need to get these other permits approved.
+
+  - type: header
+    label: Your identity
+    level: 4
+
+  - type: paragraph
+    label: |
+      By checking the box below, you certify that:
+
+      - You are either the owner, the lessee, or an authorized agent for them
+
+      - You are authorized to sign this permit application
+
+  - label: I declare under penalty of perjury that my application is true and correct.
+    type: checkbox
+
+  - label: I hereby certify and agree that if I am issued a permit for the construction described in this application, I will comply with all the provisions of the permit and all relevant laws and ordinances.
+    type: checkbox
+
+- title: Terms
+  fields:
+  - label: Hold Harmless Clause
+    type: header
+    level: 4
+
+  - label: |
+      By accepting this permit, I agree to indemnify and hold harmless the City and County of San Francisco from and against any and all claims, demands and actions for damages resulting from operations under this permit, regardless of negligence of the City and County of San Francisco, and to assume the defense of the City and County of San Francisco against all such claims, demands or actions.
+    type: paragraph
+
+  - group: comp-I
+    fields:
+    - label: >
+        I have a certificate of consent to self-insure for workers' compensation. I will maintain the certificate for the work described in this permit.
+      type: checkbox
+
+  - group: comp-II
+    fields:
+    - label: >
+       I have workers' compensation insurance, as required by Section 3700 of the Labor Code. I will maintain the insurance for the work described in this permit.
+      type: checkbox
+
+  - group: comp-III
+    fields:
+    - label: The work will cost $100 or less.
+      type: checkbox
+
+  - group: comp-IV
+    fields:
+    - label: |
+       The California worker's compensation laws do not apply to me. When I perform the work described in this permit, I do not plan to employ anyone in a way that would subject me to them.
+
+        If California worker's compensation laws do apply to this project, and I fail to comply with them, I understand that the city will revoke my permit.
+      type: checkbox
+
+  - group: comp-V
+    fields:
+    - label: |
+       I certify I will hire a contractor who complies with California worker's compensation laws for the work described in this permit. Before starting any work, they will file a finished copy of this form with the Central Permit Bureau.
+      type: checkbox
+
+- title: Disclosures for Owner-Builders
+  group: owner-builder
+  fields:
+  - type: paragraph
+    label: |
+      We would like to inform you, the owner, of the responsibilities and potential risks of being the owner and builder on this permit. If you are not the owner, you cannot move forward unless you have approval from the permitting authority.
+
+      Before you continue, you must read the following pages and confirm you understand them.
+
+      _Note: A copy of your driver’s license, form notarization, or other verification acceptable to the agency is required to be presented when the permit is issued to verify the property owner’s signature._
+
+- title: Disclosures for Owner-Builders
+  group: owner-builder
+  fields:
+  - type: header
+    label: About unlicensed workers
+    level: 5
+
+  - type: paragraph
+    label: |
+
+      You only need to apply for this permit if you are responsible for construction, and are not hiring a licensed Contractor.
+
+      Unlicensed workers often tell property owners to apply for an "Owner-Builder" building permit, which makes the owner imply they are providing their own labor and materials. This makes them the responsible party of record on the permit.
+
+      If you work with anyone other than California licensed Contractors on this project, and it costs $500 or more (including labor and materials), you may be considered as an "employer" under state and federal law.
+
+      "Employers" must:
+
+      - Register with the state and federal government
+
+      - Withhold payroll taxes
+
+      - Provide worker's compensation disability insurance
+
+      - Contribute to unemployment compensation for each employee
+
+      If you fail to follow these laws, you may be exposing yourself to serious financial risk.
+
+      If you lose money after contracting an unlicensed worker and file a complaint, the Contractors’ State License Board might not be able to help you. Your only remedy against unlicensed Contractors may be in civil court.
+
+      If an unlicensed worker or their employees are injured while working on your property, you may be held liable for damages. Homeowner's insurance may not provide coverage for these injuries.
+
+  - type: header
+    level: 5
+    label: Protecting yourself
+
+  - type: paragraph
+    label: |
+      You can prevent this risk by hiring a licensed Contractor, and filing the permit in their name instead.
+
+      Licensed contractors are regulated by laws designed to protect the public. These laws require contractors to be licensed and bonded in California. Contractors must also write their license numbers on permits and contracts.
+
+      After receiving an Owner-Builder permit, you may decide to hire Contractors instead. If this happens, you will need to verify whether they:
+
+      - Are licensed in California
+
+      - Have current workers' compensation insurance coverage
+
+  - type: header
+    level: 5
+    label: Resources
+
+  - type: paragraph
+    label: |
+      To learn more about your obligations as an "employer," you can contact the:
+
+      - Internal Revenue Service
+      - United States Small Business Administration
+      - California Department of Benefit Payments
+      - California Division of Industrial Accidents.
+
+      To learn more about licensed contractors, contact the California Contractors’ State License Board.
+
+      - **Phone:** 1-800-321-CSLB (2752)
+
+      - **Website:** [www.cslb.ca.gov](www.cslb.ca.gov)
+
+  - type: checkbox
+    label: I understand and agree to everything on this page.
+
+- title: Disclosures for Owner-Builders
+  group: owner-builder
+  fields:
+  - type: header
+    level: 5
+    label: Information for Owner-Builders
+
+  - type: paragraph
+    label: |
+
+      If you sell the property listed on this permit, and there are latent defects in the workmanship or materials, you may be held liable for the financial or personal injuries any future owner(s) sustain.
+
+      Also, under California Contractors' State License Law, it is illegal to build a single-family residential structure with the intent to sell it, unless you:
+
+      - Contract a licensed general building Contractor for all work
+
+      - Hire licensed subcontractors for 4 structures or less within a calendar year
+
+  - type: checkbox
+    label: I understand and agree to everything on this page.
+
+- title: Disclosures for Owner-Builders
+  group: owner-builder
+  fields:
+  - type: header
+    level: 5
+    label: "By checking the box below:"
+
+  - type: paragraph
+    label: |
+
+      You declare that you&hellip;
+
+      - Consent to and are aware of the Owner-Builder building permit applied for in your name
+
+      - Are willfully acting as an Owner-Builder
+
+      - Understand the limits of your insurance coverage for injuries to workers on your property
+
+      - Understand you are legally and financially responsible for the proposed work at the project address
+
+      You also agree to&hellip;
+
+      - Follow all applicable laws and requirements for Owner-Builders and employers
+
+      - Notify the city immediately if you need to add, remove, or change any information on this form
+
+  - type: checkbox
+    label: I understand and agree to everything on this page.
+
+- title: Almost done!
+  description: All that's left is to find out whether you will need to submit more forms.
+  fields:
+  - label: Will the work involve any of the following?
+    type: checkbox
+    options:
+    - label: Building a driveway or auto runway
+      show: auto-runway
+
+    - label: Using street space
+      show: street-space
+
+    - label: Changing the front facade
+      shows: historic-resource
+
+    - label: Extending the building beyond the property line
+      shows: building-extension
+
+    - label: Plumbing work
+      shows: plumbing
+
+    - label: Electrical work
+      shows: electrical
+
+  - label: Will this ADU remove housing services?
+    helptext: Housing services can include garages, parking facilities, driveways, storage spaces, laundry rooms, decks, patios, or gardens.
+    type: radio
+    options:
+    - label: "Yes"
+      shows: remove-services
+
+    - label: "No"
+
+  - label: Is this site currently in industrial use?
+    helptext: Only show this if "amount of excavation" is 50+ cubic yards, and PIM shows the site is in a Maher area
+    type: radio
+    options:
+    - label: "Yes"
+      shows: maher
+
+    - label: "No"
+
+- title: Great. Here's what you still need to submit.
+  fields:
+  - group: remove-services
+    fields:
+    - label: Removing housing services
+      type: header
+      level: 3
+
+    - type: paragraph
+      label: >
+        You must inform your tenants of the project by:
+
+        - Posting a notice in a common area of the building for 15 days
+
+        - Mailing a notice to every tenant and the property owner
+
+        Also, you must upload the following.
+
+    - label: Upload a copy of your notice
+      type: file
+
+    - label: Upload a photograph of the posted notice
+      type: file
+
+    - label: Upload your postmarked letter to the owner
+      type: file
+
+    - label: Upload a copy of your mailing list for the notice
+      type: file
+
+  - label: Other permits
+    type: header
+    level: 3
+
+  - group: auto-runway
+    fields:
+    - label: "You'll need a separate permit for auto runways. (link)"
+      type: paragraph
+
+  - group: building-extension
+    fields:
+    - label: "You'll need a separate permit for building extensions. (link)"
+      type: paragraph
+
+  - group: street-space
+    fields:
+    - label: Learn how to get a street space permit
+      type: link
+      url: https://sfpublicworks.org/services/permits/street-space
+      description: Because you plan to use street space, you'll need an additional permit.
+
+  - group: historic-resource
+    fields:
+    - label: |
+        Since you are changing the front facade (and the historic status is TK), you'll need to attach a Historic Resource Determination.
+
+        Here's some data from PIM you'll need for the form:
+
+        (Insert address, block/lot, date of construction, survey, designated property)
+      type: paragraph
+
+    - label: "Apply for a Historic Resource Determination"
+      type: link
+      url: http://forms.sfplanning.org/HistoricRD_SupplementalApplication.pdf
+
+
+  - group: plumbing
+    fields:
+    - label: "Apply for a plumbing permit"
+      type: link
+      url: https://dbiweb.sfgov.org/dbi_plumbing/
+      description: Since you are performing plumbing work, you will need a plumbing permit.
+
+  - group: electrical
+    fields:
+    - label: "Apply for an electrical permit"
+      type: link
+      url: https://dbiweb.sfgov.org/dbi_electrical/
+      description: Since you are performing electrical work, you will need a electrical permit.
+
+  - group: new-height
+    fields:
+    - label: Apply for a shadow analysis
+      description: If the "new height at the center line of the front of the building" is 40+ feet&hellip;
+      url: https://sf-planning.org/sites/default/files/FileCenter/Documents/8442-Shadow%20Analysis%20Application.pdf
+      type: link
+
+  - group: maher
+    fields:
+    - label: Apply for a waiver for the Maher Ordinance
+      type: link
+      url: "https://www.sfdph.org/dph/EH/HazWaste/hazWasteSiteMitigation.asp"
