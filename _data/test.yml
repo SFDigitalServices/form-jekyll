@@ -1,0 +1,144 @@
+- title: Test Form
+  fields:
+  - type: paragraph
+    label: Here is an example of some Markdown-formatted text in _bold._
+
+  - type: header
+    label: Header
+    level: 3
+
+  - type: paragraph
+    label: |
+      This is an unordered list.
+
+      - Here are some list items
+
+      - Here are some list items
+
+      - Here are some list items
+
+      This is a numbered list.
+
+      1. Here's a numbered list
+
+      2. Here's a numbered list
+
+      3. Here's a numbered list
+
+- title: Field types
+  fields:
+  - label: Address
+    type: address
+
+  - label: Email
+    type: email
+
+  - label: File upload
+    type: file
+
+  - label: Number
+    type: number
+
+  - label: 7-digit number with units
+    type: number
+    maxlength: 7
+    unit: cubic yards
+
+  - label: Phone number
+    type: phone
+
+  - label: Price
+    type: price
+
+  - label: Radio buttons
+    type: radio
+    options:
+    - label: "One"
+    - label: "Two"
+    - label: "Three"
+
+  - label: Checkboxes
+    type: checkbox
+    options:
+    - label: "One"
+    - label: "Two"
+    - label: "Three"
+
+  - label: Dropdown
+    type: select
+    options:
+    - label: "One"
+    - label: "Two"
+    - label: "Three"
+
+  - label: Regular input
+
+  - label: Textarea
+    type: textarea
+
+  - label: Large textarea
+    type: textarea
+    size: large
+
+- title: Conditionals
+  fields:
+  - label: Conditionals will appear at the bottom of the page.
+    type: paragraph
+
+  - label: When these checkboxes are checked&hellip;
+    type: checkbox
+    options:
+    - label: Show "Maya"
+      shows: maya
+
+    - label: Show "Harvey"
+      shows: harvey
+
+    - label: Show "Fred"
+      shows: fred
+
+  - label: When these radio buttons are selected&hellip;
+    type: radio
+    options:
+    - label: Show "Maya"
+      shows: maya
+
+    - label: Show "Harvey"
+      shows: harvey
+
+    - label: Show "Fred"
+      shows: fred
+
+  - label: Show "Maya" when the answer is "Maya"
+    shows: maya
+    if: "Maya"
+
+  - label: Show "Harvey" when the answer's less than 10
+    type: number
+    maxlength: 3
+    shows: harvey
+    if: "<10"
+
+  - label: Show "Fred" if the answer's at least 3
+    type: number
+    maxlength: 3
+    shows: fred
+    if: ">2"
+
+  - group: maya
+    fields:
+    - label: Maya
+      type: header
+      level: 3
+
+  - group: fred
+    fields:
+    - label: Fred
+      type: header
+      level: 3
+
+  - group: harvey
+    fields:
+    - label: Harvey
+      type: header
+      level: 3
