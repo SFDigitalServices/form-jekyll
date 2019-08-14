@@ -49,6 +49,9 @@ Since YAML is easy to read, non-technical colleagues can easily give feedback on
     optional: true
 ```
 
+### Demo
+[https://form-jekyll.netlify.com/](https://form-jekyll.netlify.com/)
+
 ### Field properties
 
 | Property&nbsp;name   | Description                                                                           | Expected format       |
