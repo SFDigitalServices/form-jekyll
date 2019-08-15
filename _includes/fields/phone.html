@@ -2,12 +2,12 @@
   {% include elements/label.html %}
 </label>
 <div class="field-container">
-  <input type="text" name="{{ name }}" placeholder="" class="form-control input-md valtype length-13" data-valtype="placeholder"
+  <input type="tel" name="{{ name }}" placeholder="" class="form-control input-md valtype length-13" data-valtype="placeholder"
   {% unless optional %} required="required"{% endunless %}
   {% if error %}
     data-error="{{ error }}"
   {% else %}
-    data-error="You need to enter a valid phone number."
+    data-required-error="You need to enter a valid phone number."
   {% endif %}>
 
   {% include elements/helptext.html %}
