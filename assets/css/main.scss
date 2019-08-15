@@ -823,7 +823,6 @@ h5 {
 .field-file {
   label {
     position: relative;
-    display: inline-block;
     cursor: pointer;
     height: 6.5rem;
   }
@@ -843,6 +842,9 @@ h5 {
     right: 0;
     left: 0;
     z-index: 5;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     -webkit-user-select: none;
        -moz-user-select: none;
         -ms-user-select: none;
