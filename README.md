@@ -83,4 +83,4 @@ Since YAML is easy to read, non-technical colleagues can easily give feedback on
 
 - Setup Jekyll - https://jekyllrb.com/docs/installation/
 - Install Gemfile - `bundle install`
-- Run Jekyll - `bundle exec jekyll serve`
+- Run Jekyll - `bundle exec jekyll serve --watch`
