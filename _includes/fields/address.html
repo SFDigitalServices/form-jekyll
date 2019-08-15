@@ -22,7 +22,7 @@
       <label for="{{ name}}-state">State</label>
       <select id="{{ name}}-state" {% unless optional %}required="required" data-error="{{ address-error }}"{% endunless %}>
         <option value="">Choose a state</option>
-        {% for state in site.data.states %}
+        {% for state in layout.address-states %}
           <option value="{{ state.value }}">{{ state.text }}</option>
         {% endfor %}
       </select>
@@ -32,7 +32,7 @@
   {% if address-fields contains 'zip' or address-fields == 'full' %}
     <div class="field-address-zip">
       <label for="{{ name}}-zip" {% unless optional %}required="required" data-error="{{ address-error }}"{% endunless %}>ZIP Code</label>
-      <input type="text" id="{{ name}}-zip" maxlength="5" class="length-5">
+      <input type="number" id="{{ name}}-zip" maxlength="5" class="length-5">
     </div>
   {% endif %}
 
