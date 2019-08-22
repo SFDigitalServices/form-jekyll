@@ -18,7 +18,7 @@
   {% assign label = field.label %}
   {% assign level = field.level %}
   {% assign maxlength = field.maxlength %}
-  {% capture name %}{{ label | slugify }}-field-{{ forloop.index }}{% endcapture %}
+  {% capture name %}{{ label | slugify | escape }}-field-{{ forloop.index }}{% endcapture %}
   {% assign optional = field.optional %}
   {% assign options = field.options %}
   {% assign other = field.other %}
@@ -42,14 +42,17 @@
   {% elsif field.type == 'link' %}
     {% include {{ includepath }} %}
   {% else %}
-    <div class="form-group field-{{ field.type }}">
-      {% if field.type %}
+    {% if field.type %}
+      <div class="form-group field-{{ field.type }}" data-fieldtype="{{ field.type }}">
         {% include {{ includepath }} %}
-      {% else %}
+        <p class="help-block with-errors"></p>
+      </div>
+    {% else %}
+      <div class="form-group field-text" data-fieldtype="text">
         {% include fields/text.html %}
-      {% endif %}
-      <p class="help-block with-errors"></p>
-    </div>
+        <p class="help-block with-errors"></p>
+      </div>
+    {% endif %}
   {% endif %}
 
 {% endfor %}

@@ -1,14 +1,20 @@
-{% if forloop.length > 1 %}
+{% if forloop.length > 1 or include.preview %}
   <div class="form-group pagination">
-    {% if forloop.first %}
-      <a href="javascript:void(0);" class="btn btn-lg form-section-next">Start</a>
+    {% if !forloop.first == false or include.preview %}
+       <a href="javascript:void(0);" class="btn btn-lg form-section-prev">Previous</a>
+    {% endif %}
+
+    {% capture ultimate %}{{ forloop.length }}{% endcapture %}
+    {% capture penultimate %}{{ forloop.length | minus: 1 }}{% endcapture %}
+
+    {% if forloop.index == 1 %}
+        <a href="javascript:void(0);" class="btn btn-lg form-section-next">Start</a>
+    {% elsif include.preview %}
+         <a href="javascript:void(0);" id="submit" class="btn btn-lg submit">Submit</a>
+    {% elsif forloop.index == forloop.length %}
+         <a href="javascript:void(0);" id="preview" class="btn btn-lg form-section-next">Preview</a>
     {% else %}
-      <a href="javascript:void(0);" class="btn btn-lg form-section-prev">Previous</a>
-      {% if forloop.last %}
-        <a href="javascript:void(0);" id="submit" class="btn btn-lg submit">Submit</a>
-      {% else %}
         <a href="javascript:void(0);" class="btn btn-lg form-section-next">Next</a>
-      {% endif %}
     {% endif %}
   </div>
 {% endif %}

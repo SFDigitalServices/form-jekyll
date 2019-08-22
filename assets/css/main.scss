@@ -885,4 +885,16 @@ h5 {
   }
 }
 
+// Preview page
+
+dt {
+  font-weight: $t-bold;
+}
+
+dd {
+  margin: 0 0 1.5rem;
+  padding: 0;
+  white-space: pre-wrap;
+}
+
 @import 'sfgov';

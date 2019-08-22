@@ -3,7 +3,7 @@
 </label>
 <div class="field-container">
   <div class="textarea">
-    <textarea class="form-control valtype textarea-{{ size | default: 'small' }}" data-valtype="textarea" name="{{ name }}"
+    <textarea class="form-control valtype textarea-{{ size | default: 'small' }}" data-valtype="textarea" id="{{ name }}"
     {% unless optional %} required="required"{% endunless %}
     {% if error %} data-error="{{ error }}"{% endif %} /> </textarea>
 

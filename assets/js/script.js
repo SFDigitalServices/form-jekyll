@@ -42,9 +42,12 @@ $(document).ready(function(){
 
   // ---- File inputs ---
 
-  $("input[type='file']").change(function() {
-    var file = $(this).val().replace(/C:\\fakepath\\/i, '');
+  function cleanFilename(val) {
+    val.replace(/C:\\fakepath\\/i, '');
+  }
 
+  $("input[type='file']").change(function() {
+    var file = cleanFilename($(this).val());
     $(this).next('.file-custom').attr('data-filename', file);
   });
 
@@ -184,4 +187,70 @@ $(document).ready(function(){
       showIf($(this), currentValue === fullTrigger);
     }
   });
+
+  // Preview page
+
+  $('#preview').click(function() {
+
+    // Check if all required fields are filled out
+    // If not, show an error state?
+    //
+    // If a field's in a group AND isn't .is-conditionally-visible,
+    // don't display it
+    //
+    // For optional fields, enter "No answer"
+    //
+    // Checkbox: concatenate checked options, comma-separated
+    // Radio: display the selected option
+    // Address: Correct formatting
+    // Price: Prepend a dollar sign
+    // File upload: remove C:\fakepath\ from the value
+
+    $('.form-group').each(function() {
+
+      var fieldType = $(this).attr('data-fieldtype');
+
+      var previewId = $("#preview-" + $(this).attr('id'));
+      var input = $(this).children('input');
+
+      if (input.val()) {
+        console.log(fieldType);
+        switch (fieldType) {
+          case 'checkbox':
+          case 'radio':
+          case 'address':
+            // var addressFields = ['line1', 'line2', 'city', 'state', 'zip'];
+
+            // for (var i in addressFields) {
+            //   var addressFields[i] = $(id + '-' + addressFields[i]).val();
+            // }
+
+            // $(previewId).html(
+            //   line1 + '<br/>' +
+            //   line2 + '<br/>' +
+            //   city + ', ' + state + ' ' + zip
+            // );
+          case 'price':
+            $(previewId).html(
+              '$' + input.val()
+            );
+          case 'file':
+            $(previewId).html(
+              cleanFilename(
+                input.val()
+              )
+            );
+          default:
+            $(previewId).html(
+              input.val()
+            );
+        }
+      } else {
+        console.log(fieldType);
+        $(previewId).html(
+          'No answer'
+        );
+      }
+    })
+  })
 });

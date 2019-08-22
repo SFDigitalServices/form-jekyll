@@ -2,7 +2,7 @@
   {% include elements/label.html %}
 </label>
 <div class="field-container">
-  <select class="form-control input-md valtype" data-valtype="option" name="{{ name }}"
+  <select class="form-control input-md valtype" data-valtype="option" id="{{ name }}"
   {% unless optional %} required="required"{% endunless %}
   {% if error %} data-error="{{ error }}" {% endif %}>
   {{ options }}
