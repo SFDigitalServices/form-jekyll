@@ -74,6 +74,9 @@ $(document).ready(function(){
       } else {
         // If the page is visible, show it
         activePage.addClass('active');
+
+        // Scroll to the top of the page
+        document.getElementById("sfgov-header").scrollIntoView();
       }
     }
 
