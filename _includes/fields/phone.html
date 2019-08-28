@@ -2,7 +2,7 @@
   {% include elements/label.html %}
 </label>
 <div class="field-container">
-  <input type="tel" name="{{ name }}" placeholder="" class="form-control input-md valtype length-13" data-valtype="placeholder"
+  <input type="tel" name="{{ name }}" id="{{ name }}" placeholder="" class="form-control input-md valtype length-13" data-valtype="placeholder"
   {% unless optional %} required="required"{% endunless %}
   {% if error %}
     data-error="{{ error }}"

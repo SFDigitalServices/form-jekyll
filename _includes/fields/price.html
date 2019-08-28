@@ -4,7 +4,7 @@
 
 <div class="field-container">
   <div class="prepended dollar">$</div>
-  <input type="number" name="{{ name }}" placeholder="" class="form-control input-md valtype" data-valtype="placeholder" step="0.01"
+  <input type="number" name="{{ name }}" id="{{ name }}" placeholder="" class="form-control input-md valtype" data-valtype="placeholder" step="0.01"
   {% unless optional %} required="required"{% endunless %}
   {% if error %}
     data-error="{{ error }}"
