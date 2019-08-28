@@ -1,0 +1,35 @@
+---
+layout: base
+permalink: /
+---
+
+{% capture folder_icon %}
+<svg viewBox="0 0 55 70" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <g fill-rule="evenodd">
+    <g fill="#4F66EE" fill-rule="nonzero">
+      <path d="M27.744186,0.5 C28.4219649,0.5 29.0706971,0.775196056 29.541744,1.2625348 L54.2859301,26.8625348 C54.7365093,27.328698 54.9883721,27.9516716 54.9883721,28.6 L54.9883721,67 C54.9883721,68.3807119 53.869084,69.5 52.4883721,69.5 L3,69.5 C1.61928813,69.5 0.5,68.3807119 0.5,67 L0.5,3 C0.5,1.61928813 1.61928813,0.5 3,0.5 L27.744186,0.5 Z M23.941,5.5 L5.5,5.5 L5.5,64.5 L49.9883721,64.5 L49.988,32.662 L26.4418605,32.6627907 C25.1163771,32.6627907 24.0318218,31.6312548 23.9471781,30.3271664 L23.9418605,30.1627907 L23.941,5.5 Z M48.105,27.662 L28.941,7.836 L28.9418605,27.6627907 L48.105,27.662 Z" ></path>
+    </g>
+  </g>
+</svg>
+{% endcapture %}
+
+<div class="layout-container">
+  <header class="hero-banner default">
+    <h1>Choose a prototype</h1>
+  </header>
+  <ul class="form-jekyll-list">
+  {% for page in site.pages %}
+    {% if page.form %}
+      <li>
+
+        <a href="{{ page.url }}">
+
+          {{ folder_icon }}
+
+          <span>{{ page.title }}</span>
+        </a>
+      </li>
+    {% endif %}
+  {% endfor %}
+  </ul>
+</div>
