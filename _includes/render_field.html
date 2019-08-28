@@ -43,12 +43,12 @@
     {% include {{ includepath }} %}
   {% else %}
     {% if field.type %}
-      <div class="form-group field-{{ field.type }}" data-fieldtype="{{ field.type }}">
+      <div class="form-group field-{{ field.type }}" data-fieldtype="{{ field.type }}" data-name="{{ name }}">
         {% include {{ includepath }} %}
         <p class="help-block with-errors"></p>
       </div>
     {% else %}
-      <div class="form-group field-text" data-fieldtype="text">
+      <div class="form-group field-text" data-fieldtype="text" data-name="{{ name }}">
         {% include fields/text.html %}
         <p class="help-block with-errors"></p>
       </div>

@@ -1,20 +1,33 @@
-{% if forloop.length > 1 or include.preview %}
-  <div class="form-group pagination">
-    {% if !forloop.first == false or include.preview %}
-       <a href="javascript:void(0);" class="btn btn-lg form-section-prev">Previous</a>
+{% capture length %}{{ forloop.length }}{% endcapture %}
+{% capture index %}{{ forloop.index }}{% endcapture %}
+{% assign preview = include.preview %}
+
+<div class="form-group pagination">
+
+  {% if forloop.first == false or preview %}
+    {% comment %}
+      Hide the "Back" button on the Start and Preview pages
+    {% endcomment %}
+    <a href="javascript:void(0);" class="btn btn-secondary icon-left icon-left-arrow form-section-prev">Back</a>
+  {% endif %}
+
+  {% comment %}
+    "Next" button
+  {% endcomment %}
+  <a href="javascript:void(0);" class="btn form-section-next
+    {% if preview == true %} btn-primary btn-submit" id="submit"
+    {% else %} btn-secondary icon-right icon-right-arrow
+      {% if index == length %} form-preview{% endif %}"
     {% endif %}
-
-    {% capture ultimate %}{{ forloop.length }}{% endcapture %}
-    {% capture penultimate %}{{ forloop.length | minus: 1 }}{% endcapture %}
-
-    {% if forloop.index == 1 %}
-        <a href="javascript:void(0);" class="btn btn-lg form-section-next">Start</a>
-    {% elsif include.preview %}
-         <a href="javascript:void(0);" id="submit" class="btn btn-lg submit">Submit</a>
-    {% elsif forloop.index == forloop.length %}
-         <a href="javascript:void(0);" id="preview" class="btn btn-lg form-section-next">Preview</a>
+  >
+    {% if forloop.first %}
+      Start
+    {% elsif preview == true %}
+      Submit
+    {% elsif index == length %}
+      Preview
     {% else %}
-        <a href="javascript:void(0);" class="btn btn-lg form-section-next">Next</a>
+      Next
     {% endif %}
-  </div>
-{% endif %}
+  </a>
+</div>

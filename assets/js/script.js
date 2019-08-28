@@ -190,66 +190,75 @@ $(document).ready(function(){
 
   // Preview page
 
-  $('#preview').click(function() {
+  $('.form-preview').click(function() {
 
+    // To-do:
     // Check if all required fields are filled out
     // If not, show an error state?
     //
     // If a field's in a group AND isn't .is-conditionally-visible,
     // don't display it
-    //
-    // For optional fields, enter "No answer"
-    //
-    // Checkbox: concatenate checked options, comma-separated
-    // Radio: display the selected option
-    // Address: Correct formatting
-    // Price: Prepend a dollar sign
-    // File upload: remove C:\fakepath\ from the value
 
-    $('.form-group').each(function() {
-
+    $('.form-group[data-fieldtype]').each(function() {
       var fieldType = $(this).attr('data-fieldtype');
+      var fieldName = $(this).attr('data-name');
+      var input = $(this).find('input, select, textarea');
+      var value = input.val();
 
-      var previewId = $("#preview-" + $(this).attr('id'));
-      var input = $(this).children('input');
+      function fillPreviewWith(val) {
+        $("#preview-" + fieldName).html(val);
+      }
 
-      if (input.val()) {
-        console.log(fieldType);
+      if (value !== '') {
         switch (fieldType) {
           case 'checkbox':
+            // Concatenate checked options
+            var checkboxList = '';
+            $(this).find("input:checked").each(function() {
+              checkboxList += '<li>' + $(this).next("span").text() + '</li>'
+            })
+
+            // Format them as a list
+            fillPreviewWith('<ul class="preview-checkboxes">' + checkboxList + '</ul>');
+            break;
           case 'radio':
+            // Display the checked option
+            fillPreviewWith($(this).find("input:checked + span").text());
+            break;
+          case 'select':
+            // Display the selected option
+            fillPreviewWith(input.find("option:selected").text());
+            break;
           case 'address':
-            // var addressFields = ['line1', 'line2', 'city', 'state', 'zip'];
+            // Concatenate address fields into an array
+            addressFields = ['line1', 'line2', 'city', 'state', 'zip'];
 
-            // for (var i in addressFields) {
-            //   var addressFields[i] = $(id + '-' + addressFields[i]).val();
-            // }
+            var addrVal = [];
 
-            // $(previewId).html(
-            //   line1 + '<br/>' +
-            //   line2 + '<br/>' +
-            //   city + ', ' + state + ' ' + zip
-            // );
+            for (var i in addressFields) {
+             addrVal.push($('#' + fieldName + '-' + addressFields[i]).val());
+            }
+
+            // Add line breaks and formatting
+            fillPreviewWith(
+              addrVal[0] + '<br/>' +
+              ((addrVal[1] !== '') ? addrVal[1] + '<br/>' : '') +
+              addrVal[2] + ', ' + addrVal[3] + ' ' + addrVal[4]
+            );
+
+            break;
           case 'price':
-            $(previewId).html(
-              '$' + input.val()
-            );
+            // Append a dollar sign to the value
+            fillPreviewWith("$" + value);
+            break;
           case 'file':
-            $(previewId).html(
-              cleanFilename(
-                input.val()
-              )
-            );
+            // Remove C:/fakepath from the value
+            fillPreviewWith(cleanFilename(value));
+            break;
           default:
-            $(previewId).html(
-              input.val()
-            );
+            fillPreviewWith(value);
+            break;
         }
-      } else {
-        console.log(fieldType);
-        $(previewId).html(
-          'No answer'
-        );
       }
     })
   })

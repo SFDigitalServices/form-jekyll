@@ -1,0 +1,12 @@
+<div class="form-section">
+
+  <header class="hero-banner default">
+    <h1>{{ include.data.header | default: 'Submitted!' }}</h1>
+  </header>
+
+  <div class="form-content">
+    <div class="form-content-inner">
+      <p>{{ include.data.body | default: "Here's the default text for a confirmation page."}}</p>
+    </div>
+  </div>
+</div>

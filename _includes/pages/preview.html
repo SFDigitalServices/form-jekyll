@@ -1,0 +1,30 @@
+<div class="form-section">
+
+  <header class="hero-banner default">
+    <h1>Preview</h1>
+  </header>
+
+  <div class="form-content">
+    <div class="form-content-inner">
+
+    <div class="nav-on-top">
+      {% include pagination.html preview=true %}
+    </div>
+
+    <dl>
+    {% for page in form_pages %}
+      {% for field in page.fields %}
+        {% unless field.type == 'link' or field.type == 'paragraph' or field.type == 'header' or field.group %}
+          {% capture name %}{{ field.label | slugify }}-field-{{ forloop.index }}{% endcapture %}
+
+          <dt>{{ field.label }}</dt>
+          <dd id="preview-{{ name }}"><span class="no-answer">No answer</span></dd>
+        {% endunless %}
+      {% endfor %}
+    {% endfor %}
+    </dl>
+
+    {% include pagination.html preview=true %}
+    </div>
+  </div>
+</div>

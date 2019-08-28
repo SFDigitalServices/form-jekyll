@@ -1,7 +1,9 @@
 {% capture currentform %}{{ include.form }}{% endcapture %}
 
-{% for page in site.data[currentform] %}
+{% assign form_pages = site.data[currentform] | where: "confirmation", nil %}
+{% assign form_confirmation = site.data[currentform].last.confirmation %}
 
+{% for page in form_pages %}
   {% assign fields = page.fields %}
   {% assign label = page.title %}
 
@@ -33,33 +35,6 @@
   </div>
 {% endfor %}
 
-<div class="form-section form-section-preview">
+{% include pages/preview.html %}
 
-  <header class="hero-banner default">
-    <h1>Preview</h1>
-  </header>
-
-  <div class="form-content">
-    <div class="form-content-inner">
-
-    <div class="nav-on-top">
-      {% include pagination.html preview=true %}
-    </div>
-
-    <dl>
-    {% for page in site.data[currentform] %}
-      {% for field in page.fields %}
-        {% unless field.type == 'link' or field.type == 'paragraph' or field.type == 'header' %}
-          {% capture name %}{{ field.label | slugify }}-field-{{ forloop.index }}{% endcapture %}
-
-          <dt>{{ field.label }}</dt>
-          <dd id="preview-{{ name }}"></dd>
-        {% endunless %}
-      {% endfor %}
-    {% endfor %}
-    </dl>
-
-    {% include pagination.html preview=true %}
-    </div>
-  </div>
-</div>
+{% include pages/confirmation.html data=form_confirmation %}
