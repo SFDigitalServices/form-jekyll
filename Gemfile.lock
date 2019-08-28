@@ -74,6 +74,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler (~> 2.0.2)
   jekyll (~> 4.0.0)
   jekyll-sass-converter!
   jekyll-typogrify
