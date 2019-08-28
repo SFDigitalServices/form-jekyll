@@ -17,25 +17,22 @@ $shadow: 0 1px 4px rgba(#000, 0.06);
   @include contain-1090;
   list-style: none;
 
-  li {
-    border: 3px solid $bright-blue;
-    display: block;
-    border-radius: $radius;
-    padding: 1rem 1.5rem;
-    max-width: 38rem;
-    margin-bottom: 1.5rem;
-  }
-
   a,
   a:hover,
   a:focus,
   a:active,
   a:visited {
+    background: $white;
     color: $bright-blue;
     text-decoration: none;
     @include fs-title-3-mobile;
     display: flex;
     align-items: center;
+    border: 3px solid $bright-blue;
+    border-radius: $radius;
+    padding: 1rem 1.5rem;
+    max-width: 38rem;
+    margin-bottom: 1.5rem;
   }
 
   svg {
