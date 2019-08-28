@@ -209,7 +209,7 @@ $(document).ready(function(){
         $("#preview-" + fieldName).html(val);
       }
 
-      if (value !== '') {
+      if (value !== '' || value !== nil) {
         switch (fieldType) {
           case 'checkbox':
             // Concatenate checked options
