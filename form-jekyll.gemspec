@@ -3,12 +3,14 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "form-jekyll"
-  spec.version       = "0.4.0"
+  spec.version       = "0.4.1"
   spec.authors       = ["Josh Rubenoff"]
   spec.email         = ["joshua.rubenoff@sfgov.org"]
 
   spec.summary       = "A prototyping tool for SF.GOV forms."
   spec.homepage      = "https://github.com/sfdigitalservices/form-jekyll"
+
+  spec.required_ruby_version = ">= 2.6.2"
 
   spec.metadata["plugin_type"] = "theme"
 
