@@ -1,6 +1,8 @@
 ---
 ---
 
+@import 'variables';
+
 body {
   background: #fff;
 }
@@ -10,6 +12,35 @@ $radius: 8px;
 $shadow: 0 1px 4px rgba(#000, 0.06);
 
 // Page layout
+
+.form-jekyll-list {
+  @include contain-1090;
+  list-style: none;
+
+  a,
+  a:hover,
+  a:focus,
+  a:active,
+  a:visited {
+    background: $white;
+    color: $bright-blue;
+    text-decoration: none;
+    @include fs-title-3-mobile;
+    display: flex;
+    align-items: center;
+    border: 3px solid $bright-blue;
+    border-radius: $radius;
+    padding: 1rem 1.5rem;
+    max-width: 38rem;
+    margin-bottom: 1.5rem;
+  }
+
+  svg {
+    width: 3rem;
+    flex: none;
+    margin-right: 2.5rem;
+  }
+}
 
 .page-header {
   border-bottom: 5px solid #4F66EE;
