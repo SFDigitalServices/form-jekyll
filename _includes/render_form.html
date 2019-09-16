@@ -18,7 +18,7 @@
 
         <div class="form-progress">
           {% if length < 6 %}
-            <div class="form-progress-bubble">Step {{ forloop.index }} of {{ length }}</div>
+            <div class="form-progress-bubble">Page {{ forloop.index }} of {{ length }}</div>
           {% else %}
             {% comment %} Progress bar {% endcomment %}
             <div class="form-progress-bar form-progress-bar-{{ percentdone }}">{{ percentdone }}% done</div>
