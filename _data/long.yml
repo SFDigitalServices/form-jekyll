@@ -1,6 +1,6 @@
 - title: Are you ready to apply for an ADU?
   fields:
-  - type: pit
+  - type: paragraph
   - label: |
       This application will ask you about:
 
