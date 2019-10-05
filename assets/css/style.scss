@@ -201,7 +201,7 @@ $shadow: 0 1px 4px rgba(#000, 0.06);
   }
 }
 
-.show-hidden .field-hidden {
+.show-hidden div[data-hidden] {
   position: static;
   width: inherit;
   height: inherit;
