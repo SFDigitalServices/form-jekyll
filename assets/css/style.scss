@@ -1,6 +1,8 @@
 ---
 ---
 
+@import 'variables';
+
 body {
   background: #fff;
 }
@@ -10,6 +12,35 @@ $radius: 8px;
 $shadow: 0 1px 4px rgba(#000, 0.06);
 
 // Page layout
+
+.form-jekyll-list {
+  @include contain-1090;
+  list-style: none;
+
+  a,
+  a:hover,
+  a:focus,
+  a:active,
+  a:visited {
+    background: $white;
+    color: $bright-blue;
+    text-decoration: none;
+    @include fs-title-3-mobile;
+    display: flex;
+    align-items: center;
+    border: 3px solid $bright-blue;
+    border-radius: $radius;
+    padding: 1rem 1.5rem;
+    max-width: 38rem;
+    margin-bottom: 1.5rem;
+  }
+
+  svg {
+    width: 3rem;
+    flex: none;
+    margin-right: 2.5rem;
+  }
+}
 
 .page-header {
   border-bottom: 5px solid #4F66EE;
@@ -104,10 +135,33 @@ $shadow: 0 1px 4px rgba(#000, 0.06);
   }
 }
 
+.field-annotation {
+  display: none;
+  background: $yellow-1;
+  padding: 0.75rem;
+  font-size: 0.875rem;
+  position: absolute;
+  top: 2.5rem;
+  left: 0;
+  box-shadow: 0 3px 0 $slate-blue;
+  border: 1px solid $slate-blue;
+  z-index: 20;
+  border-radius: 2px;
+
+  p {
+    margin: 0 0 0.25rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+
 // Settings body classes
 
 .all-pages {
-  background: #ddd;
+  background: $grey-4;
 
   .pagination,
   .sfgov-alpha-banner,
@@ -123,19 +177,40 @@ $shadow: 0 1px 4px rgba(#000, 0.06);
     background: #fff;
     box-shadow: $shadow;
     padding: $padding;
-    margin-bottom: 2rem;
+    margin: 0.5rem 0.5rem 1.5rem;
   }
 
   div[data-group] {
     display: none;
   }
-
 }
 
 .all-conditionals {
   div[data-group] {
     display: block;
   }
+}
+
+.all-annotations {
+  .form-group,
+  .field-address {
+    position: relative;
+  }
+  .field-annotation {
+    display: block;
+  }
+}
+
+.show-hidden .field-hidden {
+  position: static;
+  width: inherit;
+  height: inherit;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: unset;
+  white-space: inherit;
+  border: inherit;
 }
 
 .nav-on-top {

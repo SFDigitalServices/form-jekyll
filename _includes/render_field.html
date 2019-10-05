@@ -9,16 +9,18 @@
     {% assign address-fields = 'full' %}
   {% endif %}
 
+  {% assign annotation = field.annotation %}
   {% assign description = field.description %}
   {% assign error = field.error %}
   {% assign fields = field.fields %}
   {% assign group = field.group %}
   {% assign helptext = field.helptext %}
+  {% assign hidden = field.hidden %}
   {% assign if = field.if %}
   {% assign label = field.label %}
   {% assign level = field.level %}
   {% assign maxlength = field.maxlength %}
-  {% capture name %}{{ label | slugify | escape }}-field-{{ forloop.index }}{% endcapture %}
+  {% capture name %}{{ label | slugify }}-field-{{ forloop.index }}{% endcapture %}
   {% assign optional = field.optional %}
   {% assign options = field.options %}
   {% assign other = field.other %}
@@ -41,18 +43,25 @@
     {% include {{ includepath }} %}
   {% elsif field.type == 'link' %}
     {% include {{ includepath }} %}
+  {% elsif field.type == 'address' %}
+    <div class="field-address {% if field.hidden %}field-hidden{% endif %}">
+
+      {% include elements/annotation.html %}
+      {% include {{ includepath }} %}
+
+    </div>
   {% else %}
-    {% if field.type %}
-      <div class="form-group field-{{ field.type }}" data-fieldtype="{{ field.type }}" data-name="{{ name }}">
+    <div class="form-group field-{{ field.type }} {% if field.hidden %}field-hidden{% endif %}">
+
+      {% include elements/annotation.html %}
+
+      {% if field.type %}
         {% include {{ includepath }} %}
-        <p class="help-block with-errors"></p>
-      </div>
-    {% else %}
-      <div class="form-group field-text" data-fieldtype="text" data-name="{{ name }}">
+      {% else %}
         {% include fields/text.html %}
-        <p class="help-block with-errors"></p>
-      </div>
-    {% endif %}
+      {% endif %}
+      <p class="help-block with-errors"></p>
+    </div>
   {% endif %}
 
 {% endfor %}
