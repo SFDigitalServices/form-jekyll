@@ -796,7 +796,7 @@ h5 {
   }
 }
 
-.field-hidden {
+div[data-hidden] {
   position: absolute;
   width: 1px;
   height: 1px;

@@ -44,14 +44,14 @@
   {% elsif field.type == 'link' %}
     {% include {{ includepath }} %}
   {% elsif field.type == 'address' %}
-    <div class="field-address {% if field.hidden %}field-hidden{% endif %}">
+    <div class="field-address" {% if field.hidden %}data-hidden="true"{% endif %} data-fieldtype="{{ field.type }}">
 
       {% include elements/annotation.html %}
       {% include {{ includepath }} %}
 
     </div>
   {% else %}
-    <div class="form-group field-{{ field.type }} {% if field.hidden %}field-hidden{% endif %}">
+    <div class="form-group field-{{ field.type }}" {% if field.hidden %}data-hidden="true"{% endif %} data-fieldtype="{{ field.type }}">
 
       {% include elements/annotation.html %}
 
