@@ -15,6 +15,7 @@
   {% assign fields = field.fields %}
   {% assign group = field.group %}
   {% assign helptext = field.helptext %}
+  {% assign hidden = field.hidden %}
   {% assign if = field.if %}
   {% assign label = field.label %}
   {% assign level = field.level %}
@@ -43,8 +44,10 @@
   {% elsif field.type == 'link' %}
     {% include {{ includepath }} %}
   {% else %}
-    <div class="form-group field-{{ field.type }}">
+    <div class="form-group field-{{ field.type }} {% if field.hidden %}field-hidden{% endif %}">
+
       {% include elements/annotation.html %}
+
       {% if field.type %}
         {% include {{ includepath }} %}
       {% else %}
