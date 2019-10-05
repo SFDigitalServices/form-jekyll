@@ -28,8 +28,13 @@
 - title: Field types
   fields:
 
+  - label: Hidden field
+    type: number
+    hidden: yes
+
   - label: Email
     type: email
+    annotation: Example annotation
 
   - label: File upload
     type: file
