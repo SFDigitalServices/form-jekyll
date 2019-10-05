@@ -9,6 +9,7 @@
     {% assign address-fields = 'full' %}
   {% endif %}
 
+  {% assign annotation = field.annotation %}
   {% assign description = field.description %}
   {% assign error = field.error %}
   {% assign fields = field.fields %}
@@ -43,6 +44,7 @@
     {% include {{ includepath }} %}
   {% else %}
     <div class="form-group field-{{ field.type }}">
+      {% include elements/annotation.html %}
       {% if field.type %}
         {% include {{ includepath }} %}
       {% else %}
