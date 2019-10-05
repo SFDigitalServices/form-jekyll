@@ -694,6 +694,16 @@ h5 {
   display: inline-block;
   @include font-smoothing;
 
+  &.with-errors-inline {
+    @include fs-small-text;
+    padding: 0;
+    background: transparent;
+    color: $red-4;
+    position: relative;
+    top: -0.25rem;
+    margin: 0 0 1rem;
+  }
+
   li {
     list-style-type: none;
   }
@@ -771,6 +781,11 @@ h5 {
 }
 
 .field-address {
+
+  .form-group {
+    margin-bottom: 0;
+  }
+
   label {
     font-size: (15rem / 17);
     margin: 0 0 0.25rem;

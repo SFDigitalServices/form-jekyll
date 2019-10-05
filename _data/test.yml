@@ -27,8 +27,6 @@
 
 - title: Field types
   fields:
-  - label: Address
-    type: address
 
   - label: Email
     type: email
@@ -79,6 +77,9 @@
   - label: Large textarea
     type: textarea
     size: large
+
+  - label: Address
+    type: address
 
 - title: Conditionals
   fields:
