@@ -27,11 +27,14 @@
 
 - title: Field types
   fields:
-  - label: Address
-    type: address
+
+  - label: Hidden field
+    type: number
+    hidden: yes
 
   - label: Email
     type: email
+    annotation: Example annotation
 
   - label: File upload
     type: file
@@ -79,6 +82,9 @@
   - label: Large textarea
     type: textarea
     size: large
+
+  - label: Address
+    type: address
 
 - title: Conditionals
   fields:

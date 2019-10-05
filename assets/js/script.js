@@ -33,6 +33,8 @@ $(document).ready(function(){
 
   settingInit('all-pages');
   settingInit('all-conditionals');
+  settingInit('all-annotations');
+  settingInit('show-hidden');
   settingInit('top-nav');
 
   // Show / hide settings modal

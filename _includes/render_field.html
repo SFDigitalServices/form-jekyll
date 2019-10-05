@@ -9,11 +9,13 @@
     {% assign address-fields = 'full' %}
   {% endif %}
 
+  {% assign annotation = field.annotation %}
   {% assign description = field.description %}
   {% assign error = field.error %}
   {% assign fields = field.fields %}
   {% assign group = field.group %}
   {% assign helptext = field.helptext %}
+  {% assign hidden = field.hidden %}
   {% assign if = field.if %}
   {% assign label = field.label %}
   {% assign level = field.level %}
@@ -41,8 +43,18 @@
     {% include {{ includepath }} %}
   {% elsif field.type == 'link' %}
     {% include {{ includepath }} %}
+  {% elsif field.type == 'address' %}
+    <div class="field-address {% if field.hidden %}field-hidden{% endif %}">
+
+      {% include elements/annotation.html %}
+      {% include {{ includepath }} %}
+
+    </div>
   {% else %}
-    <div class="form-group field-{{ field.type }}">
+    <div class="form-group field-{{ field.type }} {% if field.hidden %}field-hidden{% endif %}">
+
+      {% include elements/annotation.html %}
+
       {% if field.type %}
         {% include {{ includepath }} %}
       {% else %}

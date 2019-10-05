@@ -1,38 +1,47 @@
-{% assign address-error = "You need to fill in a complete address." %}
-
 <fieldset class="field-address">
   <legend>{% include elements/label.html %}</legend>
 
   {% if address-fields contains 'street' or address-fields == 'full' %}
-    <label for="{{ name}}-line1">Address Line 1</label>
-    <input type="text" id="{{ name}}-line1" {% unless optional %}required="required" data-error="{{ address-error }}"{% endunless %}>
+    <div class="form-group">
+      <label for="{{ name}}-line1">Address Line 1</label>
+      <input type="text" id="{{ name}}-line1" {% unless optional %}required="required"{% endunless %}>
+      <p class="help-block with-errors with-errors-inline"></p>
+    </div>
 
-    <label for="{{ name}}-line2">Address Line 2 {% unless optional %}<span class="optional">(optional)</span>{% endunless %}</label>
-    <input type="text" id="{{ name }}-line2">
+    <div class="form-group">
+      <label for="{{ name}}-line2">Address Line 2 {% unless optional %}<span class="optional">(optional)</span>{% endunless %}</label>
+      <input type="text" id="{{ name }}-line2">
+      <p class="help-block with-errors with-errors-inline"></p>
+    </div>
   {% endif %}
 
 
   {% if address-fields contains 'city' or address-fields == 'full' %}
-    <label for="{{ name}}-city">City</label>
-    <input type="text" id="{{ name}}-city" {% unless optional %}required="required" data-error="{{ address-error }}"{% endunless %}>
+    <div class="form-group">
+      <label for="{{ name}}-city">City</label>
+      <input type="text" id="{{ name}}-city" {% unless optional %}required="required" data-error="Please enter a city."{% endunless %}>
+      <p class="help-block with-errors with-errors-inline"></p>
+    </div>
   {% endif %}
 
   {% if address-fields contains 'state' or address-fields == 'full' %}
-    <div class="field-address-state">
+    <div class="field-address-state form-group">
       <label for="{{ name}}-state">State</label>
-      <select id="{{ name}}-state" {% unless optional %}required="required" data-error="{{ address-error }}"{% endunless %}>
+      <select id="{{ name}}-state" {% unless optional %}required="required" data-error="Please choose a state."{% endunless %}>
         <option value="">Choose a state</option>
         {% for state in layout.address-states %}
           <option value="{{ state.value }}">{{ state.text }}</option>
         {% endfor %}
       </select>
+      <p class="help-block with-errors with-errors-inline"></p>
     </div>
   {% endif %}
 
   {% if address-fields contains 'zip' or address-fields == 'full' %}
-    <div class="field-address-zip">
-      <label for="{{ name}}-zip" {% unless optional %}required="required" data-error="{{ address-error }}"{% endunless %}>ZIP Code</label>
+    <div class="field-address-zip form-group">
+      <label for="{{ name}}-zip" {% unless optional %}required="required" data-error="Please enter a ZIP code."{% endunless %}>ZIP code</label>
       <input type="number" id="{{ name}}-zip" maxlength="5" class="length-5">
+      <p class="help-block with-errors with-errors-inline"></p>
     </div>
   {% endif %}
 
