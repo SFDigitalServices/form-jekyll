@@ -149,10 +149,11 @@ $shadow: 0 1px 4px rgba(#000, 0.06);
   border-radius: 2px;
 }
 
+
 // Settings body classes
 
 .all-pages {
-  background: #ddd;
+  background: $grey-4;
 
   .pagination,
   .sfgov-alpha-banner,
@@ -168,13 +169,12 @@ $shadow: 0 1px 4px rgba(#000, 0.06);
     background: #fff;
     box-shadow: $shadow;
     padding: $padding;
-    margin-bottom: 2rem;
+    margin: 0.5rem 0.5rem 1.5rem;
   }
 
   div[data-group] {
     display: none;
   }
-
 }
 
 .all-conditionals {
