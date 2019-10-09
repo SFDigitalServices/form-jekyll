@@ -46,14 +46,14 @@
   {% elsif field.type == 'address' %}
     <div class="field-address" {% if field.hidden %}data-hidden="true"{% endif %}>
 
-      {% include elements/annotation.html %}
+      {% include elements/annotation.html annotation=annotation %}
       {% include {{ includepath }} %}
 
     </div>
   {% else %}
     <div class="form-group field-{{ field.type }}" {% if field.hidden %}data-hidden="true"{% endif %}>
 
-      {% include elements/annotation.html %}
+      {% include elements/annotation.html annotation=annotation %}
 
       {% if field.type %}
         {% include {{ includepath }} %}

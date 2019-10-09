@@ -1,3 +1,3 @@
-{% if annotation %}
-  <div class="field-annotation">{{ annotation | markdownify | improve}}</div>
+{% if include.annotation %}
+  <div class="field-annotation">{{ include.annotation | markdownify | improve}}</div>
 {% endif %}

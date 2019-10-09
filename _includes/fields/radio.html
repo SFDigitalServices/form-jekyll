@@ -5,6 +5,7 @@
   <div class="field-container valtype" data-valtype="radios">
     {% for option in options %}
       <label class="radio">
+        {% include elements/annotation.html  annotation=option.annotation %}
         <input type="radio" value="{{ option.label  }}" name="{{ name }}"
         {% if option.checked %} checked="checked"{% endif %}
         {% if option.shows %} data-shows="{{ option.shows }}"{% endif %}
