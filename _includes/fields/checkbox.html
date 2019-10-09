@@ -7,6 +7,7 @@
     {% if options %}
       {% for option in options %}
         <label class="checkbox">
+          {% include elements/annotation.html annotation=option.annotation %}
           <input type="checkbox" value="{{ option.label  }}" name="{{ name }}"
           {% if option.checked %}checked="checked"{% endif %}
           {% if option.shows %} data-shows="{{ option.shows }}"{% endif %}
