@@ -5,6 +5,7 @@
   <div class="field-container valtype" data-valtype="radios">
     {% for option in options %}
       <label class="radio">
+        {% include elements/annotation.html  annotation=option.annotation %}
         <input type="radio" value="{{ option.label  }}" name="{{ name }}"
         {% if option.checked %} checked="checked"{% endif %}
         {% if option.shows %} data-shows="{{ option.shows }}"{% endif %}
@@ -15,13 +16,13 @@
         {% else %}
           data-error="You must select an option."
         {% endif %}>
-        <span>{{ option.label | markdownify | remove: '<p>' | remove: '</p>' | improve }}</span>
+        <span class="inline-label">{{ option.label | markdownify | remove: '<p>' | remove: '</p>' | improve }}</span>
       </label>
     {% endfor %}
     {% if other %}
       <label class="other-label radio">
         <input type="radio" value="Other" name="{{ name }}">
-        <span>Other</span>
+        <span class="inline-label">Other</span>
       </label>
       <div class="other-input">
         <label for="{{ name }}-other">Write more information here</label>

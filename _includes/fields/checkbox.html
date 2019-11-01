@@ -7,18 +7,19 @@
     {% if options %}
       {% for option in options %}
         <label class="checkbox">
+          {% include elements/annotation.html annotation=option.annotation %}
           <input type="checkbox" value="{{ option.label  }}" name="{{ name }}"
           {% if option.checked %}checked="checked"{% endif %}
           {% if option.shows %} data-shows="{{ option.shows }}"{% endif %}
           {% if option.hides %} data-hides="{{ option.hides }}"{% endif %}
           >
-          <span>{{ option.label | markdownify | remove: '<p>' | remove: '</p>' | improve}}</span>
+          <span class="inline-label">{{ option.label | markdownify | remove: '<p>' | remove: '</p>' | improve}}</span>
         </label>
       {% endfor %}
     {% else %}
       <label class="checkbox">
         <input type="checkbox" value="{{ label  }}" name="{{ name }}" {% if checked %}checked="checked"{% endif %}>
-        <span>{{ label | markdownify | remove: '<p>' | remove: '</p>' | improve}}</span>
+        <span class="inline-label">{{ label | markdownify | remove: '<p>' | remove: '</p>' | improve}}</span>
       </label>
     {% endif %}
 

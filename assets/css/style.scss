@@ -148,6 +148,12 @@ $shadow: 0 1px 4px rgba(#000, 0.06);
   z-index: 20;
   border-radius: 2px;
 
+  .radio &,
+  .checkbox & {
+    left: 8rem;
+    top: 0;
+  }
+
   p {
     margin: 0 0 0.25rem;
 
