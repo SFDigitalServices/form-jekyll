@@ -6,6 +6,7 @@ Gem::Specification.new do |spec|
   spec.version       = "0.4.4"
   spec.authors       = ["Josh Rubenoff"]
   spec.email         = ["joshua.rubenoff@sfgov.org"]
+  spec.license       = "MIT"
 
   spec.summary       = "A prototyping tool for SF.GOV forms."
   spec.homepage      = "https://github.com/sfdigitalservices/form-jekyll"
