@@ -1,19 +1,35 @@
 {% capture currentform %}{{ include.form }}{% endcapture %}
 
-{% for page in site.data[currentform] %}
+{% for currentpage in site.data[currentform] %}
 
-  {% assign fields = page.fields %}
-  {% assign label = page.title %}
+  {% assign fields = currentpage.fields %}
+  {% assign label = currentpage.title %}
 
-  <div class="form-section"{% if page.group %} data-group="{{ page.group }}"{% endif %}>
+  {% assign length = forloop.length %}
 
-    {% comment %} Page headers {% endcomment %}
-    <header class="hero-banner default">
+  {% assign percentdone = forloop.index | times: '100' | divided_by: forloop.length %}
+
+  <div class="form-section"{% if currentpage.group %} data-group="{{ currentpage.group }}"{% endif %}>
+
+    <header class="hero-banner default" id="page-{{ forloop.index }}">
+      <div class="form-header-meta">
+        {% comment %} Form title {% endcomment %}
+        <h2>{{ page.title }}</h2>
+
+        <div class="form-progress">
+          {% if length < 6 %}
+            <div class="form-progress-bubble">Page {{ forloop.index }} of {{ length }}</div>
+          {% else %}
+            {% comment %} Progress bar {% endcomment %}
+            <div class="form-progress-bar form-progress-bar-{{ percentdone }}">{{ percentdone }}% done</div>
+          {% endif %}
+        </div>
+      </div>
       <h1>
         {{ label | markdownify | remove: '<p>' | remove: '</p>' }}
       </h1>
-      {% if page.description %}
-        {{ page.description | markdownify | improve }}
+      {% if currentpage.description %}
+        {{ currentpage.description | markdownify | improve }}
       {% endif %}
     </header>
 
@@ -23,7 +39,7 @@
         <div class="nav-on-top">
           {% include pagination.html %}
         </div>
-        {% comment %} Render fields in the page {% endcomment %}
+        {% comment %} Render fields in the currentpage {% endcomment %}
         {% include render_field.html %}
 
         {% include pagination.html %}
