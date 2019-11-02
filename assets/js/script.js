@@ -105,6 +105,7 @@ $(document).ready(function(){
     // Show the groups tied to this conditional
     var groups = $("div").find("[data-group='" + shows + "']");
     groups.addClass('is-conditionally-visible');
+    groups.children("input, select, button").removeAttr("tabindex");
   }
 
   function hideGroup(el) {
@@ -122,9 +123,11 @@ $(document).ready(function(){
       // hide the conditional
       if (activeTriggers === 0) {
         groups.removeClass('is-conditionally-visible');
+        groups.children("input, select, button").attr("tabindex", "-1");
       }
     } else {
       groups.removeClass('is-conditionally-visible');
+      groups.children("input, select, button").attr("tabindex", "-1");
     }
   }
 
