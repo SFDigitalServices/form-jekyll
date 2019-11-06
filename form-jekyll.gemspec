@@ -3,7 +3,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "form-jekyll"
-  spec.version       = "0.5.2"
+  spec.version       = "0.5.3"
   spec.authors       = ["Josh Rubenoff"]
   spec.email         = ["joshua.rubenoff@sfgov.org"]
   spec.license       = "MIT"

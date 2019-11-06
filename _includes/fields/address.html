@@ -3,7 +3,7 @@
 
   {% if address-fields contains 'street' or address-fields == 'full' %}
     <div class="form-group">
-      <label for="{{ name}}-line1">yeah boiii</label>
+      <label for="{{ name}}-line1">Address Line 1</label>
       <input type="text" id="{{ name}}-line1" {% unless optional %}required="required"{% endunless %}>
       <p class="help-block with-errors with-errors-inline"></p>
     </div>
