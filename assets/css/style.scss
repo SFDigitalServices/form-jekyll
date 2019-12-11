@@ -104,6 +104,11 @@ $shadow: 0 1px 4px rgba(#000, 0.06);
   transform: translateY(100%);
   will-change: transform;
   transition: all 0.2s ease-out;
+  display: none;
+
+  .admin & {
+    display: block;
+  }
 
   h5 {
     margin-bottom: 1.5rem;
@@ -124,6 +129,10 @@ $shadow: 0 1px 4px rgba(#000, 0.06);
       transition: all 0.1s ease-out;
       will-change: transform;
     }
+  }
+
+  .form-group {
+    margin-bottom: 0.5rem;
   }
 
   &.active {
