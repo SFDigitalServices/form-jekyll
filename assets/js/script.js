@@ -14,6 +14,10 @@ $(document).ready(function(){
   // Initialize bootstrap-validator
   $(".form").validator();
 
+  Mousetrap.bind(['command+alt+.', 'ctrl+alt+.'], function(e) {
+    $('body').toggleClass('admin');
+  });
+
   // --- Settings checkboxes ---
 
   function settingInit(setting) {
