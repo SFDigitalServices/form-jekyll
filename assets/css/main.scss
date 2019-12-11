@@ -15,8 +15,20 @@
 @import '../node_modules/sf-design-system/src/components/04-forms/field-types/form-fields';
 @import '../node_modules/sf-design-system/src/components/04-forms/layout/pagination';
 
-.form-content {
+@import 'sfgov';
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+form {
   @include contain-1090;
+}
+
+.sections-container {
+  max-width: 38rem;
+  padding-bottom: 60px;
 }
 
 div[data-hidden] {
@@ -58,5 +70,3 @@ div[data-hidden] {
   padding: 0.5rem;
   height: 2.5rem;
 }
-
-@import 'sfgov';
