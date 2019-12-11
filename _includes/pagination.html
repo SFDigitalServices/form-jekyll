@@ -1,13 +1,13 @@
 {% if forloop.length > 1 %}
   <div class="form-group pagination">
     {% if forloop.first %}
-      <a href="javascript:void(0);" class="btn btn-lg form-section-next">Start</a>
+      <button class="btn btn-lg form-section-next">Start</button>
     {% else %}
-      <a href="javascript:void(0);" class="btn btn-lg form-section-prev">Previous</a>
+      <button class="btn btn-lg form-section-prev">Previous</button>
       {% if forloop.last %}
-        <a href="javascript:void(0);" id="submit" class="btn btn-lg submit">Submit</a>
+        <button id="submit" class="btn btn-lg form-section-submit">Submit</button>
       {% else %}
-        <a href="javascript:void(0);" class="btn btn-lg form-section-next">Next</a>
+        <button class="btn btn-lg form-section-next">Next</button>
       {% endif %}
     {% endif %}
   </div>

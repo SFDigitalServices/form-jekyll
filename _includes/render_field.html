@@ -1,5 +1,24 @@
 {% for field in fields %}
   {% comment %}
+    Assign field IDs
+  {% endcomment %}
+
+  {% if field.type == 'email' %}       {% assign id = "c04" %}
+  {% elsif field.type == 'phone' %}    {% assign id = "c06" %}
+  {% elsif field.type == 'date' %}     {% assign id = "d02" %}
+  {% elsif field.type == 'time' %}     {% assign id = "d04" %}
+  {% elsif field.type == 'number' %}   {% assign id = "d06" %}
+  {% elsif field.type == 'price' %}    {% assign id = "d08" %}
+  {% elsif field.type == 'url' %}      {% assign id = "d10" %}
+  {% elsif field.type == 'textarea' %} {% assign id = "i14" %}
+  {% elsif field.type == 'file' %}     {% assign id = "m13" %}
+  {% elsif field.type == 'select' %}   {% assign id = "s02" %}
+  {% elsif field.type == 'checkbox' %} {% assign id = "s06" %}
+  {% elsif field.type == 'radio' %}    {% assign id = "s08" %}
+  {% else %}     {% assign id = "i02" %}
+  {% endif %}
+
+  {% comment %}
     Assign variables
   {% endcomment %}
 
@@ -51,7 +70,7 @@
 
     </div>
   {% else %}
-    <div class="form-group field-{{ field.type }}" {% if field.hidden %}data-hidden="true"{% endif %}>
+    <div class="form-group field-{{ id }}" {% if field.hidden %}data-hidden="true"{% endif %}>
 
       {% include elements/annotation.html annotation=annotation %}
 
