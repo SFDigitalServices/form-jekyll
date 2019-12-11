@@ -131,6 +131,10 @@ $shadow: 0 1px 4px rgba(#000, 0.06);
     }
   }
 
+  .form-group {
+    margin-bottom: 0.5rem;
+  }
+
   &.active {
     transform: translateY($offset);
 
