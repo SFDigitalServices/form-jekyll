@@ -26,6 +26,10 @@ form {
   @include contain-1090;
 }
 
+.form-group {
+  @include clearfix;
+}
+
 .sections-container {
   max-width: 38rem;
   padding-bottom: 60px;
