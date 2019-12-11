@@ -438,34 +438,3 @@ main[role="main"] {
     }
   }
 }
-
-.hero-banner.default {
-  @include contain-1090;
-  padding-top: 40px;
-
-  @include media($medium-screen) {
-    padding-top: 60px;
-  }
-
-  h1 {
-    @include fs-h1-default;
-    margin-top: 0;
-    color: $black;
-    margin-bottom: 40px;
-
-    @include media($medium-screen) {
-      margin-left: -5px;
-    }
-  }
-
-  .lead-paragraph {
-    color: $black;
-  }
-
-  .path-frontpage & {
-    h1 {
-      @include fs-h1-home;
-      margin-bottom: 27px;
-    }
-  }
-}
