@@ -1,0 +1,8 @@
+#!/bin/sh
+
+cd $(dirname "$0")/..
+bundle install && npm install
+cp node_modules/sf-design-system/src/components/00-design-tokens/*.scss _sass/sf-design-system/design-tokens
+cp node_modules/sf-design-system/src/components/03-layout/**/*.scss _sass/sf-design-system/layout/
+cp node_modules/sf-design-system/src/components/04-forms/**/*.scss _sass/sf-design-system/forms/
+bundle exec jekyll build

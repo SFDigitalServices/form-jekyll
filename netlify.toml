@@ -1,2 +1,2 @@
 [build]
-  command = "npm install && bundle exec jekyll build"
+  command = "./script/build"
