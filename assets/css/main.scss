@@ -3,17 +3,17 @@
 
 @import url('https://fonts.googleapis.com/css?family=Rubik:300,400,400i,500&display=swap');
 
-@import '../node_modules/sf-design-system/src/components/00-design-tokens/colors';
-@import '../node_modules/sf-design-system/src/components/00-design-tokens/breakpoints';
-@import '../node_modules/sf-design-system/src/components/00-design-tokens/typography-mixins';
-@import '../node_modules/sf-design-system/src/components/00-design-tokens/typography';
-@import '../node_modules/sf-design-system/src/components/00-design-tokens/mixins';
-@import '../node_modules/sf-design-system/src/components/00-design-tokens/variables';
-@import '../node_modules/sf-design-system/src/components/00-design-tokens/base';
+@import 'sf-design-system/design-tokens/colors';
+@import 'sf-design-system/design-tokens/breakpoints';
+@import 'sf-design-system/design-tokens/typography-mixins';
+@import 'sf-design-system/design-tokens/typography';
+@import 'sf-design-system/design-tokens/mixins';
+@import 'sf-design-system/design-tokens/variables';
+@import 'sf-design-system/design-tokens/base';
 
-@import '../node_modules/sf-design-system/src/components/03-layout/headers/hero-banner';
-@import '../node_modules/sf-design-system/src/components/04-forms/field-types/form-fields';
-@import '../node_modules/sf-design-system/src/components/04-forms/layout/pagination';
+@import 'sf-design-system/layout/hero-banner';
+@import 'sf-design-system/forms/form-fields';
+@import 'sf-design-system/forms/pagination';
 
 @import 'sfgov';
 
