@@ -184,6 +184,14 @@ hypothesis-adder,
 .all-pages {
   background: $grey-4;
 
+  .sections-container {
+    max-width: 100%;
+  }
+
+  .hero-banner {
+    padding-top: 0;
+  }
+
   .pagination,
   .sfgov-alpha-banner,
   header[role="banner"],
